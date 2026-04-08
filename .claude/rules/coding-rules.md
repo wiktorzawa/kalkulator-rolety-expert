@@ -1,17 +1,20 @@
+# Coding Rules
+
 ## 1. Rozmiar plików i funkcji
 
-### Reguły
+### Reguły rozmiaru
 
 - Plik > 300 linii = refaktoruj. Podziel na mniejsze moduły
 - Funkcja > 50 linii = wyciągnij pod-funkcje. Jedna funkcja = jeden poziom abstrakcji
 - Funkcja > 6 argumentów = stwórz obiekt konfiguracyjny / interfejs
 - Nesting > 2 poziomy = użyj early return
 - Klasa > 1 odpowiedzialność = podziel (Single Responsibility Principle)
+
 ---
 
 ## 2. Testowanie
 
-### Reguły
+### Reguły testowania
 
 - NIGDY nie modyfikuj istniejących testów żeby "naprawić" failing test — napraw implementację
 - NIGDY nie usuwaj testów, chyba że usuwasz testowaną funkcjonalność
@@ -23,11 +26,12 @@
 - Nie ładuj pełnych datasetów w unit testach — używaj fixtures w `tests/fixtures/`
 - Pattern: Arrange-Act-Assert wewnątrz describe/it bloków
 - Testuj ZACHOWANIE (behavior), nie implementację (internal state)
+
 ---
 
 ## 3. Organizacja kodu
 
-### Reguły
+### Reguły organizacji
 
 - Jedna odpowiedzialność per moduł/klasa/funkcja
 - Kolokacja: testy obok plików źródłowych, nie w osobnym drzewie
@@ -36,11 +40,12 @@
 - Nie twórz konfiguracji dla wartości które nigdy się nie zmienią
 - Importy: grouped (stdlib, third-party, local), sorted alphabetically
 - Jeden eksport per plik dla głównych modułów
+
 ---
 
 ## 4. Error handling
 
-### Reguły
+### Reguły error handling
 
 - NIGDY nie łap wyjątków i nie ignoruj ich (empty catch block)
 - NIGDY nie używaj pustego `catch {}` — zawsze loguj albo re-throw
@@ -50,11 +55,12 @@
 - API routes: ustandaryzowany format odpowiedzi `{ data, error: { code, message } }`
 - Używaj structured logging (JSON format, np. pino), nie `console.log`
 - Nie suppressuj błędów — finding zawsze wymaga naprawy, nie racjonalizacji
+
 ---
 
 ## 5. Anty-patterny specyficzne dla AI
 
-### Reguły (zapobieganie)
+### Reguły zapobiegania
 
 - Nie zakładaj że biblioteka jest dostępna — sprawdź package.json / cargo.toml / requirements.txt PRZED użyciem
 - Nie dodawaj importów które nie są używane
@@ -70,7 +76,7 @@
 ### Katalog 10 udokumentowanych anty-patternów AI
 
 | # | Anty-pattern | Częstość | Opis |
-|---|-------------|----------|------|
+| --- | --- | --- | --- |
 | 1 | Over-specification | 80-90% | Implementuje funkcje których nikt nie żądał |
 | 2 | Test weakening | Wysoka | Osłabia asercje żeby testy przeszły |
 | 3 | Silent threshold change | Wysoka | Obniża coverage/quality targets zamiast naprawiać kod |
@@ -81,11 +87,12 @@
 | 8 | Tool-switching circumvention | Średnia | Edit zablokowany, więc próbuje sed/echo/python -c |
 | 9 | Context blindness | Wysoka w długich sesjach | Duplikuje logikę, niespójne nazewnictwo |
 | 10 | Defensive over-engineering | 80-90% | Dodaje konfiguracje, abstrakcje, error handling dla scenariuszy które nie istnieją |
+
 ---
 
 ## 6. Self-check / Code review
 
-### Reguły
+### Reguły self-check
 
 - Po zakończeniu zmian ZAWSZE uruchom: typecheck, test, lint (w tej kolejności)
 - Przed commitem sprawdź czy nie dodajesz: secrets, .env, console.log, TODO/FIXME
@@ -105,11 +112,12 @@
 5. Brak hardcoded secrets/keys
 6. Brak console.log w produkcyjnym kodzie
 7. Każda nowa funkcja publiczna ma test
+
 ---
 
 ## 7. Nazewnictwo
 
-### Reguły
+### Reguły nazewnictwa
 
 - Boolean: prefix `is` / `has` / `should` / `can` (`isActive`, `hasPermission`, `shouldRetry`)
 - Event handlers: prefix `handle` (`handleClick`, `handleSubmit`)
@@ -119,11 +127,12 @@
 - Pliki: kebab-case (`user-service.ts`, nie `UserService.ts`) — chyba że framework wymusza inną konwencję
 - Nazwy powinny opisywać CO robi, nie JAK (`getUserById`, nie `fetchAndParseAndValidateUser`)
 - Unikaj akronimów i skrótów chyba że powszechnie znane (`url`, `id` OK; `usrMgr` nie)
+
 ---
 
 ## 8. Zależności i importy
 
-### Reguły
+### Reguły zależności
 
 - NIGDY nie zakładaj że biblioteka jest dostępna — sprawdź package.json / requirements.txt / go.mod
 - NIGDY nie instaluj nowych zależności bez poinformowania usera
@@ -132,11 +141,12 @@
 - Importy grouped: stdlib, third-party, local
 - Nie importuj bezpośrednio między packages w monorepo — używaj shared layer
 - Pinuj wersje — deklaruj exact versions w package.json
+
 ---
 
 ## 9. Bezpieczeństwo
 
-### Reguły
+### Reguły bezpieczeństwa
 
 - NIGDY nie committuj secrets, API keys, credentials, tokenów
 - NIGDY nie loguj secrets ani danych osobowych
@@ -148,11 +158,12 @@
 - Nie uruchamiaj `rm -rf` bez explicit user confirmation
 - Nie modyfikuj production database bezpośrednio
 - Rate limiting na KAŻDYM public endpoint
+
 ---
 
 ## 10. Type safety
 
-### Reguły
+### Reguły type safety
 
 - NIGDY nie używaj `any` — użyj `unknown` z type guards albo zdefiniuj interfejs
 - NIGDY nie używaj type assertions (`as`) chyba że konieczne dla DOM narrowing
@@ -162,11 +173,12 @@
 - Strict mode ON — `"strict": true` w tsconfig
 - Generics > type assertions
 - Zod/io-ts na granicach systemu (API, pliki, user input)
+
 ---
 
 ## 11. Filozofia review kodu
 
-### Reguły
+### Reguły review
 
 - Istniejący kod — bądź surowy. Każda dodana złożoność wymaga uzasadnienia
 - Nowy izolowany kod — bądź pragmatyczny. Jeśli działa i jest testowalny, nie blokuj postępu
@@ -175,11 +187,12 @@
 - Przy modyfikacji istniejącego pliku pytaj: "Czy ta zmiana sprawia, że istniejący kod jest trudniejszy do zrozumienia?"
 - Preferuj ekstrakcję do nowego modułu/komponentu zamiast komplikowania istniejącego
 - 5-sekundowa reguła nazewnictwa — jeśli nie rozumiesz co robi funkcja/komponent w 5 sekund od nazwy, to zła nazwa
+
 ---
 
 ## 12. Performance
 
-### Reguły
+### Reguły performance
 
 - O(n²) lub gorzej = wymaga uzasadnienia komentarzem dlaczego nie da się lepiej
 - Pętla z fetchem/zapytaniem do bazy = N+1 query. Użyj batch/join/include
@@ -187,11 +200,12 @@
 - Nowa dependency = uzasadnienie rozmiaru bundle (sprawdź bundlephobia)
 - Dynamic import / React.lazy() dla komponentów > 50KB
 - Nie optymalizuj przedwcześnie — ale MIERZ przed deklaracją "to wystarczy"
+
 ---
 
 ## 13. Async i race conditions
 
-### Reguły
+### Reguły async
 
 - useEffect z async = ZAWSZE AbortController w cleanup function
 - setTimeout / setInterval = ZAWSZE cleanup w useEffect return (clearTimeout/clearInterval)
@@ -200,11 +214,12 @@
 - Promise.finally() do cleanup i state transitions — nie duplikuj logiki w resolve i reject
 - requestAnimationFrame w pętli = sprawdź cancel flag przed kolejnym requestAnimationFrame
 - Operacje wzajemnie wykluczające się (np. load preview) = zablokuj następną dopóki poprzednia się nie zakończy lub nie sfailuje
+
 ---
 
 ## 14. Architektura
 
-### Reguły
+### Reguły architektury
 
 - Zero circular dependencies między modułami — jeśli A importuje B, B nie może importować A
 - Respect layer boundaries — komponent UI nie woła bazy bezpośrednio, idzie przez serwis/hook
