@@ -52,31 +52,31 @@
 
 **Zależności:** Unit 1
 
-- [ ] Stwórz `src/data/types.ts` — Fabric, Color, MountingSystem, RailColor, PriceTier
-- [ ] Stwórz `src/data/fabrics.ts` — 8 tkanin + palety kolorów + dziedziczenie Termo
-- [ ] Stwórz `src/data/pricing.ts` — tabele dopłat szerokość (39 progów) + wysokość (3 progi) + bazy
-- [ ] Stwórz `src/data/mounting.ts` — 5 systemów montażu + ograniczenia
-- [ ] Stwórz `src/data/rails.ts` — 14 kolorów listew + dopłaty
-- [ ] Stwórz `src/data/images.ts` — mapowanie tkanina → kolor → ścieżka obrazu
-- [ ] Stwórz `src/data/index.ts` — reeksport
-- [ ] Stwórz `src/utils/pricing.ts` — calculatePrice(), widthToCm(), heightToTier(), roundToQuarter()
-- [ ] Stwórz `src/utils/pricing.test.ts` — testy weryfikacyjne (test-first!)
-- [ ] Stwórz `src/utils/allegro.ts` — priceToUnits(), formatUnitsBreakdown()
-- [ ] Stwórz `src/utils/allegro.test.ts`
-- [ ] Test: Standard + Inwazyjny + 60cm + 150cm + Biały = 137.75 zł
-- [ ] Test: Standard + Bezinwazyjny + 60cm + 150cm + Biały = 156.75 zł
-- [ ] Test: Standard + Inwazyjny + 100cm + 150cm + Biały = 175.75 zł
-- [ ] Test: Standard + Inwazyjny + 100cm + 230cm + Biały = 190.00 zł
-- [ ] Test: Standard+Termo + Inwazyjny + 80cm + 150cm + Srebrny = 166.25 zł
-- [ ] Test: Blackout + Inwazyjny + 120cm + 230cm + Biały = 228.00 zł
-- [ ] Test: Blackout + Inwazyjny + 130cm + 230cm + Biały = 280.25 zł
-- [ ] Test: Honeycomb + Bezinwazyjny + 90cm + 280cm + Orzech = 256.50 zł
-- [ ] Test: Skok ceny 120cm → 114.00 zł, 125cm → 161.50 zł
-- [ ] Test: roundToQuarter(33.33) = 33.25
-- [ ] Test: widthToCm(623) = 65, widthToCm(800) = 80
-- [ ] Test: heightToTier(1500) = ≤150cm, heightToTier(1510) = ≤230cm
-- [ ] Test: priceToUnits(175.75) = 176
-- [ ] Test: formatUnitsBreakdown(176) = "17× pakiet 10 jednostek + 6 jednostek"
+- [x] Stwórz `src/data/types.ts` — Fabric, Color, MountingSystem, RailColor, PriceTier
+- [x] Stwórz `src/data/fabrics.ts` — 8 tkanin + palety kolorów + dziedziczenie Termo
+- [x] Stwórz `src/data/pricing.ts` — tabele dopłat szerokość (39 progów) + wysokość (3 progi) + bazy
+- [x] Stwórz `src/data/mounting.ts` — 5 systemów montażu + ograniczenia
+- [x] Stwórz `src/data/rails.ts` — 14 kolorów listew + dopłaty
+- [x] Stwórz `src/data/images.ts` — mapowanie tkanina → kolor → ścieżka obrazu
+- [x] Stwórz `src/data/index.ts` — reeksport
+- [x] Stwórz `src/utils/pricing.ts` — calculatePrice(), widthToCm(), heightToTier(), roundToQuarter()
+- [x] Stwórz `src/utils/pricing.test.ts` — testy weryfikacyjne (test-first!)
+- [x] Stwórz `src/utils/allegro.ts` — priceToUnits(), formatUnitsBreakdown()
+- [x] Stwórz `src/utils/allegro.test.ts`
+- [x] Test: Standard + Inwazyjny + 60cm + 150cm + Biały = 137.75 zł
+- [x] Test: Standard + Bezinwazyjny + 60cm + 150cm + Biały = 156.75 zł
+- [x] Test: Standard + Inwazyjny + 100cm + 150cm + Biały = 175.75 zł
+- [x] Test: Standard + Inwazyjny + 100cm + 230cm + Biały = 190.00 zł
+- [x] Test: Standard+Termo + Inwazyjny + 80cm + 150cm + Srebrny = 166.25 zł
+- [x] Test: Blackout + Inwazyjny + 120cm + 230cm + Biały = 228.00 zł
+- [x] Test: Blackout + Inwazyjny + 130cm + 230cm + Biały = 280.25 zł
+- [x] Test: Honeycomb + Bezinwazyjny + 90cm + 280cm + Orzech = 256.50 zł
+- [x] Test: Skok ceny 120cm → 114.00 zł, 125cm → 161.50 zł
+- [x] Test: roundToQuarter(33.33) = 33.25
+- [x] Test: widthToCm(623) = 65, widthToCm(800) = 80
+- [x] Test: heightToTier(1500) = ≤150cm, heightToTier(1510) = ≤230cm
+- [x] Test: priceToUnits(175.75) = 176
+- [x] Test: formatUnitsBreakdown(176) = "17× pakiet 10 jednostek + 6 jednostek"
 - [ ] Weryfikacja: 8/8 weryfikacyjnych examples przechodzi, `npm run test` zero failures, zero `any`
 
 ### Unit 4: Wizard state + layout shell [M]
@@ -85,17 +85,17 @@
 
 **Zależności:** Unit 1, Unit 3 (types)
 
-- [ ] Stwórz `src/context/wizard-types.ts` — WizardState, WizardAction (discriminated union)
-- [ ] Stwórz `src/context/wizard-context.tsx` — WizardProvider, useWizard hook, reducer
-- [ ] Stwórz `src/components/layout/header.tsx` — sticky header z logo + ceną + progress
-- [ ] Stwórz `src/components/layout/step-indicator.tsx` — custom 5-krokowy stepper
-- [ ] Stwórz `src/components/layout/price-panel.tsx` — sticky panel cenowy (mobile/desktop)
-- [ ] Stwórz `src/components/configurator.tsx` — główny komponent renderujący aktualny krok
-- [ ] Stwórz `src/context/wizard-context.test.tsx`
-- [ ] Test: SELECT_FABRIC ustawia fabric i resetuje color
-- [ ] Test: GO_TO_STEP(2) nie działa gdy step 1 nieukończony
-- [ ] Test: SET_DIMENSIONS waliduje zakresy (150-1950mm szer, 150-2800mm wys)
-- [ ] Test: Cena przelicza się po każdej akcji
+- [x] Stwórz `src/context/wizard-types.ts` — WizardState, WizardAction (discriminated union)
+- [x] Stwórz `src/context/wizard-context.tsx` — WizardProvider, useWizard hook, reducer
+- [x] Stwórz `src/components/layout/header.tsx` — sticky header z logo + ceną + progress
+- [x] Stwórz `src/components/layout/step-indicator.tsx` — custom 5-krokowy stepper
+- [x] Stwórz `src/components/layout/price-panel.tsx` — sticky panel cenowy (mobile/desktop)
+- [x] Stwórz `src/components/configurator.tsx` — główny komponent renderujący aktualny krok
+- [x] Stwórz `src/context/wizard-context.test.tsx`
+- [x] Test: SELECT_FABRIC ustawia fabric i resetuje color
+- [x] Test: GO_TO_STEP(2) nie działa gdy step 1 nieukończony
+- [x] Test: SET_DIMENSIONS waliduje zakresy (150-1950mm szer, 150-2800mm wys)
+- [x] Test: Cena przelicza się po każdej akcji
 - [ ] Weryfikacja: Reducer zarządza stanem, layout mobile/desktop, cena real-time
 
 ---
@@ -186,6 +186,6 @@
 | Faza               | Status            | Ukończone                       |
 | ------------------ | ----------------- | ------------------------------- |
 | Faza 1: Fundament  | ✅ Ukończona      | 20/22 (2 Weryfikacja do review) |
-| Faza 2: Domena     | ⬜ Nie rozpoczęta | 0/X                             |
+| Faza 2: Domena     | ✅ Ukończona      | 35/37 (2 Weryfikacja do review) |
 | Faza 3: UI         | ⬜ Nie rozpoczęta | 0/X                             |
 | Faza 4: Integracja | ⬜ Nie rozpoczęta | 0/X                             |
