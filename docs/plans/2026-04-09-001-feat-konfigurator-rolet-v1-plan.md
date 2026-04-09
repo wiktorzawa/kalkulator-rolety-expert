@@ -19,6 +19,7 @@ Allegro nie obsługuje produktów na wymiar. Sprzedawca potrzebuje zewnętrznego
 ## Śledzenie wymagań
 
 Pełna lista: R1-R46 w requirements doc. Kluczowe:
+
 - R1. 5-krokowy wizard (Tkanina → Kolor → Montaż → Wymiary → Listwa)
 - R8-R13. Kalkulacja ceny w czasie rzeczywistym (Stelge × 0.95)
 - R14-R18, R36-R39. Integracja Allegro + order lookup
@@ -95,7 +96,7 @@ Pełna lista: R1-R46 w requirements doc. Kluczowe:
 
 ### Faza 1: Fundament
 
-- [ ] **Unit 1: Scaffolding projektu**
+- [x] **Unit 1: Scaffolding projektu**
 
   **Cel:** Działający dev server z HeroUI v3, Tailwind v4 i Supabase client
 
@@ -133,7 +134,7 @@ Pełna lista: R1-R46 w requirements doc. Kluczowe:
 
 ---
 
-- [ ] **Unit 2: Supabase schema + migracje**
+- [x] **Unit 2: Supabase schema + migracje**
 
   **Cel:** Tabela orders z triggerem generującym #RE-XXXXX, RLS policies, wersjonowany schemat
 
@@ -386,7 +387,7 @@ Pełna lista: R1-R46 w requirements doc. Kluczowe:
   **Podejście:**
   - submitOrder: `supabase.from('orders').insert({config, price, allegro_units, utm_source}).select('order_number').single()`
   - DB trigger generuje order_number (RE-00001...)
-  - Ekran podsumowania: numer zamówienia, tabela konfiguracji, kwota, jednostki Allegro, instrukcja, przycisk "Przejdź do aukcji Allegro" (target=_blank)
+  - Ekran podsumowania: numer zamówienia, tabela konfiguracji, kwota, jednostki Allegro, instrukcja, przycisk "Przejdź do aukcji Allegro" (target=\_blank)
   - Link do lookup: `konfigurator.rolety.expert?order=RE-00142` — wyświetlany do skopiowania
   - Formatowanie pakietów: `Math.floor(units/10)` pakietów × 10 + reszta
   - App.tsx: `const orderParam = new URLSearchParams(window.location.search).get('order')` → conditional render

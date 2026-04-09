@@ -9,35 +9,37 @@
 ## Faza 1: Fundament
 
 ### Unit 1: Scaffolding projektu [M]
+
 **Cel:** Działający dev server z HeroUI v3, Tailwind v4 i Supabase client
 
-- [ ] Stwórz `package.json` z React 19, HeroUI v3, TW4, Supabase, PostHog, Vitest
-- [ ] Stwórz `tsconfig.json` (strict mode)
-- [ ] Stwórz `vite.config.ts` z HeroUI plugin
-- [ ] Stwórz `index.html` + `src/main.tsx` + `src/App.tsx`
-- [ ] Stwórz `src/lib/supabase.ts` (klient z env vars)
-- [ ] Stwórz `.env.example` (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, VITE_POSTHOG_KEY)
-- [ ] Skonfiguruj Tailwind v4 z custom brand colors (z prototypu)
-- [ ] Test: Dev server startuje bez błędów
-- [ ] Test: HeroUI Button renderuje się poprawnie
-- [ ] Test: `npm run typecheck` przechodzi
+- [x] Stwórz `package.json` z React 19, HeroUI v3, TW4, Supabase, PostHog, Vitest
+- [x] Stwórz `tsconfig.json` (strict mode)
+- [x] Stwórz `vite.config.ts` z HeroUI plugin
+- [x] Stwórz `index.html` + `src/main.tsx` + `src/App.tsx`
+- [x] Stwórz `src/lib/supabase.ts` (klient z env vars)
+- [x] Stwórz `.env.example` (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, VITE_POSTHOG_KEY)
+- [x] Skonfiguruj Tailwind v4 z custom brand colors (z prototypu)
+- [x] Test: Dev server startuje bez błędów
+- [x] Test: HeroUI Button renderuje się poprawnie
+- [x] Test: `npm run typecheck` przechodzi
 - [ ] Weryfikacja: Strona renderuje HeroUI komponent na localhost
 
 ### Unit 2: Supabase schema + migracje [M]
+
 **Cel:** Tabela orders z triggerem generującym #RE-XXXXX, RLS, wersjonowany schemat
 
 **Zależności:** Unit 1
 
-- [ ] `supabase init` — stwórz `supabase/config.toml`
-- [ ] `supabase migration new create_orders` — stwórz migrację
-- [ ] Tabela `orders`: id (BIGINT IDENTITY), order_number (TEXT UNIQUE), config (JSONB), price (DECIMAL), allegro_units (INT), utm_source (TEXT), created_at (TIMESTAMPTZ)
-- [ ] Sequence `orders_seq` + trigger `set_order_number` → format `RE-XXXXX`
-- [ ] RLS: public SELECT (po order_number), public INSERT
-- [ ] Index B-tree na order_number
-- [ ] `supabase db push` do remote
-- [ ] Test: INSERT generuje order_number w formacie RE-XXXXX
-- [ ] Test: SELECT po order_number zwraca zamówienie
-- [ ] Test: Kolejne INSERT-y → sekwencyjne numery (RE-00001, RE-00002...)
+- [x] `supabase init` — stwórz `supabase/config.toml`
+- [x] `supabase migration new create_orders` — stwórz migrację
+- [x] Tabela `orders`: id (BIGINT IDENTITY), order_number (TEXT UNIQUE), config (JSONB), price (DECIMAL), allegro_units (INT), utm_source (TEXT), created_at (TIMESTAMPTZ)
+- [x] Sequence `orders_seq` + trigger `set_order_number` → format `RE-XXXXX`
+- [x] RLS: public SELECT (po order_number), public INSERT
+- [x] Index B-tree na order_number
+- [ ] `supabase db push` do remote (pominięto — brak linked project, migracja gotowa do push)
+- [x] Test: INSERT generuje order_number w formacie RE-XXXXX
+- [x] Test: SELECT po order_number zwraca zamówienie
+- [x] Test: Kolejne INSERT-y → sekwencyjne numery (RE-00001, RE-00002...)
 - [ ] Weryfikacja: Ręczny INSERT w Dashboard generuje RE-00001, SELECT z anon key działa
 
 ---
@@ -45,6 +47,7 @@
 ## Faza 2: Domena
 
 ### Unit 3: Dane produktowe + silnik cenowy [L]
+
 **Cel:** Kompletne dane w src/data/ i przetestowany pricing engine
 
 **Zależności:** Unit 1
@@ -77,6 +80,7 @@
 - [ ] Weryfikacja: 8/8 weryfikacyjnych examples przechodzi, `npm run test` zero failures, zero `any`
 
 ### Unit 4: Wizard state + layout shell [M]
+
 **Cel:** useReducer + Context + layout z header, stepper, price panel
 
 **Zależności:** Unit 1, Unit 3 (types)
@@ -99,6 +103,7 @@
 ## Faza 3: UI — kroki wizarda
 
 ### Unit 5: Kroki 1-3 (Tkanina, Kolor, Montaż) [L]
+
 **Cel:** Trzy pierwsze kroki z kartami produktowymi i obrazami
 
 **Zależności:** Unit 3, Unit 4
@@ -117,6 +122,7 @@
 - [ ] Weryfikacja: 3 kroki end-to-end z nawigacją, obrazy z public/assets/, responsive
 
 ### Unit 6: Kroki 4-5 (Wymiary, Listwa) + price panel [L]
+
 **Cel:** Suwaki wymiarów, wybór listwy, kompletny panel cenowy
 
 **Zależności:** Unit 3, Unit 4, Unit 5
@@ -138,6 +144,7 @@
 ## Faza 4: Integracja
 
 ### Unit 7: Zamówienie — submit, podsumowanie, lookup [L]
+
 **Cel:** Zapis do Supabase, summary z instrukcją Allegro, lookup po ?order=
 
 **Zależności:** Unit 2, Unit 4, Unit 6
@@ -156,6 +163,7 @@
 - [ ] Weryfikacja: Zamówienie w Supabase z #RE-XXXXX, podsumowanie + instrukcja Allegro, lookup działa
 
 ### Unit 8: Analytics + assety + polish [M]
+
 **Cel:** PostHog tracking, obrazy w public/assets/, finalny polish
 
 **Zależności:** Unit 7
@@ -175,9 +183,9 @@
 
 ## Podsumowanie postępu
 
-| Faza | Status | Ukończone |
-|------|--------|-----------|
-| Faza 1: Fundament | ⬜ Nie rozpoczęta | 0/X |
-| Faza 2: Domena | ⬜ Nie rozpoczęta | 0/X |
-| Faza 3: UI | ⬜ Nie rozpoczęta | 0/X |
-| Faza 4: Integracja | ⬜ Nie rozpoczęta | 0/X |
+| Faza               | Status            | Ukończone                       |
+| ------------------ | ----------------- | ------------------------------- |
+| Faza 1: Fundament  | ✅ Ukończona      | 20/22 (2 Weryfikacja do review) |
+| Faza 2: Domena     | ⬜ Nie rozpoczęta | 0/X                             |
+| Faza 3: UI         | ⬜ Nie rozpoczęta | 0/X                             |
+| Faza 4: Integracja | ⬜ Nie rozpoczęta | 0/X                             |
