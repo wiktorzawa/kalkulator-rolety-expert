@@ -30,6 +30,9 @@ export interface MountingSystem {
   readonly id: string;
   readonly name: string;
   readonly type: MountingCategory;
+  readonly desc?: string;
+  readonly img?: string;
+  readonly measureImg?: string;
 }
 
 export interface RailColor {

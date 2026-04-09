@@ -18,7 +18,7 @@ export function StepContent() {
       {state.step >= 2 && <ColorStep />}
       {state.step >= 3 && <MountingStep />}
       {state.step >= 4 && <DimensionsStep />}
-      {state.step >= 5 && <RailStep />}
+      {state.step >= 4 && <RailStep />}
     </div>
   );
 }
