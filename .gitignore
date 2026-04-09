@@ -60,6 +60,13 @@ supabase/.branches/
 # Sentry
 .sentryclirc
 
+# Claude Code - local tooling (not project-specific)
+.claude/agents/
+.claude/skills/
+.claude/hooks/
+.claude/settings.local.json
+.claude/.markdownlint.json
+
 # Misc
 *.tgz
 *.zip
