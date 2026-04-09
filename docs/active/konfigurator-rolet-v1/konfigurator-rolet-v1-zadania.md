@@ -108,6 +108,15 @@
 - [x] Test: Cena przelicza się po każdej akcji
 - [ ] Weryfikacja: Reducer zarządza stanem, layout mobile/desktop, cena real-time
 
+### Do poprawy po review fazy 2
+
+- [ ] 🟠 [P2-ARCH-1] **src/utils/pricing.ts:68** — `roundToQuarter()` nigdy nie wywoływany w `calculatePrice()`. R9 wymaga zaokrąglania do 0.25. Dodać `roundToQuarter(total)` przed returnem.
+- [ ] 🟠 [P2-TEST-1] **src/context/wizard-context.test.tsx** — Brak testu na wymuszenie max 1200mm przy montażu klejoym (SELECT_MOUNTING klejony z width>1200 clamps do 1200). Reguła biznesowa R5.
+- [ ] 🟡 [P3-ARCH-2] **src/data/images.ts** — Dead code: `getFabricImagePath()` i `getColorImagePath()` nigdzie nie importowane w komponentach.
+- [ ] 🟡 [P3-DATA-1] **src/data/fabrics.ts:226** — Brakujący `img` dla Blackout Czarny (wg spec ma `BLACKOUT-zblizenie-inwazyjne-CZARNY-300x500.png`).
+- [ ] 🟡 [P3-ARCH-3] **src/components/layout/header.tsx:4 + price-panel.tsx:13** — `formatPrice()` zduplikowana w dwóch plikach. Wyciągnąć do utils.
+- [ ] 🟡 [P3-PERF-1] **src/context/wizard-context.tsx:150-156** — `isConfigComplete` nie w useMemo (opcjonalne, nisko priorytetowe).
+
 ---
 
 ## Faza 3: UI — kroki wizarda

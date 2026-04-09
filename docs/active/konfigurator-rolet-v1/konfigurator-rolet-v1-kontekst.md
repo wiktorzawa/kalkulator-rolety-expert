@@ -107,6 +107,41 @@ Jednostki Allegro: Math.ceil(cena)
 - @source directive wskazuje na node_modules/@heroui/react/dist
 - Testy Unit 2 sa SQL-structure tests (brak Docker = brak local Supabase)
 
+## Code Review Fazy 1 (2026-04-09)
+
+Przeprowadzono multi-agent review (Security, Performance, Architecture, Test Coverage, E2E).
+
+**Severity gate:** KONTYNUUJ Z ZASTRZEŻENIAMI (0 P1, 3 P2, 4 P3)
+
+Kluczowe wnioski:
+
+- RLS SELECT policy zbyt otwarta (`USING (true)`) -- do naprawy przed deployem
+- Brak ESLint/Prettier w package.json mimo deklaracji w CLAUDE.md
+- Proxy pattern w supabase.ts używa `as` assertion -- rozważyć prostszą factory function
+- E2E: strona renderuje się poprawnie, 8 kart tkanin, nawigacja 5-krokowa, cena 0,00 zł
+- Typecheck, testy (100/100), build -- wszystko przechodzi
+
+Raport: `docs/active/konfigurator-rolet-v1/review-faza-1.md`
+
+## Code Review Fazy 2 (2026-04-09)
+
+Przeprowadzono multi-agent review (Security, Performance, Architecture, Test Coverage, E2E).
+
+**Severity gate:** KONTYNUUJ Z ZASTRZEŻENIAMI (0 P1, 2 P2, 4 P3)
+
+Kluczowe wnioski:
+
+- `roundToQuarter()` zdefiniowana i przetestowana ale nigdy nie wywoływana w `calculatePrice()` -- do naprawy (P2)
+- Brak testu na wymuszenie max 1200mm przy montażu klejonym w reducerze (P2)
+- Dead code w images.ts -- functions nigdzie nie importowane (P3)
+- Brakujący img dla Blackout Czarny w danych kolorów (P3)
+- formatPrice() zduplikowana w header.tsx i price-panel.tsx (P3)
+- 8/8 weryfikacyjnych przykładów cennika przechodzi
+- 104/104 testów PASS, typecheck PASS, zero `any`
+- E2E: 8 kart tkanin, 24 kolory Standard, step indicator, cena real-time -- wszystko działa
+
+Raport: `docs/active/konfigurator-rolet-v1/review-faza-2.md`
+
 ## Źródła
 
 - Requirements doc: `docs/dev-brainstorms/2026-04-09-konfigurator-rolet-requirements.md`
