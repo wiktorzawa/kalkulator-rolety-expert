@@ -45,3 +45,20 @@
 }
 
 @source "../node_modules/@heroui/react/dist";
+
+/* Price pulse animation — triggered via JS by toggling the class */
+@keyframes price-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-price-pulse {
+  animation: price-pulse 0.3s ease-in-out;
+}

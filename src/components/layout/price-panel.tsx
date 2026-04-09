@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
 import { getFabricById } from "@/data/fabrics";
 import { getMountingById } from "@/data/mounting";
 import { getRailById } from "@/data/rails";
+import { submitOrder, type OrderRecord } from "@/services/orders";
+import { parseUtmSource } from "@/utils/order-number";
+import { OrderSummary } from "@/components/order/order-summary";
 
 function formatPrice(value: number): string {
   return value.toFixed(2).replace(".", ",");
@@ -12,6 +15,24 @@ function formatPrice(value: number): string {
 export function PricePanel() {
   const { state, price, isConfigComplete } = useWizard();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submittedOrder, setSubmittedOrder] = useState<OrderRecord | null>(
+    null,
+  );
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const [isPricePulsing, setIsPricePulsing] = useState(false);
+  const prevPriceRef = useRef(price.total);
+
+  useEffect(() => {
+    if (price.total !== prevPriceRef.current && price.total > 0) {
+      setIsPricePulsing(true);
+      const timer = setTimeout(() => setIsPricePulsing(false), 600);
+      prevPriceRef.current = price.total;
+      return () => clearTimeout(timer);
+    }
+    prevPriceRef.current = price.total;
+  }, [price.total]);
 
   const units = priceToUnits(price.total);
   const breakdown = formatUnitsBreakdown(units);
@@ -19,6 +40,47 @@ export function PricePanel() {
   const fabric = state.fabricId ? getFabricById(state.fabricId) : null;
   const mounting = state.mountingId ? getMountingById(state.mountingId) : null;
   const rail = state.railId ? getRailById(state.railId) : null;
+
+  async function handleSubmit(): Promise<void> {
+    if (!isConfigComplete || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const utmSource = parseUtmSource(window.location.search);
+      const result = await submitOrder({
+        state,
+        price,
+        allegro_units: units,
+        utm_source: utmSource,
+      });
+      setSubmittedOrder(result.order);
+
+      // Update URL without reload so the user can share/bookmark
+      const newUrl = `${window.location.origin}${window.location.pathname}?order=${result.orderNumber}`;
+      window.history.pushState({}, "", newUrl);
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Wystapil blad przy skladaniu zamowienia";
+      setSubmitError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  // Show order summary after successful submission
+  if (submittedOrder) {
+    return (
+      <div className="fixed inset-0 z-50 overflow-y-auto bg-brand-50 p-4">
+        <div className="mx-auto max-w-2xl py-8">
+          <OrderSummary order={submittedOrder} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <aside
@@ -95,7 +157,7 @@ export function PricePanel() {
           <div className="mb-2 flex items-baseline justify-between">
             <span className="text-sm font-medium text-brand-700">Razem</span>
             <span
-              className="font-display text-xl font-bold text-brand-950 transition-all duration-300"
+              className={`font-display text-xl font-bold text-brand-950 transition-all duration-300 ${isPricePulsing ? "scale-110 text-sage-700" : ""}`}
               data-testid="price-total"
             >
               {formatPrice(price.total)} zl
@@ -111,12 +173,18 @@ export function PricePanel() {
           </p>
         )}
 
+        {/* Error message */}
+        {submitError && (
+          <p className="mb-2 text-center text-xs text-red-600">{submitError}</p>
+        )}
+
         <button
           type="button"
-          disabled={!isConfigComplete}
+          disabled={!isConfigComplete || isSubmitting}
+          onClick={() => void handleSubmit()}
           className="w-full rounded-lg bg-sage-600 px-6 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Zamow przez Allegro
+          {isSubmitting ? "Skladanie zamowienia..." : "Zamow przez Allegro"}
         </button>
       </div>
     </aside>

@@ -1,8 +1,31 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { WizardProvider } from "@/context/wizard-context";
 import { StepContent } from "@/components/step-content";
 import { PricePanel } from "@/components/layout/price-panel";
+
+vi.mock("@/lib/supabase", () => ({
+  supabase: {
+    from: vi.fn(() => ({
+      insert: vi.fn(() => ({
+        select: vi.fn(() => ({ single: vi.fn() })),
+      })),
+      select: vi.fn(() => ({
+        eq: vi.fn(() => ({ maybeSingle: vi.fn() })),
+      })),
+    })),
+  },
+}));
+
+vi.mock("@/lib/analytics", () => ({
+  analytics: {
+    init: vi.fn(),
+    trackStep: vi.fn(),
+    trackOrder: vi.fn(),
+    trackLookup: vi.fn(),
+    setUserProperties: vi.fn(),
+  },
+}));
 
 function renderAndNavigateToDimensions(mountingId = "wzmocniony") {
   render(

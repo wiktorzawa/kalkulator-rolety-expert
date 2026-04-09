@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { FABRICS } from "@/data/fabrics";
 import { FabricCard } from "@/components/ui/fabric-card";
+import { analytics } from "@/lib/analytics";
 
 export function FabricStep() {
   const { state, dispatch } = useWizard();
+
+  useEffect(() => {
+    analytics.trackStep(1);
+  }, []);
 
   function handleSelect(fabricId: string): void {
     dispatch({ type: "SELECT_FABRIC", fabricId });

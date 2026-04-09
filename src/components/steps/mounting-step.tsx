@@ -1,10 +1,16 @@
+import { useEffect } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { MOUNTING_SYSTEMS } from "@/data/mounting";
 import { MountingCard } from "@/components/ui/mounting-card";
 import type { MountingCategory } from "@/data/types";
+import { analytics } from "@/lib/analytics";
 
 export function MountingStep() {
   const { state, dispatch } = useWizard();
+
+  useEffect(() => {
+    analytics.trackStep(3);
+  }, []);
 
   const bezinwazyjne = MOUNTING_SYSTEMS.filter(
     (m) => m.type === "bezinwazyjny",

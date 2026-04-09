@@ -149,17 +149,17 @@
 
 **Zależności:** Unit 2, Unit 4, Unit 6
 
-- [ ] Stwórz `src/config/allegro.ts` — ALLEGRO_LISTING_URL, UNIT_PRICE
-- [ ] Stwórz `src/services/orders.ts` — submitOrder(), lookupOrder()
-- [ ] Stwórz `src/utils/order-number.ts` — formatOrderNumber(), parseOrderParam()
-- [ ] Stwórz `src/components/order/order-summary.tsx` — podsumowanie + instrukcja
-- [ ] Stwórz `src/components/order/order-lookup.tsx` — formularz + wyświetlanie
-- [ ] Modyfikuj `src/App.tsx` — ?order= → lookup, brak → wizard
-- [ ] Test: submitOrder zapisuje i zwraca order_number
-- [ ] Test: lookupOrder('RE-00001') zwraca konfigurację
-- [ ] Test: lookupOrder('INVALID') zwraca null
-- [ ] Test: formatUnitsBreakdown(176) = "17× pakiet 10 jednostek + 6 jednostek"
-- [ ] Test: parseOrderParam('?order=RE-00142') = 'RE-00142'
+- [x] Stwórz `src/config/allegro.ts` — ALLEGRO_LISTING_URL, UNIT_PRICE
+- [x] Stwórz `src/services/orders.ts` — submitOrder(), lookupOrder()
+- [x] Stwórz `src/utils/order-number.ts` — formatOrderNumber(), parseOrderParam()
+- [x] Stwórz `src/components/order/order-summary.tsx` — podsumowanie + instrukcja
+- [x] Stwórz `src/components/order/order-lookup.tsx` — formularz + wyświetlanie
+- [x] Modyfikuj `src/App.tsx` — ?order= → lookup, brak → wizard
+- [x] Test: submitOrder zapisuje i zwraca order_number
+- [x] Test: lookupOrder('RE-00001') zwraca konfigurację
+- [x] Test: lookupOrder('INVALID') zwraca null
+- [x] Test: formatUnitsBreakdown(176) = "17× pakiet 10 jednostek + 6 jednostek"
+- [x] Test: parseOrderParam('?order=RE-00142') = 'RE-00142'
 - [ ] Weryfikacja: Zamówienie w Supabase z #RE-XXXXX, podsumowanie + instrukcja Allegro, lookup działa
 
 ### Unit 8: Analytics + assety + polish [M]
@@ -168,24 +168,24 @@
 
 **Zależności:** Unit 7
 
-- [ ] Stwórz `src/lib/analytics.ts` — init(), trackStep(), trackOrder(), trackLookup()
-- [ ] Stwórz `scripts/copy-assets.sh` — kopiowanie obrazów (bez folderów 08-12)
-- [ ] Uruchom copy-assets.sh → obrazy w public/assets/
-- [ ] Modyfikuj `src/components/steps/*.tsx` — dodanie analytics.trackStep()
-- [ ] Modyfikuj `src/services/orders.ts` — analytics.trackOrder()
-- [ ] Modyfikuj `src/components/order/order-lookup.tsx` — analytics.trackLookup()
-- [ ] Polish: hover na kartach, pulse ceny, responsive tweaks
-- [ ] Test: analytics.trackStep(1) → posthog.capture('step_1_viewed')
-- [ ] Test: Wrapper nie rzuca błędu gdy PostHog nie załadowany
+- [x] Stwórz `src/lib/analytics.ts` — init(), trackStep(), trackOrder(), trackLookup()
+- [x] Stwórz `scripts/copy-assets.sh` — kopiowanie obrazów (bez folderów 08-12)
+- [x] Uruchom copy-assets.sh → obrazy w public/assets/
+- [x] Modyfikuj `src/components/steps/*.tsx` — dodanie analytics.trackStep()
+- [x] Modyfikuj `src/services/orders.ts` — analytics.trackOrder()
+- [x] Modyfikuj `src/components/order/order-lookup.tsx` — analytics.trackLookup()
+- [x] Polish: hover na kartach, pulse ceny, responsive tweaks
+- [x] Test: analytics.trackStep(1) → posthog.capture('step_1_viewed')
+- [x] Test: Wrapper nie rzuca błędu gdy PostHog nie załadowany
 - [ ] Weryfikacja: PostHog eventy w debug, obrazy ładują się, UI mobile/desktop OK
 
 ---
 
 ## Podsumowanie postępu
 
-| Faza               | Status            | Ukończone                       |
-| ------------------ | ----------------- | ------------------------------- |
-| Faza 1: Fundament  | ✅ Ukończona      | 20/22 (2 Weryfikacja do review) |
-| Faza 2: Domena     | ✅ Ukończona      | 35/37 (2 Weryfikacja do review) |
-| Faza 3: UI         | ✅ Ukończona      | 21/23 (2 Weryfikacja do review) |
-| Faza 4: Integracja | ⬜ Nie rozpoczęta | 0/X                             |
+| Faza               | Status       | Ukończone                       |
+| ------------------ | ------------ | ------------------------------- |
+| Faza 1: Fundament  | ✅ Ukończona | 20/22 (2 Weryfikacja do review) |
+| Faza 2: Domena     | ✅ Ukończona | 35/37 (2 Weryfikacja do review) |
+| Faza 3: UI         | ✅ Ukończona | 21/23 (2 Weryfikacja do review) |
+| Faza 4: Integracja | ✅ Ukończona | 20/22 (2 Weryfikacja do review) |

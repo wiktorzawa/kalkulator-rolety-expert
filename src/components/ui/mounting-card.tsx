@@ -21,7 +21,7 @@ export function MountingCard({
     <button
       type="button"
       onClick={() => onSelect(mounting.id, mounting.type)}
-      className={`relative flex flex-col gap-2 rounded-xl border-2 bg-white p-4 text-left transition-all duration-200 hover:shadow-md ${
+      className={`relative flex flex-col gap-2 rounded-xl border-2 bg-white p-4 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
         isSelected
           ? "border-sage-600 ring-2 ring-sage-300"
           : "border-brand-200 hover:border-brand-300"

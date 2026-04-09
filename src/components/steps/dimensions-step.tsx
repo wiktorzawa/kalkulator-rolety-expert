@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useWizard } from "@/context/wizard-context";
+import { analytics } from "@/lib/analytics";
 import {
   MIN_WIDTH_MM,
   MAX_WIDTH_MM,
@@ -15,6 +17,10 @@ const STEP_MM = 10;
 
 export function DimensionsStep() {
   const { state, dispatch } = useWizard();
+
+  useEffect(() => {
+    analytics.trackStep(4);
+  }, []);
 
   const isGlued = state.mountingId === "klejony";
   const maxWidth = isGlued ? MAX_WIDTH_GLUED : MAX_WIDTH_MM;

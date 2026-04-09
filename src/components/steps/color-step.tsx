@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { getColorsForFabric } from "@/data/fabrics";
 import { ColorSwatch } from "@/components/ui/color-swatch";
+import { analytics } from "@/lib/analytics";
 
 export function ColorStep() {
   const { state, dispatch } = useWizard();
+
+  useEffect(() => {
+    analytics.trackStep(2);
+  }, []);
 
   const colors = state.fabricId ? getColorsForFabric(state.fabricId) : [];
 

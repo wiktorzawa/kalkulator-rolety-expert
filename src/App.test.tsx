@@ -1,5 +1,28 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+
+vi.mock("@/lib/supabase", () => ({
+  supabase: {
+    from: vi.fn(() => ({
+      insert: vi.fn(() => ({
+        select: vi.fn(() => ({ single: vi.fn() })),
+      })),
+      select: vi.fn(() => ({
+        eq: vi.fn(() => ({ maybeSingle: vi.fn() })),
+      })),
+    })),
+  },
+}));
+
+vi.mock("@/lib/analytics", () => ({
+  analytics: {
+    init: vi.fn(),
+    trackStep: vi.fn(),
+    trackOrder: vi.fn(),
+    trackLookup: vi.fn(),
+    setUserProperties: vi.fn(),
+  },
+}));
 
 import { App } from "./App";
 
@@ -19,7 +42,9 @@ describe("App", () => {
 
   it("renders order button (disabled initially)", () => {
     render(<App />);
-    const button = screen.getByRole("button", { name: /zamow przez allegro/i });
+    const button = screen.getByRole("button", {
+      name: /zamow przez allegro/i,
+    });
     expect(button).toBeDisabled();
   });
 });

@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { RAIL_COLORS } from "@/data/rails";
+import { analytics } from "@/lib/analytics";
 
 function formatSurcharge(surcharge: number): string {
   if (surcharge === 0) return "";
@@ -8,6 +10,10 @@ function formatSurcharge(surcharge: number): string {
 
 export function RailStep() {
   const { state, dispatch } = useWizard();
+
+  useEffect(() => {
+    analytics.trackStep(5);
+  }, []);
 
   function handleSelect(railId: string): void {
     dispatch({ type: "SELECT_RAIL", railId });
