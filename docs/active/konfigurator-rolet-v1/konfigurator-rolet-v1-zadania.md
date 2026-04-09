@@ -1,0 +1,183 @@
+# Zadania: Konfigurator Rolet Plisowanych V1
+
+**Branch:** `feature/konfigurator-rolet-v1`
+**Ostatnia aktualizacja:** 2026-04-09
+**Status:** W trakcie
+
+---
+
+## Faza 1: Fundament
+
+### Unit 1: Scaffolding projektu [M]
+**Cel:** Działający dev server z HeroUI v3, Tailwind v4 i Supabase client
+
+- [ ] Stwórz `package.json` z React 19, HeroUI v3, TW4, Supabase, PostHog, Vitest
+- [ ] Stwórz `tsconfig.json` (strict mode)
+- [ ] Stwórz `vite.config.ts` z HeroUI plugin
+- [ ] Stwórz `index.html` + `src/main.tsx` + `src/App.tsx`
+- [ ] Stwórz `src/lib/supabase.ts` (klient z env vars)
+- [ ] Stwórz `.env.example` (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, VITE_POSTHOG_KEY)
+- [ ] Skonfiguruj Tailwind v4 z custom brand colors (z prototypu)
+- [ ] Test: Dev server startuje bez błędów
+- [ ] Test: HeroUI Button renderuje się poprawnie
+- [ ] Test: `npm run typecheck` przechodzi
+- [ ] Weryfikacja: Strona renderuje HeroUI komponent na localhost
+
+### Unit 2: Supabase schema + migracje [M]
+**Cel:** Tabela orders z triggerem generującym #RE-XXXXX, RLS, wersjonowany schemat
+
+**Zależności:** Unit 1
+
+- [ ] `supabase init` — stwórz `supabase/config.toml`
+- [ ] `supabase migration new create_orders` — stwórz migrację
+- [ ] Tabela `orders`: id (BIGINT IDENTITY), order_number (TEXT UNIQUE), config (JSONB), price (DECIMAL), allegro_units (INT), utm_source (TEXT), created_at (TIMESTAMPTZ)
+- [ ] Sequence `orders_seq` + trigger `set_order_number` → format `RE-XXXXX`
+- [ ] RLS: public SELECT (po order_number), public INSERT
+- [ ] Index B-tree na order_number
+- [ ] `supabase db push` do remote
+- [ ] Test: INSERT generuje order_number w formacie RE-XXXXX
+- [ ] Test: SELECT po order_number zwraca zamówienie
+- [ ] Test: Kolejne INSERT-y → sekwencyjne numery (RE-00001, RE-00002...)
+- [ ] Weryfikacja: Ręczny INSERT w Dashboard generuje RE-00001, SELECT z anon key działa
+
+---
+
+## Faza 2: Domena
+
+### Unit 3: Dane produktowe + silnik cenowy [L]
+**Cel:** Kompletne dane w src/data/ i przetestowany pricing engine
+
+**Zależności:** Unit 1
+
+- [ ] Stwórz `src/data/types.ts` — Fabric, Color, MountingSystem, RailColor, PriceTier
+- [ ] Stwórz `src/data/fabrics.ts` — 8 tkanin + palety kolorów + dziedziczenie Termo
+- [ ] Stwórz `src/data/pricing.ts` — tabele dopłat szerokość (39 progów) + wysokość (3 progi) + bazy
+- [ ] Stwórz `src/data/mounting.ts` — 5 systemów montażu + ograniczenia
+- [ ] Stwórz `src/data/rails.ts` — 14 kolorów listew + dopłaty
+- [ ] Stwórz `src/data/images.ts` — mapowanie tkanina → kolor → ścieżka obrazu
+- [ ] Stwórz `src/data/index.ts` — reeksport
+- [ ] Stwórz `src/utils/pricing.ts` — calculatePrice(), widthToCm(), heightToTier(), roundToQuarter()
+- [ ] Stwórz `src/utils/pricing.test.ts` — testy weryfikacyjne (test-first!)
+- [ ] Stwórz `src/utils/allegro.ts` — priceToUnits(), formatUnitsBreakdown()
+- [ ] Stwórz `src/utils/allegro.test.ts`
+- [ ] Test: Standard + Inwazyjny + 60cm + 150cm + Biały = 137.75 zł
+- [ ] Test: Standard + Bezinwazyjny + 60cm + 150cm + Biały = 156.75 zł
+- [ ] Test: Standard + Inwazyjny + 100cm + 150cm + Biały = 175.75 zł
+- [ ] Test: Standard + Inwazyjny + 100cm + 230cm + Biały = 190.00 zł
+- [ ] Test: Standard+Termo + Inwazyjny + 80cm + 150cm + Srebrny = 166.25 zł
+- [ ] Test: Blackout + Inwazyjny + 120cm + 230cm + Biały = 228.00 zł
+- [ ] Test: Blackout + Inwazyjny + 130cm + 230cm + Biały = 280.25 zł
+- [ ] Test: Honeycomb + Bezinwazyjny + 90cm + 280cm + Orzech = 256.50 zł
+- [ ] Test: Skok ceny 120cm → 114.00 zł, 125cm → 161.50 zł
+- [ ] Test: roundToQuarter(33.33) = 33.25
+- [ ] Test: widthToCm(623) = 65, widthToCm(800) = 80
+- [ ] Test: heightToTier(1500) = ≤150cm, heightToTier(1510) = ≤230cm
+- [ ] Test: priceToUnits(175.75) = 176
+- [ ] Test: formatUnitsBreakdown(176) = "17× pakiet 10 jednostek + 6 jednostek"
+- [ ] Weryfikacja: 8/8 weryfikacyjnych examples przechodzi, `npm run test` zero failures, zero `any`
+
+### Unit 4: Wizard state + layout shell [M]
+**Cel:** useReducer + Context + layout z header, stepper, price panel
+
+**Zależności:** Unit 1, Unit 3 (types)
+
+- [ ] Stwórz `src/context/wizard-types.ts` — WizardState, WizardAction (discriminated union)
+- [ ] Stwórz `src/context/wizard-context.tsx` — WizardProvider, useWizard hook, reducer
+- [ ] Stwórz `src/components/layout/header.tsx` — sticky header z logo + ceną + progress
+- [ ] Stwórz `src/components/layout/step-indicator.tsx` — custom 5-krokowy stepper
+- [ ] Stwórz `src/components/layout/price-panel.tsx` — sticky panel cenowy (mobile/desktop)
+- [ ] Stwórz `src/components/configurator.tsx` — główny komponent renderujący aktualny krok
+- [ ] Stwórz `src/context/wizard-context.test.tsx`
+- [ ] Test: SELECT_FABRIC ustawia fabric i resetuje color
+- [ ] Test: GO_TO_STEP(2) nie działa gdy step 1 nieukończony
+- [ ] Test: SET_DIMENSIONS waliduje zakresy (150-1950mm szer, 150-2800mm wys)
+- [ ] Test: Cena przelicza się po każdej akcji
+- [ ] Weryfikacja: Reducer zarządza stanem, layout mobile/desktop, cena real-time
+
+---
+
+## Faza 3: UI — kroki wizarda
+
+### Unit 5: Kroki 1-3 (Tkanina, Kolor, Montaż) [L]
+**Cel:** Trzy pierwsze kroki z kartami produktowymi i obrazami
+
+**Zależności:** Unit 3, Unit 4
+
+- [ ] Stwórz `src/components/steps/fabric-step.tsx` — siatka kart tkanin
+- [ ] Stwórz `src/components/steps/color-step.tsx` — siatka próbek kolorów
+- [ ] Stwórz `src/components/steps/mounting-step.tsx` — karty montażu + podsystemy
+- [ ] Stwórz `src/components/ui/fabric-card.tsx` — karta z miniaturą, nazwą, opisem, dots
+- [ ] Stwórz `src/components/ui/color-swatch.tsx` — próbka (zdjęcie lub hex kwadrat)
+- [ ] Stwórz `src/components/ui/mounting-card.tsx` — karta montażu z grafikami
+- [ ] Stwórz `src/components/ui/rating-dots.tsx` — wskaźnik 1-5 kropek
+- [ ] Test: Fabric step renderuje 8 kart tkanin
+- [ ] Test: Color step zmienia paletę po zmianie tkaniny
+- [ ] Test: Standard+Termo pokazuje 24 kolory (dziedziczone)
+- [ ] Test: Montaż klejony wyświetla ostrzeżenie max 1200mm
+- [ ] Weryfikacja: 3 kroki end-to-end z nawigacją, obrazy z public/assets/, responsive
+
+### Unit 6: Kroki 4-5 (Wymiary, Listwa) + price panel [L]
+**Cel:** Suwaki wymiarów, wybór listwy, kompletny panel cenowy
+
+**Zależności:** Unit 3, Unit 4, Unit 5
+
+- [ ] Stwórz `src/components/steps/dimensions-step.tsx` — suwaki + inputy + podgląd
+- [ ] Stwórz `src/components/steps/rail-step.tsx` — siatka kart listew
+- [ ] Stwórz `src/components/ui/dimension-input.tsx` — suwak + input + quick buttons
+- [ ] Stwórz `src/components/ui/dimension-preview.tsx` — prostokąt z liniami plisowania
+- [ ] Modyfikuj `src/components/layout/price-panel.tsx` — pełne rozbicie + przycisk Allegro
+- [ ] Test: Suwak szerokości zakres 150-1950, krok 10
+- [ ] Test: Klejony montaż → suwak max 1200, warning
+- [ ] Test: Quick button 800mm ustawia suwak i input
+- [ ] Test: Cena aktualizuje się na żywo przy ruchu suwaka
+- [ ] Test: Price panel rozbicie Standard+Bezinw+600×1500+Biały = 156.75 zł → 157 jedn.
+- [ ] Weryfikacja: Wymiary + listwy z real-time pricing, walidacja klejony/1200mm
+
+---
+
+## Faza 4: Integracja
+
+### Unit 7: Zamówienie — submit, podsumowanie, lookup [L]
+**Cel:** Zapis do Supabase, summary z instrukcją Allegro, lookup po ?order=
+
+**Zależności:** Unit 2, Unit 4, Unit 6
+
+- [ ] Stwórz `src/config/allegro.ts` — ALLEGRO_LISTING_URL, UNIT_PRICE
+- [ ] Stwórz `src/services/orders.ts` — submitOrder(), lookupOrder()
+- [ ] Stwórz `src/utils/order-number.ts` — formatOrderNumber(), parseOrderParam()
+- [ ] Stwórz `src/components/order/order-summary.tsx` — podsumowanie + instrukcja
+- [ ] Stwórz `src/components/order/order-lookup.tsx` — formularz + wyświetlanie
+- [ ] Modyfikuj `src/App.tsx` — ?order= → lookup, brak → wizard
+- [ ] Test: submitOrder zapisuje i zwraca order_number
+- [ ] Test: lookupOrder('RE-00001') zwraca konfigurację
+- [ ] Test: lookupOrder('INVALID') zwraca null
+- [ ] Test: formatUnitsBreakdown(176) = "17× pakiet 10 jednostek + 6 jednostek"
+- [ ] Test: parseOrderParam('?order=RE-00142') = 'RE-00142'
+- [ ] Weryfikacja: Zamówienie w Supabase z #RE-XXXXX, podsumowanie + instrukcja Allegro, lookup działa
+
+### Unit 8: Analytics + assety + polish [M]
+**Cel:** PostHog tracking, obrazy w public/assets/, finalny polish
+
+**Zależności:** Unit 7
+
+- [ ] Stwórz `src/lib/analytics.ts` — init(), trackStep(), trackOrder(), trackLookup()
+- [ ] Stwórz `scripts/copy-assets.sh` — kopiowanie obrazów (bez folderów 08-12)
+- [ ] Uruchom copy-assets.sh → obrazy w public/assets/
+- [ ] Modyfikuj `src/components/steps/*.tsx` — dodanie analytics.trackStep()
+- [ ] Modyfikuj `src/services/orders.ts` — analytics.trackOrder()
+- [ ] Modyfikuj `src/components/order/order-lookup.tsx` — analytics.trackLookup()
+- [ ] Polish: hover na kartach, pulse ceny, responsive tweaks
+- [ ] Test: analytics.trackStep(1) → posthog.capture('step_1_viewed')
+- [ ] Test: Wrapper nie rzuca błędu gdy PostHog nie załadowany
+- [ ] Weryfikacja: PostHog eventy w debug, obrazy ładują się, UI mobile/desktop OK
+
+---
+
+## Podsumowanie postępu
+
+| Faza | Status | Ukończone |
+|------|--------|-----------|
+| Faza 1: Fundament | ⬜ Nie rozpoczęta | 0/X |
+| Faza 2: Domena | ⬜ Nie rozpoczęta | 0/X |
+| Faza 3: UI | ⬜ Nie rozpoczęta | 0/X |
+| Faza 4: Integracja | ⬜ Nie rozpoczęta | 0/X |
