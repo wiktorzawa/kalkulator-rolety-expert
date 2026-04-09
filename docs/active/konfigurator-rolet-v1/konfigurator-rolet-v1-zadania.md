@@ -108,17 +108,17 @@
 
 **Zależności:** Unit 3, Unit 4
 
-- [ ] Stwórz `src/components/steps/fabric-step.tsx` — siatka kart tkanin
-- [ ] Stwórz `src/components/steps/color-step.tsx` — siatka próbek kolorów
-- [ ] Stwórz `src/components/steps/mounting-step.tsx` — karty montażu + podsystemy
-- [ ] Stwórz `src/components/ui/fabric-card.tsx` — karta z miniaturą, nazwą, opisem, dots
-- [ ] Stwórz `src/components/ui/color-swatch.tsx` — próbka (zdjęcie lub hex kwadrat)
-- [ ] Stwórz `src/components/ui/mounting-card.tsx` — karta montażu z grafikami
-- [ ] Stwórz `src/components/ui/rating-dots.tsx` — wskaźnik 1-5 kropek
-- [ ] Test: Fabric step renderuje 8 kart tkanin
-- [ ] Test: Color step zmienia paletę po zmianie tkaniny
-- [ ] Test: Standard+Termo pokazuje 24 kolory (dziedziczone)
-- [ ] Test: Montaż klejony wyświetla ostrzeżenie max 1200mm
+- [x] Stwórz `src/components/steps/fabric-step.tsx` — siatka kart tkanin
+- [x] Stwórz `src/components/steps/color-step.tsx` — siatka próbek kolorów
+- [x] Stwórz `src/components/steps/mounting-step.tsx` — karty montażu + podsystemy
+- [x] Stwórz `src/components/ui/fabric-card.tsx` — karta z miniaturą, nazwą, opisem, dots
+- [x] Stwórz `src/components/ui/color-swatch.tsx` — próbka (zdjęcie lub hex kwadrat)
+- [x] Stwórz `src/components/ui/mounting-card.tsx` — karta montażu z grafikami
+- [x] Stwórz `src/components/ui/rating-dots.tsx` — wskaźnik 1-5 kropek
+- [x] Test: Fabric step renderuje 8 kart tkanin
+- [x] Test: Color step zmienia paletę po zmianie tkaniny
+- [x] Test: Standard+Termo pokazuje 24 kolory (dziedziczone)
+- [x] Test: Montaż klejony wyświetla ostrzeżenie max 1200mm
 - [ ] Weryfikacja: 3 kroki end-to-end z nawigacją, obrazy z public/assets/, responsive
 
 ### Unit 6: Kroki 4-5 (Wymiary, Listwa) + price panel [L]
@@ -127,16 +127,16 @@
 
 **Zależności:** Unit 3, Unit 4, Unit 5
 
-- [ ] Stwórz `src/components/steps/dimensions-step.tsx` — suwaki + inputy + podgląd
-- [ ] Stwórz `src/components/steps/rail-step.tsx` — siatka kart listew
-- [ ] Stwórz `src/components/ui/dimension-input.tsx` — suwak + input + quick buttons
-- [ ] Stwórz `src/components/ui/dimension-preview.tsx` — prostokąt z liniami plisowania
-- [ ] Modyfikuj `src/components/layout/price-panel.tsx` — pełne rozbicie + przycisk Allegro
-- [ ] Test: Suwak szerokości zakres 150-1950, krok 10
-- [ ] Test: Klejony montaż → suwak max 1200, warning
-- [ ] Test: Quick button 800mm ustawia suwak i input
-- [ ] Test: Cena aktualizuje się na żywo przy ruchu suwaka
-- [ ] Test: Price panel rozbicie Standard+Bezinw+600×1500+Biały = 156.75 zł → 157 jedn.
+- [x] Stwórz `src/components/steps/dimensions-step.tsx` — suwaki + inputy + podgląd
+- [x] Stwórz `src/components/steps/rail-step.tsx` — siatka kart listew
+- [x] Stwórz `src/components/ui/dimension-input.tsx` — suwak + input + quick buttons
+- [x] Stwórz `src/components/ui/dimension-preview.tsx` — prostokąt z liniami plisowania
+- [x] Modyfikuj `src/components/layout/price-panel.tsx` — pełne rozbicie + przycisk Allegro
+- [x] Test: Suwak szerokości zakres 150-1950, krok 10
+- [x] Test: Klejony montaż → suwak max 1200, warning
+- [x] Test: Quick button 800mm ustawia suwak i input
+- [x] Test: Cena aktualizuje się na żywo przy ruchu suwaka
+- [x] Test: Price panel rozbicie Standard+Bezinw+600×1500+Biały = 156.75 zł → 157 jedn.
 - [ ] Weryfikacja: Wymiary + listwy z real-time pricing, walidacja klejony/1200mm
 
 ---
@@ -187,5 +187,5 @@
 | ------------------ | ----------------- | ------------------------------- |
 | Faza 1: Fundament  | ✅ Ukończona      | 20/22 (2 Weryfikacja do review) |
 | Faza 2: Domena     | ✅ Ukończona      | 35/37 (2 Weryfikacja do review) |
-| Faza 3: UI         | ⬜ Nie rozpoczęta | 0/X                             |
+| Faza 3: UI         | ✅ Ukończona      | 21/23 (2 Weryfikacja do review) |
 | Faza 4: Integracja | ⬜ Nie rozpoczęta | 0/X                             |

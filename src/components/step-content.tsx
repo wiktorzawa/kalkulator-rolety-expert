@@ -1,23 +1,24 @@
 import { useWizard } from "@/context/wizard-context";
-import { STEP_LABELS } from "@/context/wizard-types";
+import { FabricStep } from "./steps/fabric-step";
+import { ColorStep } from "./steps/color-step";
+import { MountingStep } from "./steps/mounting-step";
+import { DimensionsStep } from "./steps/dimensions-step";
+import { RailStep } from "./steps/rail-step";
 
 /**
- * Renders the current wizard step content.
- * Individual step components will be added in Phase 3 (Unit 5-6).
+ * Renders all wizard steps. Steps 1..current are visible (scroll-based flow).
+ * Steps beyond current are hidden.
  */
 export function StepContent() {
   const { state } = useWizard();
 
-  const label = STEP_LABELS[state.step - 1];
-
   return (
-    <section aria-label={`Krok ${state.step}: ${label}`}>
-      <h2 className="mb-4 font-display text-2xl font-bold text-brand-950">
-        {state.step}. {label}
-      </h2>
-      <p className="text-brand-500">
-        Krok &quot;{label}&quot; zostanie zaimplementowany w kolejnej fazie.
-      </p>
-    </section>
+    <div className="space-y-12">
+      <FabricStep />
+      {state.step >= 2 && <ColorStep />}
+      {state.step >= 3 && <MountingStep />}
+      {state.step >= 4 && <DimensionsStep />}
+      {state.step >= 5 && <RailStep />}
+    </div>
   );
 }
