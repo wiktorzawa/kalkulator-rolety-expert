@@ -1,26 +1,22 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // Use vi.hoisted to create mock fns that are available inside vi.mock factory
-const { mockSingle, mockMaybeSingle } = vi.hoisted(() => ({
+const { mockSingle, mockRpc } = vi.hoisted(() => ({
   mockSingle: vi.fn(),
-  mockMaybeSingle: vi.fn(),
+  mockRpc: vi.fn(),
 }));
 
 vi.mock("@/lib/supabase", () => ({
-  supabase: {
+  getSupabase: () => ({
     from: vi.fn(() => ({
       insert: vi.fn(() => ({
         select: vi.fn(() => ({
           single: mockSingle,
         })),
       })),
-      select: vi.fn(() => ({
-        eq: vi.fn(() => ({
-          maybeSingle: mockMaybeSingle,
-        })),
-      })),
     })),
-  },
+    rpc: mockRpc,
+  }),
 }));
 
 vi.mock("@/lib/analytics", () => ({
@@ -132,23 +128,33 @@ describe("lookupOrder", () => {
       created_at: "2026-04-09T12:00:00Z",
     };
 
-    mockMaybeSingle.mockResolvedValue({ data: mockOrder, error: null });
+    mockRpc.mockResolvedValue({ data: [mockOrder], error: null });
 
     const result = await lookupOrder("RE-00001");
     expect(result).not.toBeNull();
     expect(result!.order_number).toBe("RE-00001");
     expect(result!.price).toBe(156.75);
+    expect(mockRpc).toHaveBeenCalledWith("lookup_order", {
+      p_order_number: "RE-00001",
+    });
   });
 
   it("returns null for non-existent order", async () => {
-    mockMaybeSingle.mockResolvedValue({ data: null, error: null });
+    mockRpc.mockResolvedValue({ data: [], error: null });
+
+    const result = await lookupOrder("INVALID");
+    expect(result).toBeNull();
+  });
+
+  it("returns null when RPC returns null data", async () => {
+    mockRpc.mockResolvedValue({ data: null, error: null });
 
     const result = await lookupOrder("INVALID");
     expect(result).toBeNull();
   });
 
   it("throws on Supabase error", async () => {
-    mockMaybeSingle.mockResolvedValue({
+    mockRpc.mockResolvedValue({
       data: null,
       error: { message: "Connection failed" },
     });

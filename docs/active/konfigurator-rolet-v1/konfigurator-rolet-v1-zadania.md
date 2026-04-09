@@ -42,6 +42,16 @@
 - [x] Test: Kolejne INSERT-y → sekwencyjne numery (RE-00001, RE-00002...)
 - [ ] Weryfikacja: Ręczny INSERT w Dashboard generuje RE-00001, SELECT z anon key działa
 
+### Do poprawy po review fazy 1
+
+- [x] 🟠 [P2-SEC-1] **supabase/migrations/20260409050254_create_orders.sql:40-44** — RLS SELECT policy `USING (true)` pozwala na odczyt WSZYSTKICH zamówień. Wymaganie R43 mówi "public SELECT (po order_number)". Zmienić na bardziej restrykcyjną policy lub dodać RPC function.
+- [x] 🟠 [P2-ARCH-1] **package.json** — Brak skryptów `lint` i `format` mimo deklaracji w CLAUDE.md. Dodać ESLint + Prettier lub usunąć referencje.
+- [x] 🟠 [P2-ARCH-2] **src/lib/supabase.ts:15-31** — Proxy pattern używa `as` type assertion, co narusza coding-rules.md. Rozważyć factory function `getSupabase()`.
+- [ ] 🟡 [P3-SEC-2] **supabase/migrations/20260409050254_create_orders.sql:47-51** — INSERT policy bez walidacji payloadu. Dodać CHECK constraint na price (>0) i allegro_units (>0).
+- [ ] 🟡 [P3-PERF-1] Brak `public/favicon.ico` — 404 w konsoli przy każdym wejściu.
+- [ ] 🟡 [P3-PERF-2] **index.html:7-12** — Google Fonts ładowane synchronicznie (minor, `display=swap` już jest).
+- [ ] 🟡 [P3-TEST-1] Brak unit testu dla `src/lib/supabase.ts` — Proxy lazy init i error na brak env vars.
+
 ---
 
 ## Faza 2: Domena

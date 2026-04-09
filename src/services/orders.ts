@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { analytics } from "@/lib/analytics";
 import type { WizardState } from "@/context/wizard-types";
 import type { PriceBreakdown } from "@/data/types";
@@ -63,7 +63,7 @@ export async function submitOrder(
 ): Promise<SubmitOrderResult> {
   const config = buildOrderConfig(params.state);
 
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from("orders")
     .insert({
       config,
@@ -95,21 +95,25 @@ export async function submitOrder(
 }
 
 /**
- * Look up an existing order by order_number.
+ * Look up an existing order by order_number via RPC function.
+ * Uses SECURITY DEFINER function to avoid exposing all orders via SELECT policy.
  * Returns null if not found.
  */
 export async function lookupOrder(
   orderNumber: string,
 ): Promise<OrderRecord | null> {
-  const { data, error } = await supabase
-    .from("orders")
-    .select("*")
-    .eq("order_number", orderNumber)
-    .maybeSingle();
+  const { data, error } = await getSupabase().rpc("lookup_order", {
+    p_order_number: orderNumber,
+  });
 
   if (error) {
     throw new Error(`Failed to lookup order: ${error.message}`);
   }
 
-  return (data as OrderRecord | null) ?? null;
+  const rows = data as OrderRecord[] | null;
+  if (!rows || rows.length === 0) {
+    return null;
+  }
+
+  return rows[0] ?? null;
 }

@@ -6,7 +6,13 @@
 
 import posthog from "posthog-js";
 
-const POSTHOG_KEY = import.meta.env.VITE_POSTHOG_KEY as string | undefined;
+function getPostHogKey(): string | undefined {
+  const key: unknown = import.meta.env.VITE_POSTHOG_KEY;
+  if (typeof key !== "string" || !key || key.startsWith("your-")) {
+    return undefined;
+  }
+  return key;
+}
 const IS_DEV = import.meta.env.DEV;
 
 let isInitialized = false;
@@ -36,10 +42,11 @@ export const analytics = {
    * No-op if VITE_POSTHOG_KEY is not set.
    */
   init(): void {
-    if (!POSTHOG_KEY || isInitialized) return;
+    const key = getPostHogKey();
+    if (!key || isInitialized) return;
 
     try {
-      posthog.init(POSTHOG_KEY, {
+      posthog.init(key, {
         api_host: "https://eu.i.posthog.com",
         loaded: () => {
           isInitialized = true;

@@ -46,13 +46,12 @@ describe("orders migration SQL", () => {
     );
   });
 
-  it("enables RLS with public SELECT and INSERT policies", () => {
+  it("enables RLS with public INSERT policy", () => {
     expect(migrationSql).toContain(
       "ALTER TABLE orders ENABLE ROW LEVEL SECURITY",
     );
-    expect(migrationSql).toContain("FOR SELECT");
-    expect(migrationSql).toContain("TO anon");
     expect(migrationSql).toContain("FOR INSERT");
+    expect(migrationSql).toContain("TO anon");
   });
 
   it("trigger format produces correct RE-XXXXX pattern", () => {
@@ -62,5 +61,35 @@ describe("orders migration SQL", () => {
     );
     expect(lpadMatch).not.toBeNull();
     expect(lpadMatch?.[1]).toBe("5");
+  });
+});
+
+const restrictMigrationPath = resolve(
+  __dirname,
+  "../../supabase/migrations/20260409060000_restrict_orders_select.sql",
+);
+const restrictMigrationSql = readFileSync(restrictMigrationPath, "utf-8");
+
+describe("orders SELECT restriction migration", () => {
+  it("drops the overly permissive SELECT policy", () => {
+    expect(restrictMigrationSql).toContain(
+      'DROP POLICY "Allow public select by order_number" ON orders',
+    );
+  });
+
+  it("creates lookup_order RPC function with SECURITY DEFINER", () => {
+    expect(restrictMigrationSql).toContain(
+      "CREATE OR REPLACE FUNCTION lookup_order(p_order_number TEXT)",
+    );
+    expect(restrictMigrationSql).toContain("SECURITY DEFINER");
+    expect(restrictMigrationSql).toContain(
+      "WHERE order_number = p_order_number LIMIT 1",
+    );
+  });
+
+  it("grants execute to anon role", () => {
+    expect(restrictMigrationSql).toContain(
+      "GRANT EXECUTE ON FUNCTION lookup_order(TEXT) TO anon",
+    );
   });
 });

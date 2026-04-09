@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 
 vi.mock("@/lib/supabase", () => ({
-  supabase: {
+  getSupabase: () => ({
     from: vi.fn(() => ({
       insert: vi.fn(() => ({
         select: vi.fn(() => ({ single: vi.fn() })),
@@ -11,7 +11,7 @@ vi.mock("@/lib/supabase", () => ({
         eq: vi.fn(() => ({ maybeSingle: vi.fn() })),
       })),
     })),
-  },
+  }),
 }));
 
 vi.mock("@/lib/analytics", () => ({
