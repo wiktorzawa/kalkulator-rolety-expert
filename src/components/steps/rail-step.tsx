@@ -39,10 +39,19 @@ export function RailStep() {
               }`}
               aria-pressed={isSelected}
             >
-              <div
-                className="h-12 w-12 rounded-lg border border-brand-200"
-                style={{ backgroundColor: rail.hex }}
-              />
+              {rail.img ? (
+                <img
+                  src={`/${rail.img}`}
+                  alt={rail.name}
+                  loading="lazy"
+                  className="h-16 w-16 rounded-lg border border-brand-200 object-cover"
+                />
+              ) : (
+                <div
+                  className="h-16 w-16 rounded-lg border border-brand-200"
+                  style={{ backgroundColor: rail.hex }}
+                />
+              )}
               <span className="text-center text-xs font-medium text-brand-900">
                 {rail.name}
               </span>

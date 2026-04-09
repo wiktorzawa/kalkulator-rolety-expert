@@ -41,6 +41,7 @@ export interface RailColor {
   readonly type: RailFinish;
   readonly hex: string;
   readonly surcharge: number;
+  readonly img?: string;
 }
 
 export type WidthPriceEntry = readonly [cm: number, price: number];
