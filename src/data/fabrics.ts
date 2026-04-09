@@ -351,6 +351,45 @@ const DOLOMIT_COLORS: readonly Color[] = [
   },
 ];
 
+const DOLOMIT_TERMO_COLORS: readonly Color[] = [
+  {
+    id: "szary",
+    name: "Szary",
+    hex: "#8A8A8A",
+    img: "assets/05-Dolomit-Termo/szary.-1-300x500.jpg",
+  },
+  {
+    id: "bez",
+    name: "Beż",
+    hex: "#C9B99A",
+    img: "assets/05-Dolomit-Termo/bez.-300x500.jpg",
+  },
+  {
+    id: "krem",
+    name: "Krem",
+    hex: "#EDE4D0",
+    img: "assets/05-Dolomit-Termo/krem.-300x500.jpg",
+  },
+  {
+    id: "grafit",
+    name: "Grafit",
+    hex: "#4A4A4A",
+    img: "assets/05-Dolomit-Termo/grafitt.-300x500.jpg",
+  },
+  {
+    id: "mocca",
+    name: "Mocca",
+    hex: "#6B4A3A",
+    img: "assets/05-Dolomit-Termo/mocca.-300x500.jpg",
+  },
+  {
+    id: "srebro",
+    name: "Srebro",
+    hex: "#BDBDBD",
+    img: "assets/05-Dolomit-Termo/srebro.-300x500.jpg",
+  },
+];
+
 const BLACKOUT_COLORS: readonly Color[] = [
   {
     id: "biel",
@@ -448,7 +487,7 @@ const COLOR_MAP: Record<string, readonly Color[]> = {
   melange: MELANGE_COLORS,
   melange_termo: MELANGE_TERMO_COLORS,
   dolomit: DOLOMIT_COLORS,
-  dolomit_termo: DOLOMIT_COLORS,
+  dolomit_termo: DOLOMIT_TERMO_COLORS,
   blackout: BLACKOUT_COLORS,
   honeycomb: HONEYCOMB_COLORS,
 };
