@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@theme {
+  /* Brand colors from prototype */
+  --color-brand-50: #f7f6f3;
+  --color-brand-100: #ece9e1;
+  --color-brand-200: #d8d1c2;
+  --color-brand-300: #c0b59e;
+  --color-brand-400: #a89878;
+  --color-brand-500: #96825e;
+  --color-brand-600: #867352;
+  --color-brand-700: #6d5d44;
+  --color-brand-800: #5c4e3b;
+  --color-brand-900: #4d4234;
+  --color-brand-950: #2b231b;
+
+  --color-accent-50: #fdf6ef;
+  --color-accent-100: #faead8;
+  --color-accent-200: #f4d2b0;
+  --color-accent-300: #edb47e;
+  --color-accent-400: #e48e4a;
+  --color-accent-500: #de7328;
+  --color-accent-600: #cc5c1e;
+  --color-accent-700: #a9461a;
+  --color-accent-800: #87391c;
+  --color-accent-900: #6f311a;
+  --color-accent-950: #3c170b;
+
+  --color-sage-50: #f4f6f0;
+  --color-sage-100: #e6eadd;
+  --color-sage-200: #ced6be;
+  --color-sage-300: #aebb96;
+  --color-sage-400: #8fa072;
+  --color-sage-500: #738656;
+  --color-sage-600: #5a6a41;
+  --color-sage-700: #475335;
+  --color-sage-800: #3a432c;
+  --color-sage-900: #313927;
+  --color-sage-950: #181e12;
+
+  /* Fonts */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+@source "../node_modules/@heroui/react/dist";
