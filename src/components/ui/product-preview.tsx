@@ -7,6 +7,7 @@ import {
   getMountingImagePath,
   fabricIdToCollection,
 } from "@/data/images";
+import { MOUNTING_SYSTEMS } from "@/data/mounting";
 
 interface GalleryImage {
   readonly src: string;
@@ -20,7 +21,6 @@ function buildGalleryImages(
   collection: string,
   colorId: string,
   isBezinwazyjny: boolean,
-  fullMountingId: string | null,
 ): GalleryImage[] {
   const images: GalleryImage[] = [];
 
@@ -46,15 +46,16 @@ function buildGalleryImages(
     alt: "Zbliżenie tkaniny",
   });
 
-  // 4-5. Mounting images (if mounting selected)
-  if (fullMountingId) {
+  // 4+. Mounting images — all 5 systems (opis + pomiar each), like Stelge
+  for (const system of MOUNTING_SYSTEMS) {
+    const sysFullId = `${system.type}-${system.id}`;
     images.push({
-      src: `/${getMountingImagePath(fullMountingId, "opis")}`,
-      alt: "Opis montażu",
+      src: `/${getMountingImagePath(sysFullId, "opis")}`,
+      alt: `Opis montażu — ${system.name}`,
     });
     images.push({
-      src: `/${getMountingImagePath(fullMountingId, "pomiar")}`,
-      alt: "Schemat pomiaru",
+      src: `/${getMountingImagePath(sysFullId, "pomiar")}`,
+      alt: `Pomiar — ${system.name}`,
     });
   }
 
@@ -77,17 +78,7 @@ export function ProductPreview() {
   const collection = fabricIdToCollection(state.fabricId);
   const isBezinwazyjny = state.mountingType === "bezinwazyjny";
 
-  const fullMountingId =
-    state.mountingType && state.mountingId
-      ? `${state.mountingType}-${state.mountingId}`
-      : null;
-
-  const images = buildGalleryImages(
-    collection,
-    state.colorId,
-    isBezinwazyjny,
-    fullMountingId,
-  );
+  const images = buildGalleryImages(collection, state.colorId, isBezinwazyjny);
 
   // Clamp activeIndex if images list shrinks
   const safeIndex = activeIndex < images.length ? activeIndex : 0;
