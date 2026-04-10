@@ -61,7 +61,7 @@ export function RailStep() {
                     src={imgSrc}
                     alt={rail.name}
                     loading="lazy"
-                    className="h-16 w-16 cursor-zoom-in rounded-lg border border-brand-200 object-cover transition-transform hover:scale-110"
+                    className="aspect-square w-full cursor-zoom-in rounded-lg border border-brand-200 object-cover transition-transform hover:scale-105"
                     onClick={(e) => {
                       e.stopPropagation();
                       openPreview(imgSrc, rail.name);
@@ -70,7 +70,7 @@ export function RailStep() {
                   />
                 ) : (
                   <div
-                    className="h-16 w-16 rounded-lg border border-brand-200"
+                    className="aspect-square w-full rounded-lg border border-brand-200"
                     style={{ backgroundColor: rail.hex }}
                   />
                 )}
