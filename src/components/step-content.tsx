@@ -16,20 +16,10 @@ export function StepContent() {
   const { state } = useWizard();
 
   return (
-    <div className="space-y-6">
-      <div className="rounded-2xl bg-white p-6 shadow-lg">
-        <FabricStep />
-      </div>
-      {state.step >= 2 && (
-        <div className="rounded-2xl bg-white p-6 shadow-lg">
-          <ColorStep />
-        </div>
-      )}
-      {state.step >= 3 && (
-        <div className="rounded-2xl bg-white p-6 shadow-lg">
-          <ConfigStep />
-        </div>
-      )}
+    <div className="space-y-12">
+      <FabricStep />
+      {state.step >= 2 && <ColorStep />}
+      {state.step >= 3 && <ConfigStep />}
     </div>
   );
 }

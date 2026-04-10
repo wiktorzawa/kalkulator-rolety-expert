@@ -26,8 +26,8 @@ function ConfiguratorContent() {
     return (
       <WizardProvider>
         <BeforeunloadGuard />
-        <div className="flex min-h-screen flex-col bg-brand-800">
-          <header className="sticky top-0 z-40 border-b border-brand-700 bg-brand-900/95 backdrop-blur-sm">
+        <div className="flex min-h-screen flex-col bg-brand-50">
+          <header className="sticky top-0 z-40 border-b border-brand-200 bg-white/95 backdrop-blur-sm">
             <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
               <a
                 href="/"
@@ -53,7 +53,7 @@ function ConfiguratorContent() {
   return (
     <WizardProvider>
       <BeforeunloadGuard />
-      <div className="flex min-h-screen flex-col bg-brand-800">
+      <div className="flex min-h-screen flex-col bg-brand-50">
         <Header />
         <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 pb-32 md:pb-6">
           <StepContent />

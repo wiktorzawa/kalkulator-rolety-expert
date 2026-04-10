@@ -9,7 +9,7 @@ export function Header() {
   const { price } = useWizard();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-brand-700 bg-brand-900/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-brand-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
         <a
           href="/"
@@ -19,10 +19,10 @@ export function Header() {
           <img src="/logo.svg" alt="rolety.expert" className="h-8 md:h-10" />
         </a>
         <div className="text-right">
-          <span className="text-xs text-brand-300">Cena</span>
-          <p className="font-display text-lg font-bold text-white md:text-xl">
+          <span className="text-xs text-brand-400">Cena</span>
+          <p className="font-display text-lg font-bold text-brand-950 md:text-xl">
             {formatPrice(price.total)}{" "}
-            <span className="text-sm font-normal text-brand-300">zł</span>
+            <span className="text-sm font-normal text-brand-500">zł</span>
           </p>
         </div>
       </div>

@@ -2,44 +2,44 @@
 @import "@heroui/styles";
 
 @theme {
-  /* Brand — charcoal slate, dark professional palette */
-  --color-brand-50: #f4f5f7;
-  --color-brand-100: #e2e5ea;
-  --color-brand-200: #c5ccd5;
-  --color-brand-300: #9aa6b5;
-  --color-brand-400: #6b7a8d;
-  --color-brand-500: #4d5e72;
-  --color-brand-600: #3d4d61;
-  --color-brand-700: #343f51;
-  --color-brand-800: #2c3545;
-  --color-brand-900: #252d3a;
-  --color-brand-950: #1a2029;
+  /* Brand — warm slate-blue, professional but vivid */
+  --color-brand-50: #f0f4f8;
+  --color-brand-100: #dce4ed;
+  --color-brand-200: #b8c9db;
+  --color-brand-300: #8ba7c2;
+  --color-brand-400: #6586a6;
+  --color-brand-500: #4a6b8a;
+  --color-brand-600: #3b5674;
+  --color-brand-700: #33475f;
+  --color-brand-800: #2d3d50;
+  --color-brand-900: #293545;
+  --color-brand-950: #1a222e;
 
-  /* Accent — warm amber, premium CTA on dark */
-  --color-accent-50: #fff9eb;
-  --color-accent-100: #feefc7;
-  --color-accent-200: #fddb8a;
-  --color-accent-300: #fcc24d;
-  --color-accent-400: #fbad24;
-  --color-accent-500: #f5900b;
-  --color-accent-600: #d96c06;
-  --color-accent-700: #b44b09;
-  --color-accent-800: #923a0e;
-  --color-accent-900: #78300f;
-  --color-accent-950: #451703;
+  /* Accent — warm terracotta, inviting CTA */
+  --color-accent-50: #fef4f0;
+  --color-accent-100: #fde6db;
+  --color-accent-200: #fbc9b6;
+  --color-accent-300: #f7a487;
+  --color-accent-400: #f07a52;
+  --color-accent-500: #e85d30;
+  --color-accent-600: #d44622;
+  --color-accent-700: #b0361c;
+  --color-accent-800: #8e2f1d;
+  --color-accent-900: #752b1c;
+  --color-accent-950: #40130b;
 
-  /* Sage — emerald teal, confident and calming */
-  --color-sage-50: #edfcf5;
-  --color-sage-100: #d3f8e5;
-  --color-sage-200: #aaefd0;
-  --color-sage-300: #73e1b4;
-  --color-sage-400: #3acc94;
-  --color-sage-500: #17b17a;
-  --color-sage-600: #0b8f63;
-  --color-sage-700: #097251;
-  --color-sage-800: #0b5a42;
-  --color-sage-900: #0a4a37;
-  --color-sage-950: #05291f;
+  /* Sage — teal-green, fresh and modern */
+  --color-sage-50: #effaf6;
+  --color-sage-100: #d8f3ea;
+  --color-sage-200: #b4e6d6;
+  --color-sage-300: #82d3bc;
+  --color-sage-400: #51b89d;
+  --color-sage-500: #319c83;
+  --color-sage-600: #247d6a;
+  --color-sage-700: #1f6557;
+  --color-sage-800: #1d5147;
+  --color-sage-900: #1b433c;
+  --color-sage-950: #0b2722;
 
   /* Fonts */
   --font-display: "Playfair Display", "Georgia", serif;
