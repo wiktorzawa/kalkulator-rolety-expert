@@ -22,6 +22,7 @@ export type CartView = "configurator" | "order-list";
 export interface CartState {
   readonly items: readonly CartItem[];
   readonly view: CartView;
+  readonly orderSubmitted: boolean;
 }
 
 export type CartAction =
@@ -38,9 +39,11 @@ export type CartAction =
       readonly id: string;
       readonly quantity: number;
     }
-  | { readonly type: "SET_VIEW"; readonly view: CartView };
+  | { readonly type: "SET_VIEW"; readonly view: CartView }
+  | { readonly type: "SET_ORDER_SUBMITTED" };
 
 export const INITIAL_CART_STATE: CartState = {
   items: [],
   view: "configurator",
+  orderSubmitted: false,
 };

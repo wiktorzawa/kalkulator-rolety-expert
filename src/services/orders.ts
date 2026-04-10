@@ -85,7 +85,13 @@ export async function submitOrder(
     throw new Error(`Failed to submit order: ${error.message}`);
   }
 
-  const orderNumber = data as string;
+  if (typeof data !== "string") {
+    throw new Error(
+      `Unexpected response from submit_order: expected string, got ${typeof data}`,
+    );
+  }
+
+  const orderNumber = data;
 
   analytics.trackOrder({
     orderNumber,
@@ -118,26 +124,34 @@ export async function lookupOrder(
     return null;
   }
 
-  // RPC returns JSONB — Supabase client parses it as an object
-  const record = data as {
-    id: number;
-    order_number: string;
-    total_price: number;
-    allegro_units: number;
-    allegro_tx_id: string | null;
-    utm_source: string | null;
-    created_at: string;
-    items: OrderItemRecord[];
-  };
+  // RPC returns JSONB — validate the shape at runtime
+  const record = data as Record<string, unknown>;
+  if (
+    typeof record !== "object" ||
+    record === null ||
+    typeof record.id !== "number" ||
+    typeof record.order_number !== "string" ||
+    typeof record.total_price !== "number" ||
+    typeof record.allegro_units !== "number" ||
+    typeof record.created_at !== "string"
+  ) {
+    throw new Error("Unexpected response shape from lookup_order RPC");
+  }
+
+  const items = Array.isArray(record.items)
+    ? (record.items as readonly OrderItemRecord[])
+    : [];
 
   return {
     id: record.id,
     order_number: record.order_number,
     total_price: record.total_price,
     allegro_units: record.allegro_units,
-    allegro_tx_id: record.allegro_tx_id,
-    utm_source: record.utm_source,
+    allegro_tx_id:
+      typeof record.allegro_tx_id === "string" ? record.allegro_tx_id : null,
+    utm_source:
+      typeof record.utm_source === "string" ? record.utm_source : null,
     created_at: record.created_at,
-    items: record.items ?? [],
+    items,
   };
 }

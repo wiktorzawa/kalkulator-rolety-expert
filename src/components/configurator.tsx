@@ -12,8 +12,9 @@ function BeforeunloadGuard() {
 
   const hasItems = cartState.items.length > 0;
   const isEditing = wizardState.editingItemId !== null;
+  const orderSubmitted = cartState.orderSubmitted;
 
-  useBeforeunload(hasItems || isEditing);
+  useBeforeunload((hasItems || isEditing) && !orderSubmitted);
 
   return null;
 }

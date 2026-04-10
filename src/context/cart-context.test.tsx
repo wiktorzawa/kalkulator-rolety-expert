@@ -165,6 +165,18 @@ describe("cartReducer", () => {
 
     expect(result.view).toBe("order-list");
   });
+
+  it("SET_ORDER_SUBMITTED sets orderSubmitted to true", () => {
+    const result = cartReducer(INITIAL_CART_STATE, {
+      type: "SET_ORDER_SUBMITTED",
+    });
+
+    expect(result.orderSubmitted).toBe(true);
+  });
+
+  it("orderSubmitted is false in initial state", () => {
+    expect(INITIAL_CART_STATE.orderSubmitted).toBe(false);
+  });
 });
 
 describe("useCart hook", () => {

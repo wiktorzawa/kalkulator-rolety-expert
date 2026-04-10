@@ -311,6 +311,18 @@ Ostatnia aktualizacja: 2026-04-10
 - [ ] Weryfikacja: Analytics rejestruje nowe eventy
 - [ ] Weryfikacja: `npm run typecheck && npm run lint && npm run test` — zero failures
 
+## Do poprawy po review fazy 6
+
+- [x] 🟠 [P2-important] **src/components/configurator.tsx:13-16** — BeforeunloadGuard nie wyłącza się po złożeniu zamówienia. Cart items pozostają w stanie, `hasItems` jest true. Dodać flagę `orderSubmitted` do CartContext.
+- [x] 🟠 [P2-important] **src/services/orders.ts:88,122-131** — Type assertions `as string` i `as {...}` łamią coding rules sekcja 10. Dodać runtime walidację zamiast assertions.
+- [x] 🟠 [P2-important] **src/components/order/order-summary.tsx** — brak pliku testowego `order-summary.test.tsx`. Kluczowy komponent fazy 6 bez testów UI.
+- [x] 🟠 [P2-important] **src/components/order/order-list.tsx:55-70** — `editItem` brakuje w dependency array useEffect. Zawinąć w `useCallback` lub przenieść logikę do useEffect.
+- [ ] 🟡 [P3-nit] **5 plików** — `formatPrice()` zduplikowana 5 razy. Wyciągnąć do `src/utils/format.ts`.
+- [ ] 🟡 [P3-nit] **src/components/order/order-list-placeholder.tsx** — dead code, nie importowany nigdzie. Usunąć.
+- [ ] 🟡 [P3-nit] **src/components/order/order-summary.tsx:189** — niespójna konstrukcja URL (brak pathname vs order-list.tsx:151 który go ma).
+- [ ] 🟡 [P3-nit] **src/services/orders.ts:90-95** — analytics side-effect w warstwie serwisowej. Lepiej wywołać w komponencie.
+- [ ] 🟡 [P3-nit] **eslint.config.js** — brak pluginu react-hooks/exhaustive-deps.
+
 ---
 
 ## Podsumowanie postępu

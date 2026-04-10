@@ -86,6 +86,12 @@ export function cartReducer(state: CartState, action: CartAction): CartState {
         view: action.view,
       };
 
+    case "SET_ORDER_SUBMITTED":
+      return {
+        ...state,
+        orderSubmitted: true,
+      };
+
     default:
       return state;
   }

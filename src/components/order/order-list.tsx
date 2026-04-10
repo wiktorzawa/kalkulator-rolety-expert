@@ -51,6 +51,24 @@ export function OrderList() {
   const knownItemIdsRef = useRef<ReadonlySet<string>>(new Set());
   const [pendingDuplicate, setPendingDuplicate] = useState(false);
 
+  const editItem = useCallback(
+    (item: CartItem): void => {
+      wizardDispatch({
+        type: "LOAD_ITEM",
+        fabricId: item.fabricId,
+        colorId: item.colorId,
+        mountingId: item.mountingId,
+        mountingType: item.mountingType,
+        widthMm: item.widthMm,
+        heightMm: item.heightMm,
+        railId: item.railId,
+        itemId: item.id,
+      });
+      cartDispatch({ type: "SET_VIEW", view: "configurator" });
+    },
+    [wizardDispatch, cartDispatch],
+  );
+
   // Keep knownItemIdsRef in sync, but only when not waiting for a duplicate
   useEffect(() => {
     if (pendingDuplicate) {
@@ -67,7 +85,7 @@ export function OrderList() {
     } else {
       knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
     }
-  }, [cartState.items, pendingDuplicate]);
+  }, [cartState.items, pendingDuplicate, editItem]);
 
   // Toast auto-dismiss
   useEffect(() => {
@@ -82,21 +100,6 @@ export function OrderList() {
 
   function handleAddNew(): void {
     wizardDispatch({ type: "RESET" });
-    cartDispatch({ type: "SET_VIEW", view: "configurator" });
-  }
-
-  function editItem(item: CartItem): void {
-    wizardDispatch({
-      type: "LOAD_ITEM",
-      fabricId: item.fabricId,
-      colorId: item.colorId,
-      mountingId: item.mountingId,
-      mountingType: item.mountingType,
-      widthMm: item.widthMm,
-      heightMm: item.heightMm,
-      railId: item.railId,
-      itemId: item.id,
-    });
     cartDispatch({ type: "SET_VIEW", view: "configurator" });
   }
 
@@ -146,6 +149,7 @@ export function OrderList() {
       };
 
       setSubmittedOrder(order);
+      cartDispatch({ type: "SET_ORDER_SUBMITTED" });
 
       // Update URL without reload
       const newUrl = `${window.location.origin}${window.location.pathname}?order=${orderNumber}`;
