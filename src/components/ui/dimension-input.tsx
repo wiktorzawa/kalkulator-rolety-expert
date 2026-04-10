@@ -97,12 +97,13 @@ export function DimensionInput({
         </Slider.Track>
       </Slider>
 
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-2">
         {quickValues.map((qv) => (
           <Button
             key={qv}
             variant={value === qv ? "primary" : "outline"}
             size="sm"
+            className="min-h-[44px] min-w-[44px]"
             onPress={() => onChange(qv)}
             aria-label={`Ustaw ${label.toLowerCase()} na ${qv} ${unit}`}
           >

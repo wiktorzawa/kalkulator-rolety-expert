@@ -28,7 +28,7 @@ export function StepIndicator() {
                 onPress={() =>
                   dispatch({ type: "GO_TO_STEP", step: stepNumber })
                 }
-                className={`rounded-full ${
+                className={`min-h-[44px] min-w-[44px] rounded-full ${
                   isActive ? "ring-2 ring-sage-400" : ""
                 }`}
                 aria-current={isActive ? "step" : undefined}

@@ -41,7 +41,7 @@ export function FabricCard({ fabric, isSelected, onSelect }: FabricCardProps) {
           </div>
         )}
 
-        <div className="aspect-[3/4] w-full overflow-hidden bg-brand-100">
+        <div className="aspect-[4/3] w-full overflow-hidden bg-brand-100 sm:aspect-[3/4]">
           <img
             src={`/${fabric.img}`}
             alt={fabric.name}

@@ -72,7 +72,7 @@ export function ColorSwatch({
             aria-label={
               showSwatch ? "Pokaż packshot rolety" : "Pokaż zbliżenie tkaniny"
             }
-            className="absolute bottom-2 right-2 h-10 w-10 cursor-pointer overflow-hidden rounded-full border-2 border-white shadow-md transition-transform hover:scale-110"
+            className="absolute bottom-2 right-2 h-11 w-11 cursor-pointer overflow-hidden rounded-full border-2 border-white shadow-md transition-transform hover:scale-110 sm:h-10 sm:w-10"
             onClick={(e) => {
               e.stopPropagation();
               setShowSwatch((prev) => !prev);

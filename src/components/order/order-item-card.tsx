@@ -48,9 +48,9 @@ export function OrderItemCard({
   return (
     <Card className="p-4" data-testid="order-item-card">
       <Card.Content className="p-0">
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           {/* Miniatura */}
-          <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-brand-50">
+          <div className="h-32 w-full flex-shrink-0 overflow-hidden rounded-lg bg-brand-50 sm:h-24 sm:w-20">
             <img
               src={`/${packshotSrc}`}
               alt={`${item.fabricName} — ${item.colorName}`}
@@ -86,7 +86,7 @@ export function OrderItemCard({
         </div>
 
         {/* Akcje */}
-        <div className="mt-3 flex items-center justify-between border-t border-brand-100 pt-3">
+        <div className="mt-3 flex flex-col gap-3 border-t border-brand-100 pt-3 sm:flex-row sm:items-center sm:justify-between">
           {/* Ilość */}
           <div className="flex items-center gap-2">
             <Button
@@ -117,7 +117,7 @@ export function OrderItemCard({
           </div>
 
           {/* Edytuj / Duplikuj / Usuń */}
-          <div className="flex gap-1">
+          <div className="flex gap-1 sm:ml-auto">
             <Button variant="ghost" size="sm" onPress={() => onEdit(item)}>
               Edytuj
             </Button>

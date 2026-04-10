@@ -66,7 +66,7 @@ export function MountingStep() {
       </h3>
 
       {/* Kategorie montażu — HeroUI Card */}
-      <div className="mb-6 grid grid-cols-2 gap-3">
+      <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <Card
           className={`cursor-pointer border-2 transition-all ${
             selectedCategory === "bezinwazyjny"

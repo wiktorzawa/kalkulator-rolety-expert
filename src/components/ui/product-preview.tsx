@@ -149,7 +149,7 @@ export function ProductPreview() {
               <button
                 type="button"
                 onClick={() => scrollTo(selectedIndex - 1)}
-                className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-md transition-opacity hover:bg-white"
+                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-md transition-opacity hover:bg-white sm:h-10 sm:w-10"
                 aria-label="Poprzednie zdjęcie"
               >
                 <svg
@@ -173,7 +173,7 @@ export function ProductPreview() {
               <button
                 type="button"
                 onClick={() => scrollTo(selectedIndex + 1)}
-                className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-md transition-opacity hover:bg-white"
+                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-md transition-opacity hover:bg-white sm:h-10 sm:w-10"
                 aria-label="Następne zdjęcie"
               >
                 <svg
@@ -209,7 +209,7 @@ export function ProductPreview() {
                     onClick={() => scrollTo(idx)}
                     aria-label={img.alt}
                     aria-current={idx === selectedIndex ? "true" : undefined}
-                    className={`h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+                    className={`h-11 w-11 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all sm:h-14 sm:w-14 ${
                       idx === selectedIndex
                         ? "border-sage-600 shadow-sm"
                         : "border-transparent opacity-60 hover:opacity-100"
