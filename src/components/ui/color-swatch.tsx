@@ -1,3 +1,4 @@
+import { Card } from "@heroui/react";
 import type { Color } from "@/data/types";
 import { fabricIdToCollection, getFabricSwatchPath } from "@/data/images";
 
@@ -18,47 +19,44 @@ export function ColorSwatch({
   const swatchPath = getFabricSwatchPath(collection, color.id);
 
   return (
-    <button
-      type="button"
-      onClick={() => onSelect(color.id)}
-      className={`group flex flex-col items-center gap-2 rounded-xl p-2.5 transition-all duration-200 ${
+    <Card
+      className={`overflow-hidden border-2 transition-all duration-200 ${
         isSelected
-          ? "bg-sage-50 ring-2 ring-sage-600 shadow-sm"
-          : "hover:bg-brand-50 hover:shadow-sm"
+          ? "border-sage-600 shadow-md shadow-sage-100"
+          : "border-transparent hover:border-brand-200 hover:shadow-sm"
       }`}
-      aria-pressed={isSelected}
-      aria-label={`Kolor: ${color.name}`}
     >
-      <div
-        className={`aspect-square w-full overflow-hidden rounded-xl border-2 transition-all duration-200 group-hover:scale-105 group-hover:shadow-md ${
-          isSelected
-            ? "border-sage-600 shadow-md"
-            : "border-brand-200 group-hover:border-brand-300"
-        }`}
+      <button
+        type="button"
+        onClick={() => onSelect(color.id)}
+        className="flex w-full flex-col items-center gap-2 p-2"
+        aria-pressed={isSelected}
+        aria-label={`Kolor: ${color.name}`}
       >
-        <img
-          src={`/${swatchPath}`}
-          alt={color.name}
-          loading="lazy"
-          className="h-full w-full object-cover"
-          onError={(e) => {
-            // Fallback to hex color square if image fails to load
-            const target = e.currentTarget;
-            target.style.display = "none";
-            const parent = target.parentElement;
-            if (parent) {
-              parent.style.backgroundColor = color.hex;
-            }
-          }}
-        />
-      </div>
-      <span
-        className={`text-center text-xs font-medium transition-colors ${
-          isSelected ? "text-sage-700" : "text-brand-700"
-        }`}
-      >
-        {color.name}
-      </span>
-    </button>
+        <div className="aspect-square w-full overflow-hidden rounded-lg">
+          <img
+            src={`/${swatchPath}`}
+            alt={color.name}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = "none";
+              const parent = target.parentElement;
+              if (parent) {
+                parent.style.backgroundColor = color.hex;
+              }
+            }}
+          />
+        </div>
+        <span
+          className={`text-center text-xs font-medium ${
+            isSelected ? "text-sage-700" : "text-brand-700"
+          }`}
+        >
+          {color.name}
+        </span>
+      </button>
+    </Card>
   );
 }
