@@ -25,4 +25,12 @@ export {
 } from "./pricing";
 export { MOUNTING_SYSTEMS, getMountingById } from "./mounting";
 export { RAIL_COLORS, getRailById } from "./rails";
-export { getFabricImagePath, getColorImagePath } from "./images";
+export {
+  getPackshotPath,
+  getFabricSwatchPath,
+  getMountingImagePath,
+  getRailImagePath,
+  fabricIdToCollection,
+  getBaseCollection,
+} from "./images";
+export type { MountingImageType } from "./images";

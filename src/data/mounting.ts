@@ -1,4 +1,5 @@
 import type { MountingSystem } from "./types";
+import { getMountingImagePath } from "./images";
 
 export const MOUNTING_SYSTEMS: readonly MountingSystem[] = [
   {
@@ -6,45 +7,40 @@ export const MOUNTING_SYSTEMS: readonly MountingSystem[] = [
     name: "Wzmocniony (skręcany)",
     type: "bezinwazyjny",
     desc: "Montaż klipsowy na ramę okienną bez wiercenia w skrzydło. Max szerokość: 1950 mm.",
-    img: "assets/18-Profile-Aluminiowe-Przekroje/Plisy-montaz-bezinwazyjny-wzmocniony-opis-NOWE.png",
-    measureImg:
-      "assets/18-Profile-Aluminiowe-Przekroje/Pomiar-Montaz-bezinwazyjny-wzmocniony-nowa.png",
+    img: getMountingImagePath("bezinwazyjny-wzmocniony", "opis"),
+    measureImg: getMountingImagePath("bezinwazyjny-wzmocniony", "pomiar"),
   },
   {
     id: "klejony",
     name: "Klejony",
     type: "bezinwazyjny",
     desc: "Montaż klejony na ramę. Ograniczenie: max szerokość 1200 mm.",
-    img: "assets/18-Profile-Aluminiowe-Przekroje/Plisy-montaz-bezinwazyjny-klejony-opis-NOWE.png",
-    measureImg:
-      "assets/18-Profile-Aluminiowe-Przekroje/Pomiar-Montaz-bezinwazyjny-klejony-nowa.png",
+    img: getMountingImagePath("bezinwazyjny-klejony", "opis"),
+    measureImg: getMountingImagePath("bezinwazyjny-klejony", "pomiar"),
   },
   {
     id: "standard",
     name: "Standard",
     type: "inwazyjny",
     desc: "Podstawowy montaż wkręcany, wymaga min. 13 mm głębokości ramy.",
-    img: "assets/18-Profile-Aluminiowe-Przekroje/Plisy-montaz-inwazyjny-standard-opis-NOWE.png",
-    measureImg:
-      "assets/18-Profile-Aluminiowe-Przekroje/Pomiar-Montaz-inwazyjny-standard-nowa-1.png",
+    img: getMountingImagePath("inwazyjny-standard", "opis"),
+    measureImg: getMountingImagePath("inwazyjny-standard", "pomiar"),
   },
   {
     id: "regulowany",
     name: "Regulowany",
     type: "inwazyjny",
     desc: "Z możliwością regulacji pozycji, dla zaokrąglonych profili ram.",
-    img: "assets/18-Profile-Aluminiowe-Przekroje/Plisy-montaz-inwazyjny-regulowany-opis-NOWE.png",
-    measureImg:
-      "assets/18-Profile-Aluminiowe-Przekroje/Pomiar-Montaz-inwazyjny-regulowany-nowa-1.png",
+    img: getMountingImagePath("inwazyjny-regulowany", "opis"),
+    measureImg: getMountingImagePath("inwazyjny-regulowany", "pomiar"),
   },
   {
     id: "katowy",
     name: "Kątowy",
     type: "inwazyjny",
     desc: "Montaż dla kątowych profili ram okiennych.",
-    img: "assets/18-Profile-Aluminiowe-Przekroje/Plisy-montaz-inwazyjny-katowy-opis-NOWE.png",
-    measureImg:
-      "assets/18-Profile-Aluminiowe-Przekroje/Pomiar-Montaz-inwazyjny-katowy-nowa-1.png",
+    img: getMountingImagePath("inwazyjny-katowy", "opis"),
+    measureImg: getMountingImagePath("inwazyjny-katowy", "pomiar"),
   },
 ];
 

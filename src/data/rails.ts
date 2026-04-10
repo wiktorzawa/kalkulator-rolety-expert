@@ -1,6 +1,5 @@
 import type { RailColor } from "./types";
-
-const R = "assets/22-Listwy-Aluminiowe";
+import { getRailImagePath } from "./images";
 
 export const RAIL_COLORS: readonly RailColor[] = [
   {
@@ -9,7 +8,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "lakier",
     hex: "#FFFFFF",
     surcharge: 0,
-    img: `${R}/biel.jpg`,
+    img: getRailImagePath("biel"),
   },
   {
     id: "krem",
@@ -17,7 +16,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "lakier",
     hex: "#F0E6D0",
     surcharge: 0,
-    img: `${R}/krem.webp`,
+    img: getRailImagePath("krem"),
   },
   {
     id: "braz",
@@ -25,7 +24,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "lakier",
     hex: "#5C3A1E",
     surcharge: 0,
-    img: `${R}/braz.jpg`,
+    img: getRailImagePath("braz"),
   },
   {
     id: "antracyt",
@@ -33,7 +32,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "lakier",
     hex: "#3A3A3A",
     surcharge: 0,
-    img: `${R}/antracyt.jpg`,
+    img: getRailImagePath("antracyt"),
   },
   {
     id: "czarny",
@@ -41,7 +40,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "lakier",
     hex: "#1A1A1A",
     surcharge: 0,
-    img: `${R}/czarny-lakier.webp`,
+    img: getRailImagePath("czarny-lakier"),
   },
   {
     id: "srebrny",
@@ -49,7 +48,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "anodowany",
     hex: "#C0C0C0",
     surcharge: 4.75,
-    img: `${R}/srebrny.jpg`,
+    img: getRailImagePath("srebrny"),
   },
   {
     id: "szampanski",
@@ -57,7 +56,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "anodowany",
     hex: "#D4C5A9",
     surcharge: 4.75,
-    img: `${R}/szampanski-1.jpg`,
+    img: getRailImagePath("szampanski"),
   },
   {
     id: "zloty-dab",
@@ -65,7 +64,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#B8863B",
     surcharge: 9.5,
-    img: `${R}/zloty-dab.jpg`,
+    img: getRailImagePath("zloty-dab"),
   },
   {
     id: "orzech",
@@ -73,7 +72,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#6B4226",
     surcharge: 9.5,
-    img: `${R}/orzech.jpg`,
+    img: getRailImagePath("orzech"),
   },
   {
     id: "dab-bagienny",
@@ -81,7 +80,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#4A3828",
     surcharge: 9.5,
-    img: `${R}/dab-bagienny-1.jpg`,
+    img: getRailImagePath("dab-bagienny"),
   },
   {
     id: "mahon",
@@ -89,7 +88,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#7A2E1A",
     surcharge: 9.5,
-    img: `${R}/mahon-1.jpg`,
+    img: getRailImagePath("mahon"),
   },
   {
     id: "turner-oak",
@@ -97,7 +96,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#A08060",
     surcharge: 9.5,
-    img: `${R}/turner-oak.webp`,
+    img: getRailImagePath("turner-oak"),
   },
   {
     id: "sosna",
@@ -105,7 +104,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#C4A87A",
     surcharge: 9.5,
-    img: `${R}/sosna-1.jpg`,
+    img: getRailImagePath("sosna"),
   },
   {
     id: "winchester",
@@ -113,7 +112,7 @@ export const RAIL_COLORS: readonly RailColor[] = [
     type: "okleina",
     hex: "#8B5A2B",
     surcharge: 9.5,
-    img: `${R}/winchester-1.jpg`,
+    img: getRailImagePath("winchester"),
   },
 ];
 

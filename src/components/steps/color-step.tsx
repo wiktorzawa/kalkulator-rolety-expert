@@ -42,6 +42,7 @@ export function ColorStep() {
           <ColorSwatch
             key={color.id}
             color={color}
+            fabricId={state.fabricId!}
             isSelected={state.colorId === color.id}
             onSelect={handleSelect}
           />

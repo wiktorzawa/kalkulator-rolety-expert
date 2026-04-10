@@ -13,20 +13,20 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Stwórz `scripts/copy-stelge-assets.sh` — kopiowanie produkty/, montaz/, prowadnice/ (bez dachowe/)
-- [ ] Uruchom skrypt — skopiuj assety do `public/assets/`
-- [ ] Usuń stare numerowane foldery z `public/assets/` (01-Standard ... 22-Listwy-Aluminiowe)
-- [ ] Refaktor `src/data/images.ts` — nowe funkcje: `getPackshotPath()`, `getFabricSwatchPath()`, `getMountingImagePath()`, `getRailImagePath()`
-- [ ] Zaktualizuj `src/components/ui/fabric-card.tsx` — nowe ścieżki obrazów
-- [ ] Zaktualizuj `src/components/ui/color-swatch.tsx` — nowe ścieżki obrazów
+- [x] Stwórz `scripts/copy-stelge-assets.sh` — kopiowanie produkty/, montaz/, prowadnice/ (bez dachowe/)
+- [x] Uruchom skrypt — skopiuj assety do `public/assets/`
+- [x] Usuń stare numerowane foldery z `public/assets/` (01-Standard ... 22-Listwy-Aluminiowe)
+- [x] Refaktor `src/data/images.ts` — nowe funkcje: `getPackshotPath()`, `getFabricSwatchPath()`, `getMountingImagePath()`, `getRailImagePath()`
+- [x] Zaktualizuj `src/components/ui/fabric-card.tsx` — nowe ścieżki obrazów
+- [x] Zaktualizuj `src/components/ui/color-swatch.tsx` — nowe ścieżki obrazów
 
 #### Testy
 
-- [ ] Test: `getPackshotPath('standard', 'biel', false)` → `'assets/produkty/standard/biel/packshot.png'`
-- [ ] Test: `getPackshotPath('standard', 'biel', true)` → `'assets/produkty/standard/biel/packshot-bezinwazyjny.png'`
-- [ ] Test: `getFabricSwatchPath('honeycomb', 'antracyt')` → `'assets/produkty/honeycomb/antracyt/zblizenie.png'`
-- [ ] Test: `getMountingImagePath('bezinwazyjny-wzmocniony', 'opis')` → `'assets/montaz/bezinwazyjny-wzmocniony/opis.png'`
-- [ ] Test: `getRailImagePath('biel')` → `'assets/prowadnice/biel.jpg'`
+- [x] Test: `getPackshotPath('standard', 'biel', false)` → `'assets/produkty/standard/biel/packshot.png'`
+- [x] Test: `getPackshotPath('standard', 'biel', true)` → `'assets/produkty/standard/biel/packshot-bezinwazyjny.png'`
+- [x] Test: `getFabricSwatchPath('honeycomb', 'antracyt')` → `'assets/produkty/honeycomb/antracyt/zblizenie.png'`
+- [x] Test: `getMountingImagePath('bezinwazyjny-wzmocniony', 'opis')` → `'assets/montaz/bezinwazyjny-wzmocniony/opis.png'`
+- [x] Test: `getRailImagePath('biel')` → `'assets/prowadnice/biel.jpg'`
 
 #### Weryfikacja
 
@@ -270,7 +270,7 @@ Ostatnia aktualizacja: 2026-04-10
 
 | Faza                | Unit                             | Status          | Nakład |
 | ------------------- | -------------------------------- | --------------- | ------ |
-| 1. Fundament danych | Unit 1: Assety + images          | ⬜ Do zrobienia | M      |
+| 1. Fundament danych | Unit 1: Assety + images          | ✅ Zrobione     | M      |
 | 2. Baza danych      | Unit 2: Schema + RPC             | ⬜ Do zrobienia | M      |
 | 3. State            | Unit 3: Cart + Wizard 3 kroki    | ⬜ Do zrobienia | L      |
 | 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ⬜ Do zrobienia | M      |
