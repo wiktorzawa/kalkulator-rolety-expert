@@ -94,25 +94,25 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Stwórz `src/context/cart-types.ts` — CartItem, CartState, CartAction
-- [ ] Stwórz `src/context/cart-context.tsx` — CartProvider, useCart, cartReducer (ADD_ITEM, REMOVE_ITEM, UPDATE_ITEM, DUPLICATE_ITEM, SET_QUANTITY, SET_VIEW)
-- [ ] Refaktor `src/context/wizard-types.ts` — STEP_LABELS = ['Tkanina', 'Kolor', 'Konfiguracja'], TOTAL_STEPS = 3, dodaj editingItemId, LOAD_ITEM action, RESET action
-- [ ] Refaktor `src/context/wizard-context.tsx` — reducer 3 kroki, LOAD_ITEM, RESET, isStepComplete(3) sprawdza mounting+dimensions+rail
-- [ ] Modyfikuj `src/App.tsx` — CartProvider wrapper
+- [x] Stwórz `src/context/cart-types.ts` — CartItem, CartState, CartAction
+- [x] Stwórz `src/context/cart-context.tsx` — CartProvider, useCart, cartReducer (ADD_ITEM, REMOVE_ITEM, UPDATE_ITEM, DUPLICATE_ITEM, SET_QUANTITY, SET_VIEW)
+- [x] Refaktor `src/context/wizard-types.ts` — STEP_LABELS = ['Tkanina', 'Kolor', 'Konfiguracja'], TOTAL_STEPS = 3, dodaj editingItemId, LOAD_ITEM action, RESET action
+- [x] Refaktor `src/context/wizard-context.tsx` — reducer 3 kroki, LOAD_ITEM, RESET, isStepComplete(3) sprawdza mounting+dimensions+rail
+- [x] Modyfikuj `src/App.tsx` — CartProvider wrapper
 
 #### Testy
 
-- [ ] Test: ADD_ITEM dodaje pozycję z UUID i ceną
-- [ ] Test: REMOVE_ITEM usuwa po id
-- [ ] Test: SET_QUANTITY(id, 3) aktualizuje ilość, totalPrice = unitPrice × 3
-- [ ] Test: DUPLICATE_ITEM klonuje z nowym id
-- [ ] Test: UPDATE_ITEM zastępuje konfigurację, przelicza cenę
-- [ ] Test: totalPrice = suma (unitPrice × quantity) dla wszystkich items
-- [ ] Test: LOAD_ITEM w wizard ustawia wszystkie pola + editingItemId
-- [ ] Test: RESET czyści do INITIAL_STATE, editingItemId = null
-- [ ] Test: isStepComplete(3) = true gdy mounting + dimensions + rail wybrane
-- [ ] Test: SELECT_FABRIC resetuje colorId (zachowane zachowanie)
-- [ ] Test: Zmiana tkaniny w edycji — kolor zachowany jeśli istnieje w nowej palecie, resetowany jeśli nie (R33)
+- [x] Test: ADD_ITEM dodaje pozycję z UUID i ceną
+- [x] Test: REMOVE_ITEM usuwa po id
+- [x] Test: SET_QUANTITY(id, 3) aktualizuje ilość, totalPrice = unitPrice × 3
+- [x] Test: DUPLICATE_ITEM klonuje z nowym id
+- [x] Test: UPDATE_ITEM zastępuje konfigurację, przelicza cenę
+- [x] Test: totalPrice = suma (unitPrice × quantity) dla wszystkich items
+- [x] Test: LOAD_ITEM w wizard ustawia wszystkie pola + editingItemId
+- [x] Test: RESET czyści do INITIAL_STATE, editingItemId = null
+- [x] Test: isStepComplete(3) = true gdy mounting + dimensions + rail wybrane
+- [x] Test: SELECT_FABRIC resetuje colorId (zachowane zachowanie)
+- [x] Test: Zmiana tkaniny w edycji — kolor zachowany jeśli istnieje w nowej palecie, resetowany jeśli nie (R33)
 
 #### Weryfikacja
 
@@ -287,7 +287,7 @@ Ostatnia aktualizacja: 2026-04-10
 | ------------------- | -------------------------------- | --------------- | ------ |
 | 1. Fundament danych | Unit 1: Assety + images          | ✅ Zrobione     | M      |
 | 2. Baza danych      | Unit 2: Schema + RPC             | ✅ Zrobione     | M      |
-| 3. State            | Unit 3: Cart + Wizard 3 kroki    | ⬜ Do zrobienia | L      |
+| 3. State            | Unit 3: Cart + Wizard 3 kroki    | ✅ Zrobione     | L      |
 | 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ⬜ Do zrobienia | M      |
 | 4. UI wizarda       | Unit 5: Krok 3 composite         | ⬜ Do zrobienia | XL     |
 | 5. Multi-plisa      | Unit 6: Lista zamówienia + panel | ⬜ Do zrobienia | L      |

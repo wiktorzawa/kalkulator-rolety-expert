@@ -1,12 +1,6 @@
 import type { MountingCategory } from "@/data/types";
 
-export const STEP_LABELS = [
-  "Tkanina",
-  "Kolor",
-  "Montaż",
-  "Wymiary",
-  "Listwa",
-] as const;
+export const STEP_LABELS = ["Tkanina", "Kolor", "Konfiguracja"] as const;
 
 export const TOTAL_STEPS = STEP_LABELS.length;
 
@@ -26,6 +20,7 @@ export interface WizardState {
   readonly widthMm: number;
   readonly heightMm: number;
   readonly railId: string | null;
+  readonly editingItemId: string | null;
 }
 
 export type WizardAction =
@@ -42,7 +37,19 @@ export type WizardAction =
       readonly heightMm: number;
     }
   | { readonly type: "SELECT_RAIL"; readonly railId: string }
-  | { readonly type: "GO_TO_STEP"; readonly step: number };
+  | { readonly type: "GO_TO_STEP"; readonly step: number }
+  | {
+      readonly type: "LOAD_ITEM";
+      readonly fabricId: string;
+      readonly colorId: string;
+      readonly mountingId: string;
+      readonly mountingType: MountingCategory;
+      readonly widthMm: number;
+      readonly heightMm: number;
+      readonly railId: string;
+      readonly itemId: string;
+    }
+  | { readonly type: "RESET" };
 
 export const INITIAL_STATE: WizardState = {
   step: 1,
@@ -53,4 +60,5 @@ export const INITIAL_STATE: WizardState = {
   widthMm: DEFAULT_WIDTH_MM,
   heightMm: DEFAULT_HEIGHT_MM,
   railId: null,
+  editingItemId: null,
 };

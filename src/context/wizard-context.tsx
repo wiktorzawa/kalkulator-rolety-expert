@@ -9,12 +9,14 @@ import {
 import type { PriceBreakdown } from "@/data/types";
 import { MAX_WIDTH_GLUED } from "@/data/pricing";
 import { getMountingById } from "@/data/mounting";
+import { getColorsForFabric } from "@/data/fabrics";
 import { calculatePrice } from "@/utils/pricing";
 
 import {
   type WizardState,
   type WizardAction,
   INITIAL_STATE,
+  TOTAL_STEPS,
   MIN_WIDTH_MM,
   MAX_WIDTH_MM,
   MIN_HEIGHT_MM,
@@ -28,11 +30,12 @@ function isStepComplete(state: WizardState, step: number): boolean {
     case 2:
       return state.colorId !== null;
     case 3:
-      return state.mountingId !== null;
-    case 4:
-      return state.widthMm >= MIN_WIDTH_MM && state.heightMm >= MIN_HEIGHT_MM;
-    case 5:
-      return state.railId !== null;
+      return (
+        state.mountingId !== null &&
+        state.railId !== null &&
+        state.widthMm >= MIN_WIDTH_MM &&
+        state.heightMm >= MIN_HEIGHT_MM
+      );
     default:
       return false;
   }
@@ -43,13 +46,24 @@ export function wizardReducer(
   action: WizardAction,
 ): WizardState {
   switch (action.type) {
-    case "SELECT_FABRIC":
+    case "SELECT_FABRIC": {
+      // R33: in edit mode, preserve color if it exists in the new fabric's palette
+      let newColorId: string | null = null;
+      if (state.editingItemId !== null && state.colorId !== null) {
+        const newColors = getColorsForFabric(action.fabricId);
+        const colorExists = newColors.some((c) => c.id === state.colorId);
+        if (colorExists) {
+          newColorId = state.colorId;
+        }
+      }
+
       return {
         ...state,
         fabricId: action.fabricId,
-        colorId: null,
+        colorId: newColorId,
         step: Math.max(state.step, 2),
       };
+    }
 
     case "SELECT_COLOR":
       return {
@@ -76,7 +90,6 @@ export function wizardReducer(
         mountingId: action.mountingId,
         mountingType: action.mountingType,
         widthMm,
-        step: Math.max(state.step, 4),
       };
     }
 
@@ -96,17 +109,32 @@ export function wizardReducer(
       return {
         ...state,
         railId: action.railId,
-        step: Math.max(state.step, 5),
       };
 
     case "GO_TO_STEP": {
-      if (action.step < 1 || action.step > 5) return state;
-      // Can only go to a step if all previous steps are complete
+      if (action.step < 1 || action.step > TOTAL_STEPS) return state;
       for (let i = 1; i < action.step; i++) {
         if (!isStepComplete(state, i)) return state;
       }
       return { ...state, step: action.step };
     }
+
+    case "LOAD_ITEM":
+      return {
+        ...state,
+        fabricId: action.fabricId,
+        colorId: action.colorId,
+        mountingId: action.mountingId,
+        mountingType: action.mountingType,
+        widthMm: action.widthMm,
+        heightMm: action.heightMm,
+        railId: action.railId,
+        step: 1,
+        editingItemId: action.itemId,
+      };
+
+    case "RESET":
+      return { ...INITIAL_STATE };
 
     default:
       return state;

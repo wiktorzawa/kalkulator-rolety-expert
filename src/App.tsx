@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { CartProvider } from "@/context/cart-context";
 import { Configurator } from "@/components/configurator";
 import { OrderLookup } from "@/components/order/order-lookup";
 import { parseOrderParam, parseUtmSource } from "@/utils/order-number";
@@ -32,5 +33,9 @@ export function App() {
     );
   }
 
-  return <Configurator />;
+  return (
+    <CartProvider>
+      <Configurator />
+    </CartProvider>
+  );
 }

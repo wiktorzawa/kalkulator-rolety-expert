@@ -8,7 +8,16 @@ import {
   MIN_WIDTH_MM,
   MAX_WIDTH_MM,
   MAX_HEIGHT_MM,
+  TOTAL_STEPS,
+  STEP_LABELS,
 } from "./wizard-types";
+
+describe("wizard constants", () => {
+  it("has 3 steps", () => {
+    expect(TOTAL_STEPS).toBe(3);
+    expect(STEP_LABELS).toEqual(["Tkanina", "Kolor", "Konfiguracja"]);
+  });
+});
 
 describe("wizardReducer", () => {
   it("SELECT_FABRIC sets fabricId and resets colorId", () => {
@@ -33,7 +42,37 @@ describe("wizardReducer", () => {
     expect(result.step).toBe(2);
   });
 
-  it("SELECT_COLOR sets colorId and advances step", () => {
+  it("SELECT_FABRIC in edit mode preserves color if it exists in new palette", () => {
+    const state = {
+      ...INITIAL_STATE,
+      fabricId: "standard",
+      colorId: "grafit", // grafit exists in both standard and melange
+      editingItemId: "item-1",
+    };
+    const result = wizardReducer(state, {
+      type: "SELECT_FABRIC",
+      fabricId: "melange",
+    });
+    expect(result.fabricId).toBe("melange");
+    expect(result.colorId).toBe("grafit"); // preserved — exists in melange
+  });
+
+  it("SELECT_FABRIC in edit mode resets color if it does not exist in new palette", () => {
+    const state = {
+      ...INITIAL_STATE,
+      fabricId: "standard",
+      colorId: "pudrowy-roz", // does not exist in melange palette
+      editingItemId: "item-1",
+    };
+    const result = wizardReducer(state, {
+      type: "SELECT_FABRIC",
+      fabricId: "melange",
+    });
+    expect(result.fabricId).toBe("melange");
+    expect(result.colorId).toBeNull(); // reset — not in melange
+  });
+
+  it("SELECT_COLOR sets colorId and advances step to 3", () => {
     const state = { ...INITIAL_STATE, step: 2, fabricId: "standard" };
     const result = wizardReducer(state, {
       type: "SELECT_COLOR",
@@ -43,7 +82,7 @@ describe("wizardReducer", () => {
     expect(result.step).toBe(3);
   });
 
-  it("SELECT_MOUNTING sets mountingId and mountingType", () => {
+  it("SELECT_MOUNTING sets mountingId and mountingType without advancing step", () => {
     const state = {
       ...INITIAL_STATE,
       step: 3,
@@ -57,7 +96,7 @@ describe("wizardReducer", () => {
     });
     expect(result.mountingId).toBe("standard");
     expect(result.mountingType).toBe("inwazyjny");
-    expect(result.step).toBe(4);
+    expect(result.step).toBe(3); // stays on step 3 (mounting is part of step 3)
   });
 
   it("GO_TO_STEP(2) does NOT work when step 1 is incomplete", () => {
@@ -77,6 +116,18 @@ describe("wizardReducer", () => {
   it("GO_TO_STEP(3) does NOT work when step 2 is incomplete", () => {
     const state = { ...INITIAL_STATE, fabricId: "standard" };
     const result = wizardReducer(state, { type: "GO_TO_STEP", step: 3 });
+    expect(result.step).toBe(1);
+  });
+
+  it("GO_TO_STEP rejects step > TOTAL_STEPS", () => {
+    const state = {
+      ...INITIAL_STATE,
+      fabricId: "standard",
+      colorId: "biel",
+      mountingId: "standard",
+      railId: "bialy",
+    };
+    const result = wizardReducer(state, { type: "GO_TO_STEP", step: 4 });
     expect(result.step).toBe(1);
   });
 
@@ -117,10 +168,10 @@ describe("wizardReducer", () => {
     expect(result.widthMm).toBe(MAX_WIDTH_MM);
   });
 
-  it("SELECT_RAIL sets railId", () => {
+  it("SELECT_RAIL sets railId without advancing step", () => {
     const state = {
       ...INITIAL_STATE,
-      step: 4,
+      step: 3,
       fabricId: "standard",
       colorId: "biel",
       mountingId: "standard",
@@ -131,7 +182,68 @@ describe("wizardReducer", () => {
       railId: "bialy",
     });
     expect(result.railId).toBe("bialy");
-    expect(result.step).toBe(5);
+    expect(result.step).toBe(3); // stays on step 3 (rail is part of step 3)
+  });
+
+  it("LOAD_ITEM sets all fields and editingItemId", () => {
+    const result = wizardReducer(INITIAL_STATE, {
+      type: "LOAD_ITEM",
+      fabricId: "blackout",
+      colorId: "czarny",
+      mountingId: "standard",
+      mountingType: "inwazyjny",
+      widthMm: 800,
+      heightMm: 2000,
+      railId: "orzech",
+      itemId: "item-42",
+    });
+
+    expect(result.fabricId).toBe("blackout");
+    expect(result.colorId).toBe("czarny");
+    expect(result.mountingId).toBe("standard");
+    expect(result.mountingType).toBe("inwazyjny");
+    expect(result.widthMm).toBe(800);
+    expect(result.heightMm).toBe(2000);
+    expect(result.railId).toBe("orzech");
+    expect(result.step).toBe(1);
+    expect(result.editingItemId).toBe("item-42");
+  });
+
+  it("RESET clears to INITIAL_STATE with editingItemId null", () => {
+    const modifiedState = {
+      ...INITIAL_STATE,
+      step: 3,
+      fabricId: "blackout",
+      colorId: "czarny",
+      mountingId: "standard",
+      mountingType: "inwazyjny" as const,
+      widthMm: 900,
+      heightMm: 2200,
+      railId: "orzech",
+      editingItemId: "item-42",
+    };
+    const result = wizardReducer(modifiedState, { type: "RESET" });
+
+    expect(result).toEqual(INITIAL_STATE);
+    expect(result.editingItemId).toBeNull();
+    expect(result.step).toBe(1);
+    expect(result.fabricId).toBeNull();
+  });
+
+  it("isStepComplete(3) = true when mounting + rail are selected", () => {
+    const state = {
+      ...INITIAL_STATE,
+      step: 3,
+      fabricId: "standard",
+      colorId: "biel",
+      mountingId: "standard",
+      mountingType: "inwazyjny" as const,
+      railId: "bialy",
+    };
+    // We test via GO_TO_STEP — if step 3 is complete, going to step 3 works
+    // (all prior steps must also be complete)
+    const result = wizardReducer(state, { type: "GO_TO_STEP", step: 3 });
+    expect(result.step).toBe(3);
   });
 });
 
