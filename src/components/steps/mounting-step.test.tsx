@@ -44,9 +44,9 @@ describe("MountingStep", () => {
 
     // Should show 2 bezinwazyjny systems
     expect(
-      screen.getByTestId("mounting-carousel-wzmocniony"),
+      screen.getByTestId("mounting-system-wzmocniony"),
     ).toBeInTheDocument();
-    expect(screen.getByTestId("mounting-carousel-klejony")).toBeInTheDocument();
+    expect(screen.getByTestId("mounting-system-klejony")).toBeInTheDocument();
   });
 
   it("shows inwazyjny systems carousel after selecting category", () => {
@@ -56,12 +56,12 @@ describe("MountingStep", () => {
 
     // Should show 3 inwazyjny systems
     expect(
-      screen.getByTestId("mounting-carousel-standard"),
+      screen.getByTestId("mounting-system-standard"),
     ).toBeInTheDocument();
     expect(
-      screen.getByTestId("mounting-carousel-regulowany"),
+      screen.getByTestId("mounting-system-regulowany"),
     ).toBeInTheDocument();
-    expect(screen.getByTestId("mounting-carousel-katowy")).toBeInTheDocument();
+    expect(screen.getByTestId("mounting-system-katowy")).toBeInTheDocument();
   });
 
   it("shows info about rail color matching mounting color", () => {
@@ -80,7 +80,7 @@ describe("MountingStep", () => {
     fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
 
     // Klejony card inside carousel should show the warning
-    const klejonyCar = screen.getByTestId("mounting-carousel-klejony");
+    const klejonyCar = screen.getByTestId("mounting-system-klejony");
     expect(klejonyCar).toHaveTextContent(/Max szerokość: 1200 mm/);
   });
 });

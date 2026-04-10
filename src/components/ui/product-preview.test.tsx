@@ -46,7 +46,7 @@ describe("ProductPreview", () => {
 
     // Select bezinwazyjny category + system
     fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-    fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+    fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
 
     const preview = screen.getByTestId("product-preview");
     const img = preview.querySelector("img");
@@ -60,11 +60,11 @@ describe("ProductPreview", () => {
 
     // First select bezinwazyjny
     fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-    fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+    fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
 
     // Then switch to inwazyjny
     fireEvent.click(screen.getByTestId("category-inwazyjny"));
-    fireEvent.click(screen.getByTestId("mounting-carousel-standard"));
+    fireEvent.click(screen.getByTestId("mounting-system-standard"));
 
     const preview = screen.getByTestId("product-preview");
     const img = preview.querySelector("img");

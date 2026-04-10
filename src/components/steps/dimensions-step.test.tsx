@@ -47,10 +47,10 @@ function renderAndNavigateToDimensions(mountingId = "wzmocniony") {
   // Step 3: select category then mounting system
   if (mountingId === "klejony") {
     fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-    fireEvent.click(screen.getByTestId("mounting-carousel-klejony"));
+    fireEvent.click(screen.getByTestId("mounting-system-klejony"));
   } else {
     fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-    fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+    fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
   }
 }
 

@@ -1,4 +1,5 @@
-import { useRef, useCallback, useState } from "react";
+import { useState } from "react";
+import { Card, Modal, useOverlayState } from "@heroui/react";
 import { useWizard } from "@/context/wizard-context";
 import { RAIL_COLORS } from "@/data/rails";
 
@@ -9,12 +10,12 @@ function formatSurcharge(surcharge: number): string {
 
 /**
  * Sekcja listwy aluminiowej wewnątrz ConfigStep.
- * Siatka kart z realnymi zdjęciami prowadnic.
- * Kliknięcie zdjęcia otwiera powiększenie w natywnym <dialog>.
+ * Siatka HeroUI Card z realnymi zdjęciami prowadnic.
+ * Kliknięcie zdjęcia → HeroUI Modal z powiększeniem.
  */
 export function RailStep() {
   const { state, dispatch } = useWizard();
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const modalState = useOverlayState();
   const [enlargedImg, setEnlargedImg] = useState<{
     src: string;
     alt: string;
@@ -24,19 +25,10 @@ export function RailStep() {
     dispatch({ type: "SELECT_RAIL", railId });
   }
 
-  const handleImageClick = useCallback(
-    (e: React.MouseEvent, imgSrc: string, imgAlt: string) => {
-      e.stopPropagation();
-      setEnlargedImg({ src: imgSrc, alt: imgAlt });
-      dialogRef.current?.showModal();
-    },
-    [],
-  );
-
-  const handleDialogClose = useCallback(() => {
-    dialogRef.current?.close();
-    setEnlargedImg(null);
-  }, []);
+  function openPreview(src: string, alt: string): void {
+    setEnlargedImg({ src, alt });
+    modalState.open();
+  }
 
   return (
     <div aria-label="Listwa aluminiowa">
@@ -50,85 +42,75 @@ export function RailStep() {
           const imgSrc = rail.img ? `/${rail.img}` : null;
 
           return (
-            <button
+            <Card
               key={rail.id}
-              type="button"
-              onClick={() => handleSelect(rail.id)}
-              className={`flex flex-col items-center gap-2 rounded-xl border-2 bg-white p-3 transition-all duration-200 hover:shadow-md ${
+              className={`overflow-hidden border-2 transition-all ${
                 isSelected
-                  ? "border-sage-600 ring-2 ring-sage-300"
-                  : "border-brand-200 hover:border-brand-300"
+                  ? "border-sage-600 shadow-md shadow-sage-100"
+                  : "border-transparent hover:border-brand-200 hover:shadow-sm"
               }`}
-              aria-pressed={isSelected}
             >
-              {imgSrc ? (
-                <img
-                  src={imgSrc}
-                  alt={rail.name}
-                  loading="lazy"
-                  className="h-16 w-16 cursor-zoom-in rounded-lg border border-brand-200 object-cover transition-transform hover:scale-110"
-                  onClick={(e) => handleImageClick(e, imgSrc, rail.name)}
-                  data-testid={`rail-image-${rail.id}`}
-                />
-              ) : (
-                <div
-                  className="h-16 w-16 rounded-lg border border-brand-200"
-                  style={{ backgroundColor: rail.hex }}
-                />
-              )}
-              <span className="text-center text-xs font-medium text-brand-900">
-                {rail.name}
-              </span>
-              <span className="text-center text-xs text-brand-500">
-                {rail.type}
-              </span>
-              {rail.surcharge > 0 && (
-                <span className="rounded-full bg-accent-50 px-2 py-0.5 text-xs font-medium text-accent-700">
-                  {formatSurcharge(rail.surcharge)}
+              <button
+                type="button"
+                onClick={() => handleSelect(rail.id)}
+                className="flex w-full flex-col items-center gap-2 p-3"
+                aria-pressed={isSelected}
+              >
+                {imgSrc ? (
+                  <img
+                    src={imgSrc}
+                    alt={rail.name}
+                    loading="lazy"
+                    className="h-16 w-16 cursor-zoom-in rounded-lg border border-brand-200 object-cover transition-transform hover:scale-110"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openPreview(imgSrc, rail.name);
+                    }}
+                    data-testid={`rail-image-${rail.id}`}
+                  />
+                ) : (
+                  <div
+                    className="h-16 w-16 rounded-lg border border-brand-200"
+                    style={{ backgroundColor: rail.hex }}
+                  />
+                )}
+                <span className="text-center text-xs font-medium text-brand-900">
+                  {rail.name}
                 </span>
-              )}
-            </button>
+                <span className="text-center text-xs text-brand-500">
+                  {rail.type}
+                </span>
+                {rail.surcharge > 0 && (
+                  <span className="rounded-full bg-accent-50 px-2 py-0.5 text-xs font-medium text-accent-700">
+                    {formatSurcharge(rail.surcharge)}
+                  </span>
+                )}
+              </button>
+            </Card>
           );
         })}
       </div>
 
-      {/* Native dialog for image enlargement */}
-      <dialog
-        ref={dialogRef}
-        className="max-h-[80vh] max-w-lg rounded-xl border-none bg-white p-0 shadow-2xl backdrop:bg-black/50"
-        onClick={handleDialogClose}
-        data-testid="rail-lightbox"
-      >
-        <div className="relative p-4">
-          <button
-            type="button"
-            onClick={handleDialogClose}
-            className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600 hover:bg-brand-200"
-            aria-label="Zamknij powiększenie"
-          >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-          {enlargedImg && (
-            <img
-              src={enlargedImg.src}
-              alt={enlargedImg.alt}
-              className="h-auto w-full rounded-lg object-contain"
-            />
-          )}
-        </div>
-      </dialog>
+      {/* HeroUI Modal — powiększenie zdjęcia listwy */}
+      <Modal state={modalState}>
+        <Modal.Backdrop isDismissable />
+        <Modal.Container size="lg">
+          <Modal.Dialog>
+            <Modal.Header>
+              <Modal.CloseTrigger />
+            </Modal.Header>
+            <Modal.Body className="p-4">
+              {enlargedImg && (
+                <img
+                  src={enlargedImg.src}
+                  alt={enlargedImg.alt}
+                  className="h-auto w-full rounded-lg object-contain"
+                />
+              )}
+            </Modal.Body>
+          </Modal.Dialog>
+        </Modal.Container>
+      </Modal>
     </div>
   );
 }

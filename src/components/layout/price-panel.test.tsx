@@ -45,7 +45,7 @@ function renderWizardWithPrice() {
   fireEvent.click(screen.getByText("Standard").closest("button")!);
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
   fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-  fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+  fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
 }
 
 /** Click a rail button by its image alt text */

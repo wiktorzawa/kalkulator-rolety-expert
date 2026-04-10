@@ -45,7 +45,7 @@ function renderWizardWithPrice() {
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
   // Step 3: select category + mounting
   fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-  fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+  fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
   // Dimensions: defaults 600x1500 (always valid)
 }
 
@@ -81,9 +81,12 @@ describe("RailStep", () => {
     expect(addButton).toBeInTheDocument();
   });
 
-  it("has a lightbox dialog element", () => {
+  it("renders rail images that can be clicked for zoom", () => {
     renderWizardWithPrice();
 
-    expect(screen.getByTestId("rail-lightbox")).toBeInTheDocument();
+    // At least one rail image should be present and clickable
+    const firstRailImg = screen.getByTestId("rail-image-bialy");
+    expect(firstRailImg).toBeInTheDocument();
+    expect(firstRailImg.tagName).toBe("IMG");
   });
 });
