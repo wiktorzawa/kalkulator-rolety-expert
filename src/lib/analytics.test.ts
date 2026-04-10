@@ -44,8 +44,7 @@ describe("analytics", () => {
           orderNumber: "RE-00001",
           price: 156.75,
           units: 157,
-          fabricId: "standard",
-          mountingId: "wzmocniony",
+          itemsCount: 1,
         }),
       ).not.toThrow();
     });
@@ -68,20 +67,55 @@ describe("analytics", () => {
     });
   });
 
+  describe("trackItemAdded", () => {
+    it("does not throw when PostHog is not initialized", () => {
+      expect(() =>
+        analytics.trackItemAdded({
+          fabricId: "standard",
+          colorId: "biel",
+          mountingId: "wzmocniony",
+          unitPrice: 156.75,
+        }),
+      ).not.toThrow();
+    });
+  });
+
+  describe("trackItemEdited", () => {
+    it("does not throw when PostHog is not initialized", () => {
+      expect(() =>
+        analytics.trackItemEdited({
+          fabricId: "standard",
+          colorId: "biel",
+          mountingId: "wzmocniony",
+          unitPrice: 156.75,
+        }),
+      ).not.toThrow();
+    });
+  });
+
   describe("graceful degradation", () => {
     it("all tracking methods are safe to call without initialization", () => {
       expect(() => {
         analytics.trackStep(1);
         analytics.trackStep(2);
         analytics.trackStep(3);
-        analytics.trackStep(4);
-        analytics.trackStep(5);
+        analytics.trackItemAdded({
+          fabricId: "standard",
+          colorId: "biel",
+          mountingId: "wzmocniony",
+          unitPrice: 100,
+        });
+        analytics.trackItemEdited({
+          fabricId: "standard",
+          colorId: "biel",
+          mountingId: "wzmocniony",
+          unitPrice: 100,
+        });
         analytics.trackOrder({
           orderNumber: "RE-00001",
           price: 100,
           units: 100,
-          fabricId: "standard",
-          mountingId: "standard",
+          itemsCount: 2,
         });
         analytics.trackLookup("RE-00001");
         analytics.setUserProperties({ utm_source: "allegro" });

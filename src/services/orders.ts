@@ -53,21 +53,6 @@ export interface OrderRecord {
   readonly items: readonly OrderItemRecord[];
 }
 
-// ─── Legacy compat: kept so existing components compile during transition ─────
-
-/**
- * @deprecated Use OrderRecord.total_price directly. Will be removed in Unit 7.
- */
-export type LegacyOrderConfig = {
-  readonly fabricId: string;
-  readonly colorId: string;
-  readonly mountingId: string;
-  readonly mountingType: string;
-  readonly widthMm: number;
-  readonly heightMm: number;
-  readonly railId: string;
-};
-
 // ─── Submit ───────────────────────────────────────────────────────────────────
 
 export interface SubmitOrderParams {
@@ -106,8 +91,7 @@ export async function submitOrder(
     orderNumber,
     price: params.totalPrice,
     units: params.allegroUnits,
-    fabricId: params.items[0]?.fabric_id ?? "unknown",
-    mountingId: params.items[0]?.mounting_id ?? "unknown",
+    itemsCount: params.items.length,
   });
 
   return { orderNumber };

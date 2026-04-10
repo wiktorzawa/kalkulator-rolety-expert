@@ -2,17 +2,46 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { useCart } from "@/context/cart-context";
 import { useWizard } from "@/context/wizard-context";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
+import { parseUtmSource } from "@/utils/order-number";
+import {
+  submitOrder,
+  type OrderRecord,
+  type OrderItemInsert,
+} from "@/services/orders";
 import type { CartItem } from "@/context/cart-types";
 import { OrderItemCard } from "./order-item-card";
+import { OrderSummary } from "./order-summary";
 
 function formatPrice(value: number): string {
   return value.toFixed(2).replace(".", ",");
+}
+
+function mapCartItemToInsert(item: CartItem): OrderItemInsert {
+  return {
+    fabric_id: item.fabricId,
+    fabric_name: item.fabricName,
+    color_id: item.colorId,
+    color_name: item.colorName,
+    mounting_id: item.mountingId,
+    mounting_name: item.mountingName,
+    mounting_type: item.mountingType,
+    width_mm: item.widthMm,
+    height_mm: item.heightMm,
+    rail_id: item.railId,
+    rail_name: item.railName,
+    quantity: item.quantity,
+    unit_price: item.unitPrice,
+  };
 }
 
 export function OrderList() {
   const { state: cartState, dispatch: cartDispatch, totalPrice } = useCart();
   const { dispatch: wizardDispatch } = useWizard();
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submittedOrder, setSubmittedOrder] = useState<OrderRecord | null>(
+    null,
+  );
 
   const units = priceToUnits(totalPrice);
   const breakdown = formatUnitsBreakdown(units);
@@ -82,10 +111,61 @@ export function OrderList() {
     setPendingDuplicate(true);
   }
 
-  function handleOrderSubmit(): void {
-    // TODO(Unit 7): submit to Supabase via RPC
-    cartDispatch({ type: "SET_VIEW", view: "order-list" });
-    showToast("Funkcja zamówienia zostanie dodana w kolejnej fazie.");
+  async function handleOrderSubmit(): Promise<void> {
+    if (isSubmitting || !hasItems) return;
+
+    setIsSubmitting(true);
+    try {
+      const orderItems: OrderItemInsert[] = cartState.items.map((item) =>
+        mapCartItemToInsert(item),
+      );
+
+      const utmSource = parseUtmSource(window.location.search);
+
+      const { orderNumber } = await submitOrder({
+        items: orderItems,
+        totalPrice,
+        allegroUnits: units,
+        utmSource,
+      });
+
+      // Build an OrderRecord for the summary display
+      const order: OrderRecord = {
+        id: 0,
+        order_number: orderNumber,
+        total_price: totalPrice,
+        allegro_units: units,
+        allegro_tx_id: null,
+        utm_source: utmSource,
+        created_at: new Date().toISOString(),
+        items: orderItems.map((item, idx) => ({
+          ...item,
+          id: idx + 1,
+          position: idx + 1,
+        })),
+      };
+
+      setSubmittedOrder(order);
+
+      // Update URL without reload
+      const newUrl = `${window.location.origin}${window.location.pathname}?order=${orderNumber}`;
+      window.history.replaceState(null, "", newUrl);
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Nie udalo sie zlozyc zamowienia";
+      showToast(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  // If order was submitted, show summary
+  if (submittedOrder) {
+    return (
+      <div className="py-6">
+        <OrderSummary order={submittedOrder} />
+      </div>
+    );
   }
 
   return (
@@ -151,12 +231,12 @@ export function OrderList() {
 
             <button
               type="button"
-              disabled={!hasItems}
-              onClick={handleOrderSubmit}
+              disabled={!hasItems || isSubmitting}
+              onClick={() => void handleOrderSubmit()}
               className="mt-4 w-full rounded-lg bg-sage-600 px-6 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
               data-testid="order-submit-button"
             >
-              Zamów przez Allegro
+              {isSubmitting ? "Składanie zamówienia..." : "Zamów przez Allegro"}
             </button>
           </div>
         </>

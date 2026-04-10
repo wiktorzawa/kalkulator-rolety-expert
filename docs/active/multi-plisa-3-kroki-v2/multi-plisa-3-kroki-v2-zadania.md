@@ -263,15 +263,15 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Refaktor `src/services/orders.ts` — submitOrder via RPC (multi-item), lookupOrder z items[]
-- [ ] Refaktor `src/components/order/order-summary.tsx` — tabela WSZYSTKICH pozycji + suma + jednostki + instrukcja + link Allegro
-- [ ] Refaktor `src/components/order/order-lookup.tsx` — wyświetlanie multi-item zamówienia
+- [x] Refaktor `src/services/orders.ts` — submitOrder via RPC (multi-item), lookupOrder z items[]
+- [x] Refaktor `src/components/order/order-summary.tsx` — tabela WSZYSTKICH pozycji + suma + jednostki + instrukcja + link Allegro
+- [x] Refaktor `src/components/order/order-lookup.tsx` — wyświetlanie multi-item zamówienia
 
 #### Testy
 
-- [ ] Test: submitOrder z 3 items → RPC zwraca order_number
-- [ ] Test: lookupOrder → order + 3 items
-- [ ] Test: Jednostki: ceil(175.75 / 1) → 176
+- [x] Test: submitOrder z 3 items → RPC zwraca order_number
+- [x] Test: lookupOrder → order + 3 items
+- [x] Test: Jednostki: ceil(175.75 / 1) → 176
 - [ ] Test (E2E): Lista 2 pozycje → "Zamów" → podsumowanie: tabela + suma + jednostki + instrukcja + link + numer RE-XXXXX
 - [ ] Test (E2E): ?order=RE-00001 → podsumowanie z listą pozycji
 - [ ] Test (E2E): ?order=BRAK → "Zamówienie nie znalezione"
@@ -289,18 +289,18 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Stwórz `src/hooks/use-beforeunload.ts` — hook (aktywny gdy items > 0 && !submitted)
-- [ ] Modyfikuj `src/components/configurator.tsx` — użycie hooka
-- [ ] Zaktualizuj `src/lib/analytics.ts` — eventy: step_1-3_viewed, item_added, item_edited, order_submitted (z items_count)
-- [ ] Zaktualizuj komponenty steps — analytics.trackStep() z nowymi numerami
-- [ ] Finalne style, hover, animacje, responsive fixes
+- [x] Stwórz `src/hooks/use-beforeunload.ts` — hook (aktywny gdy items > 0 && !submitted)
+- [x] Modyfikuj `src/components/configurator.tsx` — użycie hooka
+- [x] Zaktualizuj `src/lib/analytics.ts` — eventy: step_1-3_viewed, item_added, item_edited, order_submitted (z items_count)
+- [x] Zaktualizuj komponenty steps — analytics.trackStep() z nowymi numerami
+- [x] Finalne style, hover, animacje, responsive fixes
 
 #### Testy
 
-- [ ] Test: useBeforeunload aktywny gdy items > 0
-- [ ] Test: useBeforeunload nieaktywny gdy items === 0
-- [ ] Test: useBeforeunload nieaktywny po złożeniu zamówienia
-- [ ] Test: analytics.trackStep(1) → 'step_1_viewed'
+- [x] Test: useBeforeunload aktywny gdy items > 0
+- [x] Test: useBeforeunload nieaktywny gdy items === 0
+- [x] Test: useBeforeunload nieaktywny po złożeniu zamówienia
+- [x] Test: analytics.trackStep(1) → 'step_1_viewed'
 - [ ] Test (E2E): Dodaj plisę → odśwież → dialog ostrzeżenia
 - [ ] Test (E2E): Złóż zamówienie → odśwież → brak ostrzeżenia
 - [ ] Test (E2E): Mobile: sticky panel na dole. Desktop: w prawym dolnym rogu
@@ -315,13 +315,13 @@ Ostatnia aktualizacja: 2026-04-10
 
 ## Podsumowanie postępu
 
-| Faza                | Unit                             | Status          | Nakład |
-| ------------------- | -------------------------------- | --------------- | ------ |
-| 1. Fundament danych | Unit 1: Assety + images          | ✅ Zrobione     | M      |
-| 2. Baza danych      | Unit 2: Schema + RPC             | ✅ Zrobione     | M      |
-| 3. State            | Unit 3: Cart + Wizard 3 kroki    | ✅ Zrobione     | L      |
-| 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ✅ Zrobione     | M      |
-| 4. UI wizarda       | Unit 5: Krok 3 composite         | ✅ Zrobione     | XL     |
-| 5. Multi-plisa      | Unit 6: Lista zamówienia + panel | ✅ Zrobione     | L      |
-| 6. Integracja       | Unit 7: Submission + summary     | ⬜ Do zrobienia | M      |
-| 6. Integracja       | Unit 8: Beforeunload + polish    | ⬜ Do zrobienia | M      |
+| Faza                | Unit                             | Status      | Nakład |
+| ------------------- | -------------------------------- | ----------- | ------ |
+| 1. Fundament danych | Unit 1: Assety + images          | ✅ Zrobione | M      |
+| 2. Baza danych      | Unit 2: Schema + RPC             | ✅ Zrobione | M      |
+| 3. State            | Unit 3: Cart + Wizard 3 kroki    | ✅ Zrobione | L      |
+| 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ✅ Zrobione | M      |
+| 4. UI wizarda       | Unit 5: Krok 3 composite         | ✅ Zrobione | XL     |
+| 5. Multi-plisa      | Unit 6: Lista zamówienia + panel | ✅ Zrobione | L      |
+| 6. Integracja       | Unit 7: Submission + summary     | ✅ Zrobione | M      |
+| 6. Integracja       | Unit 8: Beforeunload + polish    | ✅ Zrobione | M      |

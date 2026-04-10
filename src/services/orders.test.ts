@@ -15,6 +15,8 @@ vi.mock("@/lib/analytics", () => ({
   analytics: {
     trackOrder: vi.fn(),
     trackLookup: vi.fn(),
+    trackItemAdded: vi.fn(),
+    trackItemEdited: vi.fn(),
   },
 }));
 

@@ -1,9 +1,22 @@
-import { WizardProvider } from "@/context/wizard-context";
+import { WizardProvider, useWizard } from "@/context/wizard-context";
 import { useCart } from "@/context/cart-context";
+import { useBeforeunload } from "@/hooks/use-beforeunload";
 import { Header } from "./layout/header";
 import { PricePanel } from "./layout/price-panel";
 import { StepContent } from "./step-content";
 import { OrderList } from "./order/order-list";
+
+function BeforeunloadGuard() {
+  const { state: cartState } = useCart();
+  const { state: wizardState } = useWizard();
+
+  const hasItems = cartState.items.length > 0;
+  const isEditing = wizardState.editingItemId !== null;
+
+  useBeforeunload(hasItems || isEditing);
+
+  return null;
+}
 
 function ConfiguratorContent() {
   const { state: cartState } = useCart();
@@ -11,6 +24,7 @@ function ConfiguratorContent() {
   if (cartState.view === "order-list") {
     return (
       <WizardProvider>
+        <BeforeunloadGuard />
         <div className="flex min-h-screen flex-col bg-brand-50">
           <header className="sticky top-0 z-40 border-b border-brand-200 bg-white/95 backdrop-blur-sm">
             <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
@@ -37,6 +51,7 @@ function ConfiguratorContent() {
 
   return (
     <WizardProvider>
+      <BeforeunloadGuard />
       <div className="flex min-h-screen flex-col bg-brand-50">
         <Header />
         <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 pb-32 md:pb-6">

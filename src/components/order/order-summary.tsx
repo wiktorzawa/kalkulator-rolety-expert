@@ -1,4 +1,4 @@
-import { ALLEGRO_LISTING_URL } from "@/config/allegro";
+import { ALLEGRO_LISTING_URL, ALLEGRO_UNIT_PRICE } from "@/config/allegro";
 import { formatOrderNumber } from "@/utils/order-number";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
 import type { OrderRecord } from "@/services/orders";
@@ -118,6 +118,11 @@ export function OrderSummary({ order }: OrderSummaryProps) {
           {units} jednostek
         </p>
         <p className="mt-1 text-xs text-sage-500">({breakdown})</p>
+        <p className="mt-2 text-sm text-sage-600">
+          Jedna sztuka na aukcji oznacza kwote{" "}
+          <strong>{ALLEGRO_UNIT_PRICE} zl</strong>. Zloz zamowienie w ilosci:{" "}
+          <strong className="text-sage-900">{units} sztuk</strong>
+        </p>
       </div>
 
       {/* Instructions */}

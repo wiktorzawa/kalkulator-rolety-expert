@@ -4,6 +4,7 @@ import { useCart } from "@/context/cart-context";
 import { getFabricById, getColorsForFabric } from "@/data/fabrics";
 import { getMountingById } from "@/data/mounting";
 import { getRailById } from "@/data/rails";
+import { analytics } from "@/lib/analytics";
 import type { CartItem } from "@/context/cart-types";
 
 export function buildCartItemFromWizard(
@@ -126,6 +127,14 @@ export function usePricePanelActions(): PricePanelActions {
     if (!item) return;
 
     cartDispatch({ type: "ADD_ITEM", item });
+
+    analytics.trackItemAdded({
+      fabricId: item.fabricId,
+      colorId: item.colorId,
+      mountingId: item.mountingId,
+      unitPrice: item.unitPrice,
+    });
+
     wizardDispatch({ type: "RESET" });
     cartDispatch({ type: "SET_VIEW", view: "order-list" });
   }
@@ -138,6 +147,13 @@ export function usePricePanelActions(): PricePanelActions {
       type: "UPDATE_ITEM",
       id: wizardState.editingItemId,
       item,
+    });
+
+    analytics.trackItemEdited({
+      fabricId: item.fabricId,
+      colorId: item.colorId,
+      mountingId: item.mountingId,
+      unitPrice: item.unitPrice,
     });
 
     if (quantity > 1) {

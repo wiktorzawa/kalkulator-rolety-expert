@@ -63,10 +63,44 @@ export const analytics = {
   },
 
   /**
-   * Track wizard step view. Events: step_1_viewed ... step_5_viewed
+   * Track wizard step view. Events: step_1_viewed, step_2_viewed, step_3_viewed
    */
   trackStep(step: number): void {
     capture(`step_${step}_viewed`);
+  },
+
+  /**
+   * Track item added to cart.
+   */
+  trackItemAdded(params: {
+    fabricId: string;
+    colorId: string;
+    mountingId: string;
+    unitPrice: number;
+  }): void {
+    capture("item_added", {
+      fabric_id: params.fabricId,
+      color_id: params.colorId,
+      mounting_id: params.mountingId,
+      unit_price: params.unitPrice,
+    });
+  },
+
+  /**
+   * Track item edited in cart.
+   */
+  trackItemEdited(params: {
+    fabricId: string;
+    colorId: string;
+    mountingId: string;
+    unitPrice: number;
+  }): void {
+    capture("item_edited", {
+      fabric_id: params.fabricId,
+      color_id: params.colorId,
+      mounting_id: params.mountingId,
+      unit_price: params.unitPrice,
+    });
   },
 
   /**
@@ -76,15 +110,13 @@ export const analytics = {
     orderNumber: string;
     price: number;
     units: number;
-    fabricId: string;
-    mountingId: string;
+    itemsCount: number;
   }): void {
     capture("order_submitted", {
       order_number: params.orderNumber,
       price: params.price,
       units: params.units,
-      fabric_id: params.fabricId,
-      mounting_id: params.mountingId,
+      items_count: params.itemsCount,
     });
   },
 
