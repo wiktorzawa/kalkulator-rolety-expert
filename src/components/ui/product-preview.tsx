@@ -114,30 +114,87 @@ export function ProductPreview() {
     <>
       <Card className="overflow-hidden" data-testid="product-preview">
         <Card.Content className="p-0">
-          {/* Main carousel */}
-          <div className="overflow-hidden" ref={mainRef}>
-            <div className="flex">
-              {images.map((img, idx) => (
-                <div key={img.src} className="min-w-0 flex-[0_0_100%]">
-                  <button
-                    type="button"
-                    className="w-full cursor-zoom-in"
-                    onClick={() => {
-                      setSelectedIndex(idx);
-                      modalState.open();
-                    }}
-                    aria-label={`Powiększ: ${img.alt}`}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      className="aspect-square w-full object-contain bg-white p-2"
-                      loading={idx < 3 ? "eager" : "lazy"}
-                      data-testid={idx === 0 ? "preview-main-image" : undefined}
-                    />
-                  </button>
-                </div>
-              ))}
+          {/* Main carousel with prev/next arrows */}
+          <div className="group relative">
+            <div className="overflow-hidden" ref={mainRef}>
+              <div className="flex">
+                {images.map((img, idx) => (
+                  <div key={img.src} className="min-w-0 flex-[0_0_100%]">
+                    <button
+                      type="button"
+                      className="w-full cursor-zoom-in"
+                      onClick={() => {
+                        setSelectedIndex(idx);
+                        modalState.open();
+                      }}
+                      aria-label={`Powiększ: ${img.alt}`}
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="aspect-square w-full object-contain bg-white p-2"
+                        loading={idx < 3 ? "eager" : "lazy"}
+                        data-testid={
+                          idx === 0 ? "preview-main-image" : undefined
+                        }
+                      />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Prev arrow */}
+            {selectedIndex > 0 && (
+              <button
+                type="button"
+                onClick={() => scrollTo(selectedIndex - 1)}
+                className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-md transition-opacity hover:bg-white"
+                aria-label="Poprzednie zdjęcie"
+              >
+                <svg
+                  className="h-5 w-5 text-brand-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Next arrow */}
+            {selectedIndex < images.length - 1 && (
+              <button
+                type="button"
+                onClick={() => scrollTo(selectedIndex + 1)}
+                className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-md transition-opacity hover:bg-white"
+                aria-label="Następne zdjęcie"
+              >
+                <svg
+                  className="h-5 w-5 text-brand-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Counter */}
+            <div className="absolute bottom-2 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white">
+              {selectedIndex + 1} / {images.length}
             </div>
           </div>
 
