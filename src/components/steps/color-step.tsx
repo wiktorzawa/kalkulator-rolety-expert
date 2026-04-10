@@ -39,7 +39,7 @@ export function ColorStep() {
       <h2 className="mb-4 font-display text-2xl font-bold text-brand-950">
         2. Wybierz kolor
       </h2>
-      <div className="grid grid-cols-4 gap-2 md:grid-cols-6 lg:grid-cols-8">
+      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
         {colors.map((color) => (
           <ColorSwatch
             key={color.id}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Slider, Button, Input } from "@heroui/react";
 
 interface DimensionInputProps {
   readonly label: string;
@@ -11,7 +12,7 @@ interface DimensionInputProps {
 }
 
 /**
- * Dimension input: synchronized slider + number input.
+ * Dimension input: synchronized HeroUI Slider + Input.
  * Input accepts any value freely. Clamping happens on blur.
  * Slider uses step=1 for smooth movement.
  */
@@ -32,9 +33,11 @@ export function DimensionInput({
     setInputValue(String(value));
   }, [value]);
 
-  function handleSlider(e: React.ChangeEvent<HTMLInputElement>): void {
-    const raw = Number(e.target.value);
-    onChange(raw);
+  function handleSliderChange(newValue: number | number[]): void {
+    const raw = typeof newValue === "number" ? newValue : newValue[0];
+    if (raw !== undefined) {
+      onChange(raw);
+    }
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -67,47 +70,44 @@ export function DimensionInput({
           {label}
         </label>
         <div className="flex items-center gap-1">
-          <input
+          <Input
             type="number"
             value={inputValue}
-            min={min}
-            max={max}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             onKeyDown={handleKeyDown}
-            className="w-20 rounded-lg border border-brand-200 px-2 py-1 text-right text-sm font-medium text-brand-950 focus:border-sage-500 focus:outline-none focus:ring-1 focus:ring-sage-500"
+            className="w-20"
             aria-label={`${label} w ${unit}`}
           />
           <span className="text-sm text-brand-500">{unit}</span>
         </div>
       </div>
 
-      <input
-        type="range"
+      <Slider
         value={value}
-        min={min}
-        max={max}
+        minValue={min}
+        maxValue={max}
         step={1}
-        onChange={handleSlider}
-        className="w-full accent-sage-600"
+        onChange={handleSliderChange}
         aria-label={`${label} suwak`}
-      />
+      >
+        <Slider.Track>
+          <Slider.Fill />
+          <Slider.Thumb />
+        </Slider.Track>
+      </Slider>
 
       <div className="flex flex-wrap gap-1.5">
         {quickValues.map((qv) => (
-          <button
+          <Button
             key={qv}
-            type="button"
-            onClick={() => onChange(qv)}
-            className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
-              value === qv
-                ? "border-sage-600 bg-sage-50 text-sage-700"
-                : "border-brand-200 text-brand-600 hover:border-brand-300 hover:bg-brand-50"
-            }`}
+            variant={value === qv ? "primary" : "outline"}
+            size="sm"
+            onPress={() => onChange(qv)}
             aria-label={`Ustaw ${label.toLowerCase()} na ${qv} ${unit}`}
           >
             {qv}
-          </button>
+          </Button>
         ))}
       </div>
     </div>

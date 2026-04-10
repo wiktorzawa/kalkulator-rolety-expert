@@ -1,3 +1,4 @@
+import { Button } from "@heroui/react";
 import { STEP_LABELS, TOTAL_STEPS } from "@/context/wizard-types";
 import { useWizard } from "@/context/wizard-context";
 
@@ -18,22 +19,18 @@ export function StepIndicator() {
               key={label}
               className={`flex items-center ${isLast ? "" : "flex-1"}`}
             >
-              <button
-                type="button"
-                onClick={() =>
+              <Button
+                isIconOnly
+                size="sm"
+                variant={
+                  isCompleted ? "primary" : isActive ? "secondary" : "ghost"
+                }
+                onPress={() =>
                   dispatch({ type: "GO_TO_STEP", step: stepNumber })
                 }
-                className={`
-                  flex items-center justify-center rounded-full text-xs font-medium
-                  transition-colors duration-200
-                  ${
-                    isCompleted
-                      ? "h-7 w-7 bg-sage-600 text-white"
-                      : isActive
-                        ? "h-8 w-8 bg-brand-950 text-white ring-2 ring-sage-400"
-                        : "h-7 w-7 bg-brand-100 text-brand-400"
-                  }
-                `}
+                className={`rounded-full ${
+                  isActive ? "ring-2 ring-sage-400" : ""
+                }`}
                 aria-current={isActive ? "step" : undefined}
                 aria-label={`Krok ${stepNumber}: ${label}`}
               >
@@ -54,7 +51,7 @@ export function StepIndicator() {
                 ) : (
                   stepNumber
                 )}
-              </button>
+              </Button>
               {!isLast && (
                 <div
                   className={`mx-1 h-0.5 flex-1 transition-colors duration-200 md:mx-2 ${

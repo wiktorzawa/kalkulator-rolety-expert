@@ -1,3 +1,4 @@
+import { Button } from "@heroui/react";
 import { useWizard } from "@/context/wizard-context";
 import { useCart } from "@/context/cart-context";
 import { getFabricById } from "@/data/fabrics";
@@ -121,62 +122,67 @@ export function PricePanel() {
           {price.total > 0 && (
             <div className="mb-3 flex items-center justify-center gap-3">
               <span className="text-sm text-brand-600">Ilość:</span>
-              <button
-                type="button"
-                onClick={() => handleQuantityChange(-1)}
-                disabled={quantity <= 1}
-                className="flex h-8 w-8 items-center justify-center rounded-md border border-brand-200 text-brand-700 hover:bg-brand-50 disabled:cursor-not-allowed disabled:opacity-40"
+              <Button
+                variant="outline"
+                size="sm"
+                isIconOnly
+                isDisabled={quantity <= 1}
+                onPress={() => handleQuantityChange(-1)}
                 aria-label="Zmniejsz ilość"
               >
                 -
-              </button>
+              </Button>
               <span
                 className="min-w-[2rem] text-center text-sm font-semibold text-brand-950"
                 data-testid="panel-quantity"
               >
                 {quantity}
               </span>
-              <button
-                type="button"
-                onClick={() => handleQuantityChange(1)}
-                className="flex h-8 w-8 items-center justify-center rounded-md border border-brand-200 text-brand-700 hover:bg-brand-50"
+              <Button
+                variant="outline"
+                size="sm"
+                isIconOnly
+                onPress={() => handleQuantityChange(1)}
                 aria-label="Zwiększ ilość"
               >
                 +
-              </button>
+              </Button>
             </div>
           )}
 
           {/* Action buttons */}
           {isEditing ? (
             <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={handleCancelEdit}
-                className="flex-1 rounded-lg border border-brand-300 px-4 py-3 font-medium text-brand-700 hover:bg-brand-50"
+              <Button
+                variant="outline"
+                size="lg"
+                className="flex-1"
+                onPress={handleCancelEdit}
               >
                 Anuluj
-              </button>
-              <button
-                type="button"
-                disabled={!isConfigComplete}
-                onClick={handleSaveEdit}
-                className="flex-1 rounded-lg bg-sage-600 px-4 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
+              </Button>
+              <Button
+                variant="primary"
+                size="lg"
+                className="flex-1"
+                isDisabled={!isConfigComplete}
+                onPress={handleSaveEdit}
                 data-testid="save-edit-button"
               >
                 Zapisz
-              </button>
+              </Button>
             </div>
           ) : (
-            <button
-              type="button"
-              disabled={!isConfigComplete}
-              onClick={handleAddToOrder}
-              className="w-full rounded-lg bg-sage-600 px-6 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
+              isDisabled={!isConfigComplete}
+              onPress={handleAddToOrder}
               data-testid="add-to-order-button"
             >
               Dodaj do zamówienia
-            </button>
+            </Button>
           )}
         </div>
       </aside>

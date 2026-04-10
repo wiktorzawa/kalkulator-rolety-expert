@@ -24,7 +24,7 @@ export function FabricStep() {
       <h2 className="mb-4 font-display text-2xl font-bold text-brand-950">
         1. Wybierz tkaninę
       </h2>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {FABRICS.map((fabric) => (
           <FabricCard
             key={fabric.id}

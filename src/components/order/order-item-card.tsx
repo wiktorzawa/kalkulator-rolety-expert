@@ -1,3 +1,4 @@
+import { Card, Button } from "@heroui/react";
 import { useCart } from "@/context/cart-context";
 import type { CartItem } from "@/context/cart-types";
 import { getPackshotPath, fabricIdToCollection } from "@/data/images";
@@ -45,101 +46,90 @@ export function OrderItemCard({
   }
 
   return (
-    <div
-      className="rounded-xl border border-brand-200 bg-white p-4"
-      data-testid="order-item-card"
-    >
-      <div className="flex gap-4">
-        {/* Miniatura */}
-        <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-brand-50">
-          <img
-            src={`/${packshotSrc}`}
-            alt={`${item.fabricName} — ${item.colorName}`}
-            className="h-full w-full object-contain"
-            loading="lazy"
-          />
-        </div>
+    <Card className="p-4" data-testid="order-item-card">
+      <Card.Content className="p-0">
+        <div className="flex gap-4">
+          {/* Miniatura */}
+          <div className="h-24 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-brand-50">
+            <img
+              src={`/${packshotSrc}`}
+              alt={`${item.fabricName} — ${item.colorName}`}
+              className="h-full w-full object-contain"
+              loading="lazy"
+            />
+          </div>
 
-        {/* Parametry */}
-        <div className="min-w-0 flex-1">
-          <h3 className="font-medium text-brand-950">
-            {item.fabricName} — {item.colorName}
-          </h3>
-          <p className="mt-0.5 text-xs text-brand-500">
-            {item.mountingName} ({item.mountingType})
-          </p>
-          <p className="text-xs text-brand-500">
-            {item.widthMm} x {item.heightMm} mm | Listwa: {item.railName}
-          </p>
+          {/* Parametry */}
+          <div className="min-w-0 flex-1">
+            <h3 className="font-medium text-brand-950">
+              {item.fabricName} — {item.colorName}
+            </h3>
+            <p className="mt-0.5 text-xs text-brand-500">
+              {item.mountingName} ({item.mountingType})
+            </p>
+            <p className="text-xs text-brand-500">
+              {item.widthMm} x {item.heightMm} mm | Listwa: {item.railName}
+            </p>
 
-          {/* Cena */}
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-sm font-semibold text-brand-950">
-              {formatPrice(totalItemPrice)} zł
-            </span>
-            {item.quantity > 1 && (
-              <span className="text-xs text-brand-500">
-                ({formatPrice(item.unitPrice)} zł/szt.)
+            {/* Cena */}
+            <div className="mt-2 flex items-baseline gap-2">
+              <span className="text-sm font-semibold text-brand-950">
+                {formatPrice(totalItemPrice)} zł
               </span>
-            )}
+              {item.quantity > 1 && (
+                <span className="text-xs text-brand-500">
+                  ({formatPrice(item.unitPrice)} zł/szt.)
+                </span>
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Akcje */}
-      <div className="mt-3 flex items-center justify-between border-t border-brand-100 pt-3">
-        {/* Ilość */}
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => handleQuantityChange(-1)}
-            disabled={item.quantity <= 1}
-            className="flex h-7 w-7 items-center justify-center rounded-md border border-brand-200 text-brand-700 hover:bg-brand-50 disabled:cursor-not-allowed disabled:opacity-40"
-            aria-label="Zmniejsz ilość"
-          >
-            -
-          </button>
-          <span
-            className="min-w-[2rem] text-center text-sm font-medium text-brand-950"
-            data-testid="item-quantity"
-          >
-            {item.quantity} szt.
-          </span>
-          <button
-            type="button"
-            onClick={() => handleQuantityChange(1)}
-            className="flex h-7 w-7 items-center justify-center rounded-md border border-brand-200 text-brand-700 hover:bg-brand-50"
-            aria-label="Zwiększ ilość"
-          >
-            +
-          </button>
-        </div>
+        {/* Akcje */}
+        <div className="mt-3 flex items-center justify-between border-t border-brand-100 pt-3">
+          {/* Ilość */}
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              isIconOnly
+              isDisabled={item.quantity <= 1}
+              onPress={() => handleQuantityChange(-1)}
+              aria-label="Zmniejsz ilość"
+            >
+              -
+            </Button>
+            <span
+              className="min-w-[2rem] text-center text-sm font-medium text-brand-950"
+              data-testid="item-quantity"
+            >
+              {item.quantity} szt.
+            </span>
+            <Button
+              variant="outline"
+              size="sm"
+              isIconOnly
+              onPress={() => handleQuantityChange(1)}
+              aria-label="Zwiększ ilość"
+            >
+              +
+            </Button>
+          </div>
 
-        {/* Edytuj / Duplikuj / Usuń */}
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => onEdit(item)}
-            className="rounded-md px-2.5 py-1 text-xs font-medium text-sage-700 hover:bg-sage-50"
-          >
-            Edytuj
-          </button>
-          <button
-            type="button"
-            onClick={() => onDuplicate(item)}
-            className="rounded-md px-2.5 py-1 text-xs font-medium text-brand-600 hover:bg-brand-50"
-          >
-            Duplikuj
-          </button>
-          <button
-            type="button"
-            onClick={handleRemove}
-            className="rounded-md px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50"
-          >
-            Usuń
-          </button>
+          {/* Edytuj / Duplikuj / Usuń */}
+          <div className="flex gap-1">
+            <Button variant="ghost" size="sm" onPress={() => onEdit(item)}>
+              Edytuj
+            </Button>
+            <Button variant="ghost" size="sm" onPress={() => onDuplicate(item)}>
+              Duplikuj
+            </Button>
+            <Button variant="danger-soft" size="sm" onPress={handleRemove}>
+              Usuń
+            </Button>
+          </div>
         </div>
-      </div>
-    </div>
+      </Card.Content>
+    </Card>
   );
 }

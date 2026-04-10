@@ -21,15 +21,19 @@ export function ColorSwatch({
     <button
       type="button"
       onClick={() => onSelect(color.id)}
-      className={`group flex flex-col items-center gap-1.5 rounded-lg p-2 transition-all duration-200 ${
-        isSelected ? "bg-sage-50 ring-2 ring-sage-600" : "hover:bg-brand-50"
+      className={`group flex flex-col items-center gap-2 rounded-xl p-2.5 transition-all duration-200 ${
+        isSelected
+          ? "bg-sage-50 ring-2 ring-sage-600 shadow-sm"
+          : "hover:bg-brand-50 hover:shadow-sm"
       }`}
       aria-pressed={isSelected}
       aria-label={`Kolor: ${color.name}`}
     >
       <div
-        className={`aspect-square w-full overflow-hidden rounded-lg border transition-transform duration-200 group-hover:scale-105 ${
-          isSelected ? "border-sage-600" : "border-brand-200"
+        className={`aspect-square w-full overflow-hidden rounded-xl border-2 transition-all duration-200 group-hover:scale-105 group-hover:shadow-md ${
+          isSelected
+            ? "border-sage-600 shadow-md"
+            : "border-brand-200 group-hover:border-brand-300"
         }`}
       >
         <img
@@ -48,7 +52,13 @@ export function ColorSwatch({
           }}
         />
       </div>
-      <span className="text-center text-xs text-brand-700">{color.name}</span>
+      <span
+        className={`text-center text-xs font-medium transition-colors ${
+          isSelected ? "text-sage-700" : "text-brand-700"
+        }`}
+      >
+        {color.name}
+      </span>
     </button>
   );
 }
