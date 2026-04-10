@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { Button } from "@heroui/react";
 import { lookupOrder, type OrderRecord } from "@/services/orders";
 import { OrderSummary } from "./order-summary";
 import { analytics } from "@/lib/analytics";
@@ -62,12 +63,16 @@ export function OrderLookup({ orderNumber }: OrderLookupProps) {
             Nie znaleziono zamowienia o numerze{" "}
             <strong className="font-mono">{orderNumber}</strong>.
           </p>
-          <a
-            href="/"
-            className="mt-4 inline-block rounded-lg bg-sage-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-sage-700"
+          <Button
+            variant="primary"
+            size="sm"
+            className="mt-4"
+            onPress={() => {
+              window.location.href = "/";
+            }}
           >
             Skonfiguruj nowa rolete
-          </a>
+          </Button>
         </div>
       </div>
     );
@@ -81,13 +86,14 @@ export function OrderLookup({ orderNumber }: OrderLookupProps) {
             Blad
           </p>
           <p className="text-sm text-brand-500">{errorMessage}</p>
-          <button
-            type="button"
-            onClick={() => void fetchOrder()}
-            className="mt-4 rounded-lg bg-sage-600 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-sage-700"
+          <Button
+            variant="primary"
+            size="sm"
+            className="mt-4"
+            onPress={() => void fetchOrder()}
           >
             Sprobuj ponownie
-          </button>
+          </Button>
         </div>
       </div>
     );

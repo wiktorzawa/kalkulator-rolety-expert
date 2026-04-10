@@ -1,3 +1,4 @@
+import { Card, Button } from "@heroui/react";
 import { ALLEGRO_LISTING_URL, ALLEGRO_UNIT_PRICE } from "@/config/allegro";
 import { formatOrderNumber } from "@/utils/order-number";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
@@ -30,151 +31,161 @@ export function OrderSummary({ order }: OrderSummaryProps) {
       </div>
 
       {/* Items table */}
-      <div className="rounded-xl border border-brand-200 bg-white">
-        <h3 className="border-b border-brand-200 px-4 py-3 font-display text-lg font-semibold text-brand-900">
-          {order.items.length > 1
-            ? `Pozycje zamowienia (${order.items.length})`
-            : "Konfiguracja"}
-        </h3>
-        {order.items.map((item) => (
-          <div
-            key={item.position}
-            className="border-b border-brand-100 last:border-b-0"
-          >
-            {order.items.length > 1 && (
-              <div className="bg-brand-50 px-4 py-1.5 text-xs font-medium text-brand-600">
-                Pozycja {item.position}
-                {item.quantity > 1 ? ` (${item.quantity} szt.)` : ""}
-              </div>
-            )}
-            <dl className="divide-y divide-brand-100">
-              <div className="flex justify-between px-4 py-2.5">
-                <dt className="text-sm text-brand-500">Tkanina</dt>
-                <dd className="text-sm font-medium text-brand-900">
-                  {item.fabric_name}
-                </dd>
-              </div>
-              <div className="flex justify-between px-4 py-2.5">
-                <dt className="text-sm text-brand-500">Kolor</dt>
-                <dd className="text-sm font-medium text-brand-900">
-                  {item.color_name}
-                </dd>
-              </div>
-              <div className="flex justify-between px-4 py-2.5">
-                <dt className="text-sm text-brand-500">Montaz</dt>
-                <dd className="text-sm font-medium text-brand-900">
-                  {item.mounting_name} ({item.mounting_type})
-                </dd>
-              </div>
-              <div className="flex justify-between px-4 py-2.5">
-                <dt className="text-sm text-brand-500">Wymiary</dt>
-                <dd className="text-sm font-medium text-brand-900">
-                  {item.width_mm} x {item.height_mm} mm
-                </dd>
-              </div>
-              <div className="flex justify-between px-4 py-2.5">
-                <dt className="text-sm text-brand-500">Listwa</dt>
-                <dd className="text-sm font-medium text-brand-900">
-                  {item.rail_name}
-                </dd>
-              </div>
-              <div className="flex justify-between px-4 py-2.5">
-                <dt className="text-sm text-brand-500">Cena</dt>
-                <dd className="text-sm font-medium text-brand-900">
-                  {formatPrice(item.unit_price)} zl
-                  {item.quantity > 1
-                    ? ` x ${item.quantity} = ${formatPrice(item.unit_price * item.quantity)} zl`
-                    : ""}
-                </dd>
-              </div>
-            </dl>
-          </div>
-        ))}
-      </div>
+      <Card>
+        <Card.Header>
+          <Card.Title>
+            {order.items.length > 1
+              ? `Pozycje zamowienia (${order.items.length})`
+              : "Konfiguracja"}
+          </Card.Title>
+        </Card.Header>
+        <Card.Content className="p-0">
+          {order.items.map((item) => (
+            <div
+              key={item.position}
+              className="border-b border-brand-100 last:border-b-0"
+            >
+              {order.items.length > 1 && (
+                <div className="bg-brand-50 px-4 py-1.5 text-xs font-medium text-brand-600">
+                  Pozycja {item.position}
+                  {item.quantity > 1 ? ` (${item.quantity} szt.)` : ""}
+                </div>
+              )}
+              <dl className="divide-y divide-brand-100">
+                <div className="flex justify-between px-4 py-2.5">
+                  <dt className="text-sm text-brand-500">Tkanina</dt>
+                  <dd className="text-sm font-medium text-brand-900">
+                    {item.fabric_name}
+                  </dd>
+                </div>
+                <div className="flex justify-between px-4 py-2.5">
+                  <dt className="text-sm text-brand-500">Kolor</dt>
+                  <dd className="text-sm font-medium text-brand-900">
+                    {item.color_name}
+                  </dd>
+                </div>
+                <div className="flex justify-between px-4 py-2.5">
+                  <dt className="text-sm text-brand-500">Montaz</dt>
+                  <dd className="text-sm font-medium text-brand-900">
+                    {item.mounting_name} ({item.mounting_type})
+                  </dd>
+                </div>
+                <div className="flex justify-between px-4 py-2.5">
+                  <dt className="text-sm text-brand-500">Wymiary</dt>
+                  <dd className="text-sm font-medium text-brand-900">
+                    {item.width_mm} x {item.height_mm} mm
+                  </dd>
+                </div>
+                <div className="flex justify-between px-4 py-2.5">
+                  <dt className="text-sm text-brand-500">Listwa</dt>
+                  <dd className="text-sm font-medium text-brand-900">
+                    {item.rail_name}
+                  </dd>
+                </div>
+                <div className="flex justify-between px-4 py-2.5">
+                  <dt className="text-sm text-brand-500">Cena</dt>
+                  <dd className="text-sm font-medium text-brand-900">
+                    {formatPrice(item.unit_price)} zl
+                    {item.quantity > 1
+                      ? ` x ${item.quantity} = ${formatPrice(item.unit_price * item.quantity)} zl`
+                      : ""}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          ))}
+        </Card.Content>
+      </Card>
 
       {/* Price and units */}
-      <div className="rounded-xl border border-sage-200 bg-sage-50 p-6 text-center">
-        <p className="text-sm text-sage-600">Kwota zamowienia</p>
-        <p className="font-display text-2xl font-bold text-sage-900">
-          {formatPrice(order.total_price)} zl
-        </p>
-
-        {order.items.length > 1 && (
-          <p className="mt-1 text-xs text-sage-500">
-            Kwota obejmuje wszystkie {order.items.length} pozycji z Twojego
-            zamowienia
+      <Card className="bg-sage-50 p-6 text-center">
+        <Card.Content className="p-0">
+          <p className="text-sm text-sage-600">Kwota zamowienia</p>
+          <p className="font-display text-2xl font-bold text-sage-900">
+            {formatPrice(order.total_price)} zl
           </p>
-        )}
 
-        <div className="my-4 border-t border-sage-200" />
+          {order.items.length > 1 && (
+            <p className="mt-1 text-xs text-sage-500">
+              Kwota obejmuje wszystkie {order.items.length} pozycji z Twojego
+              zamowienia
+            </p>
+          )}
 
-        <p className="text-sm text-sage-600">
-          Ilosc jednostek do kupienia na Allegro
-        </p>
-        <p
-          className="font-display text-4xl font-bold text-sage-900"
-          data-testid="allegro-units"
-        >
-          {units} jednostek
-        </p>
-        <p className="mt-1 text-xs text-sage-500">({breakdown})</p>
-        <p className="mt-2 text-sm text-sage-600">
-          Jedna sztuka na aukcji oznacza kwote{" "}
-          <strong>{ALLEGRO_UNIT_PRICE} zl</strong>. Zloz zamowienie w ilosci:{" "}
-          <strong className="text-sage-900">{units} sztuk</strong>
-        </p>
-      </div>
+          <div className="my-4 border-t border-sage-200" />
+
+          <p className="text-sm text-sage-600">
+            Ilosc jednostek do kupienia na Allegro
+          </p>
+          <p
+            className="font-display text-4xl font-bold text-sage-900"
+            data-testid="allegro-units"
+          >
+            {units} jednostek
+          </p>
+          <p className="mt-1 text-xs text-sage-500">({breakdown})</p>
+          <p className="mt-2 text-sm text-sage-600">
+            Jedna sztuka na aukcji oznacza kwote{" "}
+            <strong>{ALLEGRO_UNIT_PRICE} zl</strong>. Zloz zamowienie w ilosci:{" "}
+            <strong className="text-sage-900">{units} sztuk</strong>
+          </p>
+        </Card.Content>
+      </Card>
 
       {/* Instructions */}
-      <div className="rounded-xl border border-brand-200 bg-white p-6">
-        <h3 className="mb-4 font-display text-lg font-semibold text-brand-900">
-          Aby dokonczyc zamowienie:
-        </h3>
-        <ol className="space-y-3 text-sm text-brand-700">
-          <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
-              1
-            </span>
-            <span>
-              Kliknij przycisk ponizej — przeniesie Cie na aukcje Allegro
-            </span>
-          </li>
-          <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
-              2
-            </span>
-            <span>
-              Wpisz ilosc:{" "}
-              <strong className="text-brand-950">{units} sztuk</strong>
-            </span>
-          </li>
-          <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
-              3
-            </span>
-            <span>
-              W polu &quot;Uwagi do zakupu&quot; wpisz numer zamowienia:{" "}
-              <strong className="text-brand-950">{displayNumber}</strong>
-            </span>
-          </li>
-          <li className="flex gap-3">
-            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
-              4
-            </span>
-            <span>Oplac zamowienie przez Allegro</span>
-          </li>
-        </ol>
-      </div>
+      <Card className="p-6">
+        <Card.Content className="p-0">
+          <h3 className="mb-4 font-display text-lg font-semibold text-brand-900">
+            Aby dokonczyc zamowienie:
+          </h3>
+          <ol className="space-y-3 text-sm text-brand-700">
+            <li className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
+                1
+              </span>
+              <span>
+                Kliknij przycisk ponizej — przeniesie Cie na aukcje Allegro
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
+                2
+              </span>
+              <span>
+                Wpisz ilosc:{" "}
+                <strong className="text-brand-950">{units} sztuk</strong>
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
+                3
+              </span>
+              <span>
+                W polu &quot;Uwagi do zakupu&quot; wpisz numer zamowienia:{" "}
+                <strong className="text-brand-950">{displayNumber}</strong>
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
+                4
+              </span>
+              <span>Oplac zamowienie przez Allegro</span>
+            </li>
+          </ol>
+        </Card.Content>
+      </Card>
 
       {/* Allegro button */}
-      <a
-        href={ALLEGRO_LISTING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full rounded-lg bg-sage-600 px-6 py-4 text-center text-lg font-semibold text-white transition-colors hover:bg-sage-700"
+      <Button
+        variant="primary"
+        size="lg"
+        fullWidth
+        onPress={() =>
+          window.open(ALLEGRO_LISTING_URL, "_blank", "noopener,noreferrer")
+        }
       >
         Przejdz do aukcji Allegro &rarr;
-      </a>
+      </Button>
 
       {/* Disclaimer */}
       <p className="text-center text-xs text-brand-400">

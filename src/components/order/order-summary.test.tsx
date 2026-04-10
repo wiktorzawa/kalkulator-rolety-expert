@@ -97,12 +97,10 @@ describe("OrderSummary", () => {
   it("renders Allegro link button", () => {
     render(<OrderSummary order={makeOrder()} />);
 
-    const link = screen.getByRole("link", {
+    const button = screen.getByRole("button", {
       name: /przejdz do aukcji allegro/i,
     });
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    expect(button).toBeInTheDocument();
   });
 
   it("shows per-item quantity breakdown when quantity > 1", () => {

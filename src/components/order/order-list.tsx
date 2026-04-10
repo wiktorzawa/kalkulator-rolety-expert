@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
+import { Card, Button } from "@heroui/react";
 import { useCart } from "@/context/cart-context";
 import { useWizard } from "@/context/wizard-context";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
@@ -178,28 +179,22 @@ export function OrderList() {
         <h2 className="font-display text-2xl font-bold text-brand-950">
           Twoje zamówienie
         </h2>
-        <button
-          type="button"
-          onClick={handleAddNew}
-          className="rounded-lg border border-sage-600 px-4 py-2 text-sm font-medium text-sage-700 hover:bg-sage-50"
-        >
+        <Button variant="outline" size="sm" onPress={handleAddNew}>
           + Dodaj kolejną plisę
-        </button>
+        </Button>
       </div>
 
       {!hasItems ? (
-        <div className="rounded-xl border border-brand-200 bg-white p-8 text-center">
-          <p className="mb-4 text-brand-500">
-            Brak pozycji w zamówieniu. Dodaj pierwszą plisę.
-          </p>
-          <button
-            type="button"
-            onClick={handleAddNew}
-            className="rounded-lg bg-sage-600 px-6 py-2 font-medium text-white hover:bg-sage-700"
-          >
-            Skonfiguruj plisę
-          </button>
-        </div>
+        <Card className="p-8 text-center">
+          <Card.Content>
+            <p className="mb-4 text-brand-500">
+              Brak pozycji w zamówieniu. Dodaj pierwszą plisę.
+            </p>
+            <Button variant="primary" onPress={handleAddNew}>
+              Skonfiguruj plisę
+            </Button>
+          </Card.Content>
+        </Card>
       ) : (
         <>
           {/* Lista pozycji */}
@@ -215,34 +210,37 @@ export function OrderList() {
           </div>
 
           {/* Podsumowanie */}
-          <div
-            className="rounded-xl border border-brand-200 bg-white p-5"
-            data-testid="order-summary-panel"
-          >
-            <div className="flex items-baseline justify-between">
-              <span className="text-sm font-medium text-brand-700">
-                Suma zamówienia
-              </span>
-              <span className="font-display text-xl font-bold text-brand-950">
-                {formatPrice(totalPrice)} zł
-              </span>
-            </div>
+          <Card className="p-5" data-testid="order-summary-panel">
+            <Card.Content className="p-0">
+              <div className="flex items-baseline justify-between">
+                <span className="text-sm font-medium text-brand-700">
+                  Suma zamówienia
+                </span>
+                <span className="font-display text-xl font-bold text-brand-950">
+                  {formatPrice(totalPrice)} zł
+                </span>
+              </div>
 
-            <p className="mt-1 text-center text-xs text-brand-500">
-              Allegro: <strong className="text-brand-800">{units}</strong>{" "}
-              jednostek ({breakdown})
-            </p>
+              <p className="mt-1 text-center text-xs text-brand-500">
+                Allegro: <strong className="text-brand-800">{units}</strong>{" "}
+                jednostek ({breakdown})
+              </p>
 
-            <button
-              type="button"
-              disabled={!hasItems || isSubmitting}
-              onClick={() => void handleOrderSubmit()}
-              className="mt-4 w-full rounded-lg bg-sage-600 px-6 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
-              data-testid="order-submit-button"
-            >
-              {isSubmitting ? "Składanie zamówienia..." : "Zamów przez Allegro"}
-            </button>
-          </div>
+              <Button
+                variant="primary"
+                size="lg"
+                fullWidth
+                isDisabled={!hasItems || isSubmitting}
+                onPress={() => void handleOrderSubmit()}
+                className="mt-4"
+                data-testid="order-submit-button"
+              >
+                {isSubmitting
+                  ? "Składanie zamówienia..."
+                  : "Zamów przez Allegro"}
+              </Button>
+            </Card.Content>
+          </Card>
         </>
       )}
 
