@@ -60,9 +60,21 @@ describe("getFabricSwatchPath", () => {
     );
   });
 
-  it("zwraca zblizenie.png dla honeycomb", () => {
+  it("zwraca zblizenie.png dla honeycomb (standardowy)", () => {
+    expect(getFabricSwatchPath("honeycomb", "biel")).toBe(
+      "assets/produkty/honeycomb/biel/zblizenie.png",
+    );
+  });
+
+  it("zwraca zblizenie.webp dla honeycomb/antracyt (override)", () => {
     expect(getFabricSwatchPath("honeycomb", "antracyt")).toBe(
-      "assets/produkty/honeycomb/antracyt/zblizenie.png",
+      "assets/produkty/honeycomb/antracyt/zblizenie.webp",
+    );
+  });
+
+  it("zwraca zblizenie-2.webp dla honeycomb/zimny-bez (override)", () => {
+    expect(getFabricSwatchPath("honeycomb", "zimny-bez")).toBe(
+      "assets/produkty/honeycomb/zimny-bez/zblizenie-2.webp",
     );
   });
 

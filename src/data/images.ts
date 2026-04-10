@@ -40,12 +40,24 @@ export function getPackshotPath(
 }
 
 /**
+ * Próbki tkanin z niestandardowymi nazwami plików.
+ * Klucz: "{kolekcja}/{kolor}", wartość: nazwa pliku.
+ */
+const SWATCH_OVERRIDES: Record<string, string> = {
+  "honeycomb/antracyt": "zblizenie.webp",
+  "honeycomb/zimny-bez": "zblizenie-2.webp",
+};
+
+/**
  * Zwraca ścieżkę do próbki tkaniny (close-up).
  * - Standard, Melange, Dolomit (+ Termo): tkanina.jpg
- * - Blackout: zblizenie.png
- * - Honeycomb: zblizenie.png
+ * - Blackout, Honeycomb: zblizenie.png (z override'ami dla niestandardowych plików)
  */
 export function getFabricSwatchPath(kolekcja: string, kolor: string): string {
+  const override = SWATCH_OVERRIDES[`${kolekcja}/${kolor}`];
+  if (override) {
+    return `assets/produkty/${kolekcja}/${kolor}/${override}`;
+  }
   if (ZBLIZENIE_COLLECTIONS.has(kolekcja)) {
     return `assets/produkty/${kolekcja}/${kolor}/zblizenie.png`;
   }
