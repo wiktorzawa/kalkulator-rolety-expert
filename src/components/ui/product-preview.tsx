@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { Card, Modal, useOverlayState } from "@heroui/react";
 import { useWizard } from "@/context/wizard-context";
 import {
@@ -14,9 +15,6 @@ interface GalleryImage {
   readonly alt: string;
 }
 
-/**
- * Builds the gallery image list based on current wizard state.
- */
 function buildGalleryImages(
   collection: string,
   colorId: string,
@@ -46,7 +44,7 @@ function buildGalleryImages(
     alt: "Zbliżenie tkaniny",
   });
 
-  // 4+. Mounting images — all 5 systems (opis + pomiar each), like Stelge
+  // 4+. All mounting systems (opis + pomiar each)
   for (const system of MOUNTING_SYSTEMS) {
     const sysFullId = `${system.type}-${system.id}`;
     images.push({
@@ -63,13 +61,45 @@ function buildGalleryImages(
 }
 
 /**
- * Podgląd rolety (packshot) w kroku 3 z galerią miniaturek.
- * Kliknięcie w główne zdjęcie otwiera Modal z powiększeniem.
+ * Galeria produktu z Embla Carousel (główne zdjęcie) + miniaturki nawigacyjne.
+ * Kliknięcie w główne zdjęcie otwiera HeroUI Modal z powiększeniem.
  */
 export function ProductPreview() {
   const { state } = useWizard();
-  const [activeIndex, setActiveIndex] = useState(0);
   const modalState = useOverlayState();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // Main carousel
+  const [mainRef, mainApi] = useEmblaCarousel({ loop: false });
+  // Thumbs carousel (horizontal scroll)
+  const [thumbsRef] = useEmblaCarousel({
+    containScroll: "keepSnaps",
+    dragFree: true,
+    axis: "x",
+  });
+
+  // Sync main carousel selection with thumbnails
+  const onMainSelect = useCallback(() => {
+    if (!mainApi) return;
+    setSelectedIndex(mainApi.selectedScrollSnap());
+  }, [mainApi]);
+
+  useEffect(() => {
+    if (!mainApi) return;
+    mainApi.on("select", onMainSelect);
+    onMainSelect();
+    return () => {
+      mainApi.off("select", onMainSelect);
+    };
+  }, [mainApi, onMainSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (!mainApi) return;
+      mainApi.scrollTo(index);
+    },
+    [mainApi],
+  );
 
   if (!state.fabricId || !state.colorId) {
     return null;
@@ -77,60 +107,68 @@ export function ProductPreview() {
 
   const collection = fabricIdToCollection(state.fabricId);
   const isBezinwazyjny = state.mountingType === "bezinwazyjny";
-
   const images = buildGalleryImages(collection, state.colorId, isBezinwazyjny);
-
-  // Clamp activeIndex if images list shrinks
-  const safeIndex = activeIndex < images.length ? activeIndex : 0;
-  const activeImage = images[safeIndex] ?? images[0];
-
-  if (!activeImage) {
-    return null;
-  }
+  const activeImage = images[selectedIndex] ?? images[0];
 
   return (
     <>
       <Card className="overflow-hidden" data-testid="product-preview">
         <Card.Content className="p-0">
-          {/* Main image — click to enlarge */}
-          <button
-            type="button"
-            className="w-full cursor-zoom-in"
-            onClick={() => modalState.open()}
-            aria-label="Powiększ zdjęcie"
-          >
-            <img
-              src={activeImage.src}
-              alt={activeImage.alt}
-              className="h-auto w-full object-contain transition-all duration-300"
-              loading="lazy"
-              data-testid="preview-main-image"
-            />
-          </button>
+          {/* Main carousel */}
+          <div className="overflow-hidden" ref={mainRef}>
+            <div className="flex">
+              {images.map((img, idx) => (
+                <div key={img.src} className="min-w-0 flex-[0_0_100%]">
+                  <button
+                    type="button"
+                    className="w-full cursor-zoom-in"
+                    onClick={() => {
+                      setSelectedIndex(idx);
+                      modalState.open();
+                    }}
+                    aria-label={`Powiększ: ${img.alt}`}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="aspect-square w-full object-contain bg-white p-2"
+                      loading={idx < 3 ? "eager" : "lazy"}
+                      data-testid={idx === 0 ? "preview-main-image" : undefined}
+                    />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          {/* Thumbnail row */}
-          <div className="flex gap-2 border-t border-brand-100 p-3">
-            {images.map((img, idx) => (
-              <button
-                key={img.src}
-                type="button"
-                onClick={() => setActiveIndex(idx)}
-                aria-label={img.alt}
-                className={`h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 transition-all ${
-                  idx === safeIndex
-                    ? "border-sage-600 shadow-sm"
-                    : "border-brand-200 hover:border-brand-400"
-                }`}
-                data-testid={`preview-thumb-${idx}`}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-            ))}
+          {/* Thumbnails carousel */}
+          <div className="border-t border-brand-100 bg-brand-50/50 p-2">
+            <div className="overflow-hidden" ref={thumbsRef}>
+              <div className="flex gap-1.5">
+                {images.map((img, idx) => (
+                  <button
+                    key={img.src}
+                    type="button"
+                    onClick={() => scrollTo(idx)}
+                    aria-label={img.alt}
+                    aria-current={idx === selectedIndex ? "true" : undefined}
+                    className={`h-14 w-14 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+                      idx === selectedIndex
+                        ? "border-sage-600 shadow-sm"
+                        : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                    data-testid={`preview-thumb-${idx}`}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
           {state.mountingType && (
@@ -141,25 +179,30 @@ export function ProductPreview() {
         </Card.Content>
       </Card>
 
-      {/* Modal — enlarged image */}
-      <Modal state={modalState}>
-        <Modal.Backdrop isDismissable>
-          <Modal.Container size="lg">
-            <Modal.Dialog>
-              <Modal.Header>
-                <Modal.CloseTrigger />
-              </Modal.Header>
-              <Modal.Body className="p-4">
-                <img
-                  src={activeImage.src}
-                  alt={activeImage.alt}
-                  className="h-auto w-full rounded-lg object-contain"
-                />
-              </Modal.Body>
-            </Modal.Dialog>
-          </Modal.Container>
-        </Modal.Backdrop>
-      </Modal>
+      {/* Modal — powiększenie */}
+      {activeImage && (
+        <Modal state={modalState}>
+          <Modal.Backdrop isDismissable>
+            <Modal.Container size="lg">
+              <Modal.Dialog>
+                <Modal.Header>
+                  <Modal.Heading className="text-sm">
+                    {activeImage.alt}
+                  </Modal.Heading>
+                  <Modal.CloseTrigger />
+                </Modal.Header>
+                <Modal.Body className="p-4">
+                  <img
+                    src={activeImage.src}
+                    alt={activeImage.alt}
+                    className="h-auto w-full rounded-lg object-contain"
+                  />
+                </Modal.Body>
+              </Modal.Dialog>
+            </Modal.Container>
+          </Modal.Backdrop>
+        </Modal>
+      )}
     </>
   );
 }
