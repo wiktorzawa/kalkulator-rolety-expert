@@ -41,41 +41,45 @@ function renderAndNavigateToDimensions(mountingId = "wzmocniony") {
   // Step 2: select color
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
 
-  // Step 3: select mounting
-  const mountingName =
-    mountingId === "klejony" ? "Klejony" : "Wzmocniony (skręcany)";
-  fireEvent.click(screen.getByText(mountingName).closest("button")!);
+  // Step 3: select category then mounting system
+  if (mountingId === "klejony") {
+    fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
+    fireEvent.click(screen.getByTestId("mounting-carousel-klejony"));
+  } else {
+    fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
+    fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+  }
 }
 
 describe("DimensionsStep", () => {
-  it("renders width slider with range 150-1950 and step 10", () => {
+  it("renders width slider with range 150-1950 and step 1", () => {
     renderAndNavigateToDimensions();
 
-    const widthSlider = screen.getByLabelText("Szerokosc suwak");
+    const widthSlider = screen.getByLabelText("Szerokość suwak");
     expect(widthSlider).toHaveAttribute("min", "150");
     expect(widthSlider).toHaveAttribute("max", "1950");
-    expect(widthSlider).toHaveAttribute("step", "10");
+    expect(widthSlider).toHaveAttribute("step", "1");
   });
 
   it("limits width to 1200 for glued mounting", () => {
     renderAndNavigateToDimensions("klejony");
 
-    const widthSlider = screen.getByLabelText("Szerokosc suwak");
+    const widthSlider = screen.getByLabelText("Szerokość suwak");
     expect(widthSlider).toHaveAttribute("max", "1200");
 
-    // Warning should be displayed in dimensions step
-    const alerts = screen.getAllByRole("alert");
-    const dimensionAlert = alerts.find((el) => el.closest("#step-4") !== null);
-    expect(dimensionAlert).toHaveTextContent(/maksymalna szerokosc: 1200 mm/i);
+    // Warning should be displayed
+    expect(screen.getByTestId("glued-max-width-alert")).toHaveTextContent(
+      /maksymalna szerokość: 1200 mm/i,
+    );
   });
 
   it("quick button sets value", () => {
     renderAndNavigateToDimensions();
 
-    const btn800 = screen.getByLabelText(/ustaw szerokosc na 800 mm/i);
+    const btn800 = screen.getByLabelText(/ustaw szerokość na 800 mm/i);
     fireEvent.click(btn800);
 
-    const widthInput = screen.getByLabelText("Szerokosc w mm");
+    const widthInput = screen.getByLabelText("Szerokość w mm");
     expect(widthInput).toHaveValue(800);
   });
 
@@ -86,9 +90,45 @@ describe("DimensionsStep", () => {
     const initialPrice = priceEl.textContent;
 
     // Change width via quick button
-    fireEvent.click(screen.getByLabelText(/ustaw szerokosc na 1000 mm/i));
+    fireEvent.click(screen.getByLabelText(/ustaw szerokość na 1000 mm/i));
 
     const newPrice = priceEl.textContent;
     expect(newPrice).not.toBe(initialPrice);
+  });
+
+  it("DimensionInput accepts free value without clamping on change", () => {
+    renderAndNavigateToDimensions();
+
+    const widthInput = screen.getByLabelText(
+      "Szerokość w mm",
+    ) as HTMLInputElement;
+
+    // Type a value freely (even 623 which is not a multiple of 10)
+    fireEvent.change(widthInput, { target: { value: "623" } });
+    expect(widthInput.value).toBe("623");
+  });
+
+  it("DimensionInput clamps value on blur (< min)", () => {
+    renderAndNavigateToDimensions();
+
+    const widthInput = screen.getByLabelText(
+      "Szerokość w mm",
+    ) as HTMLInputElement;
+
+    fireEvent.change(widthInput, { target: { value: "50" } });
+    fireEvent.blur(widthInput);
+    expect(widthInput.value).toBe("150");
+  });
+
+  it("DimensionInput clamps value on blur (> max)", () => {
+    renderAndNavigateToDimensions();
+
+    const widthInput = screen.getByLabelText(
+      "Szerokość w mm",
+    ) as HTMLInputElement;
+
+    fireEvent.change(widthInput, { target: { value: "3000" } });
+    fireEvent.blur(widthInput);
+    expect(widthInput.value).toBe("1950");
   });
 });

@@ -116,9 +116,18 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Weryfikacja
 
-- [ ] Weryfikacja: Testy cart-context przechodzą
-- [ ] Weryfikacja: Testy wizard-context zaktualizowane i przechodzą
-- [ ] Weryfikacja: `npm run typecheck` przechodzi
+- [x] Weryfikacja: Testy cart-context przechodzą
+- [x] Weryfikacja: Testy wizard-context zaktualizowane i przechodzą
+- [x] Weryfikacja: `npm run typecheck` przechodzi
+
+## Do poprawy po review fazy 3
+
+- [ ] 🟠 [P2-important] **src/context/cart-context.tsx:94-99** — brak `addCurrentConfig` / `updateEditedConfig` w useCart hook (plan definiuje te convenience wrappery). Dodać gdy Unit 6 ich potrzebuje lub udokumentować odchylenie.
+- [ ] 🟠 [P2-important] **src/components/step-content.tsx:17-23** — StepContent wciąż renderuje 5 osobnych komponentów (MountingStep, DimensionsStep, RailStep) zamiast scalonych w ConfigStep. Akceptowalne jeśli Unit 4/5 dokończy refaktor.
+- [ ] 🟡 [P3-nit] **src/context/cart-context.tsx:89-91** — brak exhaustive check w `default` case cartReducera (preferowany `const _exhaustive: never = action`).
+- [ ] 🟡 [P3-nit] **src/context/cart-context.tsx:53-65** — DUPLICATE_ITEM: `find()` + `findIndex()` podwójna iteracja, można jednym `findIndex()`.
+- [ ] 🟡 [P3-nit] **src/context/cart-context.test.tsx:10-15** — `vi.stubGlobal("crypto")` podmienia cały obiekt, może interferować z innymi testami.
+- [ ] 🟡 [P3-nit] **src/context/cart-context.test.tsx** — brak testu UPDATE_ITEM z nieistniejącym id.
 
 ---
 
@@ -130,16 +139,16 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Refaktor `src/components/layout/step-indicator.tsx` — 3 kroki z nowymi etykietami
-- [ ] Refaktor `src/components/step-content.tsx` — 3 kroki: FabricStep, ColorStep, ConfigStep
-- [ ] Refaktor `src/components/layout/header.tsx` — progress bar 3-krokowy
-- [ ] Refaktor `src/components/configurator.tsx` — conditional render: configurator vs order-list (cart.view)
-- [ ] Modyfikuj `src/App.tsx` — routing z CartContext view
+- [x] Refaktor `src/components/layout/step-indicator.tsx` — 3 kroki z nowymi etykietami
+- [x] Refaktor `src/components/step-content.tsx` — 3 kroki: FabricStep, ColorStep, ConfigStep
+- [x] Refaktor `src/components/layout/header.tsx` — progress bar 3-krokowy
+- [x] Refaktor `src/components/configurator.tsx` — conditional render: configurator vs order-list (cart.view)
+- [x] Modyfikuj `src/App.tsx` — routing z CartContext view
 
 #### Testy
 
-- [ ] Test: StepContent renderuje 3 kroki (nie 5)
-- [ ] Test: Progress bar pokazuje 33%/66%/100%
+- [x] Test: StepContent renderuje 3 kroki (nie 5)
+- [x] Test: Progress bar pokazuje 33%/66%/100%
 - [ ] Test (E2E): Krok 1 "Tkanina" → wybierz → scroll do kroku 2 "Kolor" → wybierz → scroll do kroku 3 "Konfiguracja"
 - [ ] Test (E2E): Po dodaniu plisy → widok listy → "Dodaj kolejną" → powrót do wizarda krok 1
 
@@ -155,23 +164,23 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Stwórz `src/components/steps/config-step.tsx` — layout desktop (podgląd left + config right), mobile (podgląd top + config bottom)
-- [ ] Stwórz `src/components/ui/product-preview.tsx` — podgląd packshot (zmiana przy bezinwazyjny/inwazyjny)
-- [ ] Zainstaluj `embla-carousel-react`
-- [ ] Stwórz `src/components/ui/mounting-carousel.tsx` — karuzela systemów montażu
-- [ ] Refaktor `src/components/steps/mounting-step.tsx` — karuzela dwupoziomowa (2 kategorie → podsystemy)
-- [ ] Refaktor `src/components/ui/dimension-input.tsx` — swobodne wymiary (input akceptuje dowolną wartość, slider zsynchronizowany)
-- [ ] Refaktor `src/components/steps/dimensions-step.tsx` — usunięcie DimensionPreview, integracja z ConfigStep
-- [ ] Refaktor `src/components/steps/rail-step.tsx` — siatka z realnymi zdjęciami prowadnic + lightbox (HeroUI Modal)
-- [ ] Usuń `src/components/ui/dimension-preview.tsx` (R18)
+- [x] Stwórz `src/components/steps/config-step.tsx` — layout desktop (podgląd left + config right), mobile (podgląd top + config bottom)
+- [x] Stwórz `src/components/ui/product-preview.tsx` — podgląd packshot (zmiana przy bezinwazyjny/inwazyjny)
+- [x] Zainstaluj `embla-carousel-react`
+- [x] Stwórz `src/components/ui/mounting-carousel.tsx` — karuzela systemów montażu
+- [x] Refaktor `src/components/steps/mounting-step.tsx` — karuzela dwupoziomowa (2 kategorie → podsystemy)
+- [x] Refaktor `src/components/ui/dimension-input.tsx` — swobodne wymiary (input akceptuje dowolną wartość, slider zsynchronizowany)
+- [x] Refaktor `src/components/steps/dimensions-step.tsx` — usunięcie DimensionPreview, integracja z ConfigStep
+- [x] Refaktor `src/components/steps/rail-step.tsx` — siatka z realnymi zdjęciami prowadnic + lightbox (HeroUI Modal)
+- [x] Usuń `src/components/ui/dimension-preview.tsx` (R18)
 
 #### Testy
 
-- [ ] Test: ProductPreview zmienia src przy zmianie mountingType
-- [ ] Test: DimensionInput akceptuje 623mm bez zaokrąglania w polu
-- [ ] Test: DimensionInput clampe'uje na blur (< 150 → 150, > 1950 → 1950)
-- [ ] Test: Montaż klejony + width 1400mm → alert, blokada
-- [ ] Test: RailStep renderuje 14 kart z realnymi zdjęciami
+- [x] Test: ProductPreview zmienia src przy zmianie mountingType
+- [x] Test: DimensionInput akceptuje 623mm bez zaokrąglania w polu
+- [x] Test: DimensionInput clampe'uje na blur (< 150 → 150, > 1950 → 1950)
+- [x] Test: Montaż klejony + width 1400mm → alert, blokada
+- [x] Test: RailStep renderuje 14 kart z realnymi zdjęciami
 - [ ] Test (E2E): Krok 3: "Bezinwazyjny" → karuzela 2 systemów → "Wzmocniony" → packshot zmienia się → wymiary 800×1500 → listwa "Orzech" (dopłata widoczna) → kliknij zdjęcie → modal
 - [ ] Test (E2E): Mobile: podgląd na górze, config pod spodem. Desktop: podgląd po lewej
 - [ ] Test (E2E): Klejony → 1300mm → alert "Max 1200mm"
@@ -288,8 +297,8 @@ Ostatnia aktualizacja: 2026-04-10
 | 1. Fundament danych | Unit 1: Assety + images          | ✅ Zrobione     | M      |
 | 2. Baza danych      | Unit 2: Schema + RPC             | ✅ Zrobione     | M      |
 | 3. State            | Unit 3: Cart + Wizard 3 kroki    | ✅ Zrobione     | L      |
-| 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ⬜ Do zrobienia | M      |
-| 4. UI wizarda       | Unit 5: Krok 3 composite         | ⬜ Do zrobienia | XL     |
+| 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ✅ Zrobione     | M      |
+| 4. UI wizarda       | Unit 5: Krok 3 composite         | ✅ Zrobione     | XL     |
 | 5. Multi-plisa      | Unit 6: Lista zamówienia + panel | ⬜ Do zrobienia | L      |
 | 6. Integracja       | Unit 7: Submission + summary     | ⬜ Do zrobienia | M      |
 | 6. Integracja       | Unit 8: Beforeunload + polish    | ⬜ Do zrobienia | M      |

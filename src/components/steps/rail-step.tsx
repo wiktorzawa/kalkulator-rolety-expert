@@ -1,32 +1,62 @@
-import { useEffect } from "react";
+import { useRef, useCallback } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { RAIL_COLORS } from "@/data/rails";
-import { analytics } from "@/lib/analytics";
 
 function formatSurcharge(surcharge: number): string {
   if (surcharge === 0) return "";
-  return `+${surcharge.toFixed(2).replace(".", ",")} zl`;
+  return `+${surcharge.toFixed(2).replace(".", ",")} zł`;
 }
 
+/**
+ * Sekcja listwy aluminiowej wewnątrz ConfigStep.
+ * Siatka kart z realnymi zdjęciami prowadnic.
+ * Kliknięcie zdjęcia otwiera powiększenie w natywnym <dialog>.
+ */
 export function RailStep() {
   const { state, dispatch } = useWizard();
-
-  useEffect(() => {
-    analytics.trackStep(5);
-  }, []);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const enlargedImgRef = useRef<{ src: string; alt: string }>({
+    src: "",
+    alt: "",
+  });
 
   function handleSelect(railId: string): void {
     dispatch({ type: "SELECT_RAIL", railId });
   }
 
+  const handleImageClick = useCallback(
+    (e: React.MouseEvent, imgSrc: string, imgAlt: string) => {
+      e.stopPropagation();
+      enlargedImgRef.current = { src: imgSrc, alt: imgAlt };
+      const dialog = dialogRef.current;
+      if (dialog) {
+        // Force re-render of dialog content
+        const img = dialog.querySelector("img");
+        if (img) {
+          img.src = imgSrc;
+          img.alt = imgAlt;
+        }
+        dialog.showModal();
+      }
+    },
+    [],
+  );
+
+  const handleDialogClose = useCallback(() => {
+    dialogRef.current?.close();
+  }, []);
+
   return (
-    <section id="step-5" aria-label="Krok 5: Listwa">
-      <h2 className="mb-4 font-display text-2xl font-bold text-brand-950">
-        5. Kolor listwy aluminiowej
-      </h2>
+    <div aria-label="Listwa aluminiowa">
+      <h3 className="mb-4 font-display text-lg font-bold text-brand-900">
+        Kolor listwy aluminiowej
+      </h3>
+
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-5">
         {RAIL_COLORS.map((rail) => {
           const isSelected = state.railId === rail.id;
+          const imgSrc = rail.img ? `/${rail.img}` : null;
+
           return (
             <button
               key={rail.id}
@@ -39,12 +69,14 @@ export function RailStep() {
               }`}
               aria-pressed={isSelected}
             >
-              {rail.img ? (
+              {imgSrc ? (
                 <img
-                  src={`/${rail.img}`}
+                  src={imgSrc}
                   alt={rail.name}
                   loading="lazy"
-                  className="h-16 w-16 rounded-lg border border-brand-200 object-cover"
+                  className="h-16 w-16 cursor-zoom-in rounded-lg border border-brand-200 object-cover transition-transform hover:scale-110"
+                  onClick={(e) => handleImageClick(e, imgSrc, rail.name)}
+                  data-testid={`rail-image-${rail.id}`}
                 />
               ) : (
                 <div
@@ -67,6 +99,42 @@ export function RailStep() {
           );
         })}
       </div>
-    </section>
+
+      {/* Native dialog for image enlargement */}
+      <dialog
+        ref={dialogRef}
+        className="max-h-[80vh] max-w-lg rounded-xl border-none bg-white p-0 shadow-2xl backdrop:bg-black/50"
+        onClick={handleDialogClose}
+        data-testid="rail-lightbox"
+      >
+        <div className="relative p-4">
+          <button
+            type="button"
+            onClick={handleDialogClose}
+            className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-brand-600 hover:bg-brand-200"
+            aria-label="Zamknij powiększenie"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <img
+            src={enlargedImgRef.current.src}
+            alt={enlargedImgRef.current.alt}
+            className="h-auto w-full rounded-lg object-contain"
+          />
+        </div>
+      </dialog>
+    </div>
   );
 }

@@ -1,33 +1,63 @@
+import { useState, useEffect } from "react";
+
 interface DimensionInputProps {
   readonly label: string;
   readonly value: number;
   readonly min: number;
   readonly max: number;
-  readonly step: number;
   readonly quickValues: readonly number[];
   readonly unit: string;
   readonly onChange: (value: number) => void;
 }
 
+/**
+ * Dimension input: synchronized slider + number input.
+ * Input accepts any value freely. Clamping happens on blur.
+ * Slider uses step=1 for smooth movement.
+ */
 export function DimensionInput({
   label,
   value,
   min,
   max,
-  step,
   quickValues,
   unit,
   onChange,
 }: DimensionInputProps) {
+  // Local state for the input field to allow free typing
+  const [inputValue, setInputValue] = useState(String(value));
+
+  // Sync local state when value changes externally (e.g. from slider or quick button)
+  useEffect(() => {
+    setInputValue(String(value));
+  }, [value]);
+
   function handleSlider(e: React.ChangeEvent<HTMLInputElement>): void {
-    onChange(Number(e.target.value));
+    const raw = Number(e.target.value);
+    onChange(raw);
   }
 
-  function handleInput(e: React.ChangeEvent<HTMLInputElement>): void {
-    const raw = Number(e.target.value);
-    if (Number.isNaN(raw)) return;
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    // Allow free typing — no clamping on change
+    setInputValue(e.target.value);
+  }
+
+  function handleInputBlur(): void {
+    const raw = Number(inputValue);
+    if (Number.isNaN(raw) || inputValue.trim() === "") {
+      // Reset to current value
+      setInputValue(String(value));
+      return;
+    }
     const clamped = Math.max(min, Math.min(max, raw));
     onChange(clamped);
+    setInputValue(String(clamped));
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>): void {
+    if (e.key === "Enter") {
+      e.currentTarget.blur();
+    }
   }
 
   return (
@@ -39,11 +69,12 @@ export function DimensionInput({
         <div className="flex items-center gap-1">
           <input
             type="number"
-            value={value}
+            value={inputValue}
             min={min}
             max={max}
-            step={step}
-            onChange={handleInput}
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
+            onKeyDown={handleKeyDown}
             className="w-20 rounded-lg border border-brand-200 px-2 py-1 text-right text-sm font-medium text-brand-950 focus:border-sage-500 focus:outline-none focus:ring-1 focus:ring-sage-500"
             aria-label={`${label} w ${unit}`}
           />
@@ -56,7 +87,7 @@ export function DimensionInput({
         value={value}
         min={min}
         max={max}
-        step={step}
+        step={1}
         onChange={handleSlider}
         className="w-full accent-sage-600"
         aria-label={`${label} suwak`}

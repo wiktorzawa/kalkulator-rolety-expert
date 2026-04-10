@@ -1,9 +1,19 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { WizardProvider } from "@/context/wizard-context";
 import { StepContent } from "@/components/step-content";
 
-function renderAndNavigateToMounting() {
+vi.mock("@/lib/analytics", () => ({
+  analytics: {
+    init: vi.fn(),
+    trackStep: vi.fn(),
+    trackOrder: vi.fn(),
+    trackLookup: vi.fn(),
+    setUserProperties: vi.fn(),
+  },
+}));
+
+function renderAndNavigateToConfig() {
   render(
     <WizardProvider>
       <StepContent />
@@ -20,36 +30,57 @@ function renderAndNavigateToMounting() {
 }
 
 describe("MountingStep", () => {
+  it("shows both category buttons (bezinwazyjny/inwazyjny)", () => {
+    renderAndNavigateToConfig();
+
+    expect(screen.getByTestId("category-bezinwazyjny")).toBeInTheDocument();
+    expect(screen.getByTestId("category-inwazyjny")).toBeInTheDocument();
+  });
+
+  it("shows bezinwazyjny systems carousel after selecting category", () => {
+    renderAndNavigateToConfig();
+
+    fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
+
+    // Should show 2 bezinwazyjny systems
+    expect(
+      screen.getByTestId("mounting-carousel-wzmocniony"),
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("mounting-carousel-klejony")).toBeInTheDocument();
+  });
+
+  it("shows inwazyjny systems carousel after selecting category", () => {
+    renderAndNavigateToConfig();
+
+    fireEvent.click(screen.getByTestId("category-inwazyjny"));
+
+    // Should show 3 inwazyjny systems
+    expect(
+      screen.getByTestId("mounting-carousel-standard"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("mounting-carousel-regulowany"),
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("mounting-carousel-katowy")).toBeInTheDocument();
+  });
+
+  it("shows info about rail color matching mounting color", () => {
+    renderAndNavigateToConfig();
+
+    fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
+
+    expect(
+      screen.getByText(/kolor systemu montażowego będzie taki sam/i),
+    ).toBeInTheDocument();
+  });
+
   it("displays glued mounting warning about max 1200mm", () => {
-    renderAndNavigateToMounting();
+    renderAndNavigateToConfig();
 
-    // Klejony card should show the warning
-    expect(screen.getByTestId("glued-warning")).toHaveTextContent(
-      "Max szerokość: 1200 mm",
-    );
-  });
+    fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
 
-  it("shows both bezinwazyjny and inwazyjny category headings", () => {
-    renderAndNavigateToMounting();
-
-    expect(
-      screen.getByRole("heading", { name: "Bezinwazyjny" }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("heading", { name: "Inwazyjny" }),
-    ).toBeInTheDocument();
-  });
-
-  it("renders 5 mounting system cards", () => {
-    renderAndNavigateToMounting();
-
-    // All mounting cards have aria-pressed attribute
-    const allButtons = screen.getAllByRole("button");
-    const mountingCards = allButtons.filter(
-      (btn) =>
-        btn.getAttribute("aria-pressed") !== null &&
-        btn.closest("#step-3") !== null,
-    );
-    expect(mountingCards).toHaveLength(5);
+    // Klejony card inside carousel should show the warning
+    const klejonyCar = screen.getByTestId("mounting-carousel-klejony");
+    expect(klejonyCar).toHaveTextContent(/Max szerokość: 1200 mm/);
   });
 });

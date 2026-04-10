@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { WizardProvider } from "@/context/wizard-context";
 import { StepContent } from "@/components/step-content";
 import { PricePanel } from "@/components/layout/price-panel";
+import { RAIL_COLORS } from "@/data/rails";
 
 vi.mock("@/lib/supabase", () => ({
   getSupabase: () => ({
@@ -39,12 +40,26 @@ function renderWizardWithPrice() {
   fireEvent.click(screen.getByText("Standard").closest("button")!);
   // Step 2: Biel
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
-  // Step 3: Wzmocniony (bezinwazyjny)
-  fireEvent.click(screen.getByText("Wzmocniony (skręcany)").closest("button")!);
-  // Step 4: defaults 600x1500 (always valid)
+  // Step 3: select category + mounting
+  fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
+  fireEvent.click(screen.getByTestId("mounting-carousel-wzmocniony"));
+  // Dimensions: defaults 600x1500 (always valid)
 }
 
-describe("RailStep — price panel integration", () => {
+describe("RailStep", () => {
+  it("renders 14 rail cards with real images", () => {
+    renderWizardWithPrice();
+
+    // All rails should have img tags with real paths
+    for (const rail of RAIL_COLORS) {
+      if (rail.img) {
+        const img = screen.getByTestId(`rail-image-${rail.id}`);
+        expect(img).toBeInTheDocument();
+        expect(img).toHaveAttribute("src", `/${rail.img}`);
+      }
+    }
+  });
+
   it("shows correct price: Standard+Bezinw+600x1500 = 156.75 zl", () => {
     renderWizardWithPrice();
 
@@ -60,5 +75,11 @@ describe("RailStep — price panel integration", () => {
     // Math.ceil(156.75) = 157
     expect(screen.getByText(/157/)).toBeInTheDocument();
     expect(screen.getByText(/jednostek/)).toBeInTheDocument();
+  });
+
+  it("has a lightbox dialog element", () => {
+    renderWizardWithPrice();
+
+    expect(screen.getByTestId("rail-lightbox")).toBeInTheDocument();
   });
 });
