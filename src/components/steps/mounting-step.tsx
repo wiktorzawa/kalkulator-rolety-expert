@@ -272,23 +272,24 @@ export function MountingStep() {
 
       {/* HeroUI Modal — powiększenie zdjęcia */}
       <Modal state={modalState}>
-        <Modal.Backdrop isDismissable />
-        <Modal.Container size="lg">
-          <Modal.Dialog>
-            <Modal.Header>
-              <Modal.CloseTrigger />
-            </Modal.Header>
-            <Modal.Body className="p-2">
-              {previewImg && (
-                <img
-                  src={previewImg.src}
-                  alt={previewImg.alt}
-                  className="h-auto w-full rounded-lg object-contain"
-                />
-              )}
-            </Modal.Body>
-          </Modal.Dialog>
-        </Modal.Container>
+        <Modal.Backdrop isDismissable>
+          <Modal.Container size="lg">
+            <Modal.Dialog>
+              <Modal.Header>
+                <Modal.CloseTrigger />
+              </Modal.Header>
+              <Modal.Body className="p-2">
+                {previewImg && (
+                  <img
+                    src={previewImg.src}
+                    alt={previewImg.alt}
+                    className="h-auto w-full rounded-lg object-contain"
+                  />
+                )}
+              </Modal.Body>
+            </Modal.Dialog>
+          </Modal.Container>
+        </Modal.Backdrop>
       </Modal>
     </div>
   );

@@ -93,23 +93,24 @@ export function RailStep() {
 
       {/* HeroUI Modal — powiększenie zdjęcia listwy */}
       <Modal state={modalState}>
-        <Modal.Backdrop isDismissable />
-        <Modal.Container size="lg">
-          <Modal.Dialog>
-            <Modal.Header>
-              <Modal.CloseTrigger />
-            </Modal.Header>
-            <Modal.Body className="p-4">
-              {enlargedImg && (
-                <img
-                  src={enlargedImg.src}
-                  alt={enlargedImg.alt}
-                  className="h-auto w-full rounded-lg object-contain"
-                />
-              )}
-            </Modal.Body>
-          </Modal.Dialog>
-        </Modal.Container>
+        <Modal.Backdrop isDismissable>
+          <Modal.Container size="lg">
+            <Modal.Dialog>
+              <Modal.Header>
+                <Modal.CloseTrigger />
+              </Modal.Header>
+              <Modal.Body className="p-4">
+                {enlargedImg && (
+                  <img
+                    src={enlargedImg.src}
+                    alt={enlargedImg.alt}
+                    className="h-auto w-full rounded-lg object-contain"
+                  />
+                )}
+              </Modal.Body>
+            </Modal.Dialog>
+          </Modal.Container>
+        </Modal.Backdrop>
       </Modal>
     </div>
   );
