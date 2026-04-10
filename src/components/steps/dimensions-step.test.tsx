@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { WizardProvider } from "@/context/wizard-context";
+import { CartProvider } from "@/context/cart-context";
 import { StepContent } from "@/components/step-content";
 import { PricePanel } from "@/components/layout/price-panel";
 
@@ -29,10 +30,12 @@ vi.mock("@/lib/analytics", () => ({
 
 function renderAndNavigateToDimensions(mountingId = "wzmocniony") {
   render(
-    <WizardProvider>
-      <StepContent />
-      <PricePanel />
-    </WizardProvider>,
+    <CartProvider>
+      <WizardProvider>
+        <StepContent />
+        <PricePanel />
+      </WizardProvider>
+    </CartProvider>,
   );
 
   // Step 1: select fabric

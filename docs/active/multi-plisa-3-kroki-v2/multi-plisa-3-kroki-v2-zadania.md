@@ -193,6 +193,17 @@ Ostatnia aktualizacja: 2026-04-10
 - [ ] Weryfikacja: Realne zdjęcia prowadnic widoczne
 - [ ] Weryfikacja: Responsywność mobile/desktop
 
+## Do poprawy po review fazy 4
+
+- [ ] 🟠 [P2-important] **src/components/steps/rail-step.tsx:27-43** — lightbox używa DOM manipulation (`dialog.querySelector('img')`) zamiast React state. Zamienić `enlargedImgRef` na `useState` i renderować `<img>` warunkowo.
+- [ ] 🟠 [P2-important] **src/components/layout/price-panel.tsx** — 240 linii, łączy logikę submit z prezentacją ceny. Wyciągnąć `useOrderSubmit()` hook lub rozdzielić w Unit 6.
+- [ ] 🟠 [P2-important] **src/components/layout/price-panel.tsx:181-199** — panel wciąż pokazuje rozbicie dopłat za szer/wys (sprzeczne z R19-R20). Do refaktoru w Unit 6.
+- [ ] 🟡 [P3-nit] **brak config-step.test.tsx / step-content.test.tsx** — brak dedykowanych testów ConfigStep i StepContent 3-krokowego.
+- [ ] 🟡 [P3-nit] **src/components/steps/rail-step.tsx** — puste `src=""` w dialog img powoduje warnings w testach (powiązane z P2-1).
+- [ ] 🟡 [P3-nit] **src/components/ui/dimension-input.tsx:66-68** — `<label>` bez `htmlFor`/`id` powiązania z inputem.
+- [ ] 🟡 [P3-nit] **src/components/ui/mounting-carousel.tsx:47** — zbędny ternary `system.type === "bezinwazyjny" ? "bezinwazyjny" : "inwazyjny"`, wystarczy `system.type`.
+- [ ] 🟡 [P3-nit] **src/components/ui/mounting-carousel.tsx** — brak obsługi nawigacji klawiaturowej (Arrow Left/Right).
+
 ---
 
 ## Faza 5: Multi-plisa
@@ -203,21 +214,21 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Stwórz `src/components/order/order-list.tsx` — lista pozycji z podsumowaniem
-- [ ] Stwórz `src/components/order/order-item-card.tsx` — karta pozycji (miniatura, parametry, cena, akcje)
-- [ ] Refaktor `src/components/layout/price-panel.tsx` — uproszczony (Cena rolety + Dopłata listwa = Razem), kontekstowy (configurator vs edit), pole ilości, "Dodaj"/"Zapisz"/"Anuluj"
-- [ ] Modyfikuj `src/components/configurator.tsx` — render OrderList gdy cart.view === 'order-list'
-- [ ] Dodaj toast notification (Sonner lub HeroUI) przy edycji z ilością > 1
+- [x] Stwórz `src/components/order/order-list.tsx` — lista pozycji z podsumowaniem
+- [x] Stwórz `src/components/order/order-item-card.tsx` — karta pozycji (miniatura, parametry, cena, akcje)
+- [x] Refaktor `src/components/layout/price-panel.tsx` — uproszczony (Cena rolety + Dopłata listwa = Razem), kontekstowy (configurator vs edit), pole ilości, "Dodaj"/"Zapisz"/"Anuluj"
+- [x] Modyfikuj `src/components/configurator.tsx` — render OrderList gdy cart.view === 'order-list'
+- [x] Dodaj toast notification (Sonner lub HeroUI) przy edycji z ilością > 1
 
 #### Testy
 
-- [ ] Test: OrderList renderuje N pozycji z cenami
-- [ ] Test: +/- ilość aktualizuje totalPrice natychmiast
-- [ ] Test: Edytuj → wizard z wypełnionymi polami, przycisk "Zapisz"
-- [ ] Test: Duplikuj → kopia z nowym id, otwarta w edycji
-- [ ] Test: Usuń ostatnią pozycję → "Zamów" disabled
-- [ ] Test: PricePanel nie pokazuje "Doplata za szerokosc" ani "Doplata za wysokosc"
-- [ ] Test: Toast "Zaktualizowano 3 szt." przy edycji z quantity=3
+- [x] Test: OrderList renderuje N pozycji z cenami
+- [x] Test: +/- ilość aktualizuje totalPrice natychmiast
+- [x] Test: Edytuj → wizard z wypełnionymi polami, przycisk "Zapisz"
+- [x] Test: Duplikuj → kopia z nowym id, otwarta w edycji
+- [x] Test: Usuń ostatnią pozycję → "Zamów" disabled
+- [x] Test: PricePanel nie pokazuje "Doplata za szerokosc" ani "Doplata za wysokosc"
+- [x] Test: Toast "Zaktualizowano 3 szt." przy edycji z quantity=3
 - [ ] Test (E2E): Skonfiguruj plisę → "Dodaj" (ilość 2) → lista → "2 szt." → "+" → 3 szt. live → "Edytuj" → zmień kolor → "Zapisz" → lista zaktualizowana
 - [ ] Test (E2E): "Dodaj kolejną" → czysty wizard → druga plisa → "Dodaj" → lista 2 pozycje
 - [ ] Test (E2E): Edytuj → klejony + width > 1200mm → alert → blokada "Zapisz"
@@ -299,6 +310,6 @@ Ostatnia aktualizacja: 2026-04-10
 | 3. State            | Unit 3: Cart + Wizard 3 kroki    | ✅ Zrobione     | L      |
 | 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ✅ Zrobione     | M      |
 | 4. UI wizarda       | Unit 5: Krok 3 composite         | ✅ Zrobione     | XL     |
-| 5. Multi-plisa      | Unit 6: Lista zamówienia + panel | ⬜ Do zrobienia | L      |
+| 5. Multi-plisa      | Unit 6: Lista zamówienia + panel | ✅ Zrobione     | L      |
 | 6. Integracja       | Unit 7: Submission + summary     | ⬜ Do zrobienia | M      |
 | 6. Integracja       | Unit 8: Beforeunload + polish    | ⬜ Do zrobienia | M      |

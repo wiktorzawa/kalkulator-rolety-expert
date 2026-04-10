@@ -40,10 +40,10 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders order button (disabled initially)", () => {
+  it("renders add-to-order button (disabled initially)", () => {
     render(<App />);
     const button = screen.getByRole("button", {
-      name: /zamow przez allegro/i,
+      name: /dodaj do zamówienia/i,
     });
     expect(button).toBeDisabled();
   });

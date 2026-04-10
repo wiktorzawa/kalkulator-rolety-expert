@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { WizardProvider } from "@/context/wizard-context";
+import { CartProvider } from "@/context/cart-context";
 import { StepContent } from "@/components/step-content";
 import { PricePanel } from "@/components/layout/price-panel";
 import { RAIL_COLORS } from "@/data/rails";
@@ -30,10 +31,12 @@ vi.mock("@/lib/analytics", () => ({
 
 function renderWizardWithPrice() {
   render(
-    <WizardProvider>
-      <StepContent />
-      <PricePanel />
-    </WizardProvider>,
+    <CartProvider>
+      <WizardProvider>
+        <StepContent />
+        <PricePanel />
+      </WizardProvider>
+    </CartProvider>,
   );
 
   // Step 1: Standard
@@ -69,12 +72,13 @@ describe("RailStep", () => {
     expect(priceEl).toHaveTextContent("156,75");
   });
 
-  it("shows 157 allegro units for 156.75 zl", () => {
+  it("shows add-to-order button (Allegro units only on order list)", () => {
     renderWizardWithPrice();
 
-    // Math.ceil(156.75) = 157
-    expect(screen.getByText(/157/)).toBeInTheDocument();
-    expect(screen.getByText(/jednostek/)).toBeInTheDocument();
+    // Price panel in wizard mode shows "Dodaj do zamówienia" button
+    // Allegro units are shown only on the order list, not in the wizard
+    const addButton = screen.getByTestId("add-to-order-button");
+    expect(addButton).toBeInTheDocument();
   });
 
   it("has a lightbox dialog element", () => {

@@ -1,33 +1,51 @@
 import { useState, useEffect, useRef } from "react";
 import { useWizard } from "@/context/wizard-context";
-import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
+import { useCart } from "@/context/cart-context";
 import { getFabricById, getColorsForFabric } from "@/data/fabrics";
 import { getMountingById } from "@/data/mounting";
 import { getRailById } from "@/data/rails";
-import {
-  submitOrder,
-  type OrderRecord,
-  type OrderItemInsert,
-} from "@/services/orders";
-import { parseUtmSource } from "@/utils/order-number";
-import { OrderSummary } from "@/components/order/order-summary";
+import type { CartItem } from "@/context/cart-types";
 
 function formatPrice(value: number): string {
   return value.toFixed(2).replace(".", ",");
 }
 
 export function PricePanel() {
-  const { state, price, isConfigComplete } = useWizard();
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submittedOrder, setSubmittedOrder] = useState<OrderRecord | null>(
-    null,
-  );
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const {
+    state: wizardState,
+    price,
+    isConfigComplete,
+    dispatch: wizardDispatch,
+  } = useWizard();
+  const {
+    state: cartState,
+    dispatch: cartDispatch,
+    totalPrice: cartTotalPrice,
+  } = useCart();
+
+  const [quantity, setQuantity] = useState(1);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const [isPricePulsing, setIsPricePulsing] = useState(false);
   const prevPriceRef = useRef(price.total);
 
+  const isEditing = wizardState.editingItemId !== null;
+
+  // Reset quantity when switching between edit modes
+  useEffect(() => {
+    if (isEditing) {
+      const editingItem = cartState.items.find(
+        (i) => i.id === wizardState.editingItemId,
+      );
+      if (editingItem) {
+        setQuantity(editingItem.quantity);
+      }
+    } else {
+      setQuantity(1);
+    }
+  }, [isEditing, wizardState.editingItemId, cartState.items]);
+
+  // Price pulse animation
   useEffect(() => {
     if (price.total !== prevPriceRef.current && price.total > 0) {
       setIsPricePulsing(true);
@@ -38,112 +56,117 @@ export function PricePanel() {
     prevPriceRef.current = price.total;
   }, [price.total]);
 
-  const units = priceToUnits(price.total);
-  const breakdown = formatUnitsBreakdown(units);
+  // Toast auto-dismiss
+  useEffect(() => {
+    if (toastMessage === null) return;
+    const timer = setTimeout(() => setToastMessage(null), 3000);
+    return () => clearTimeout(timer);
+  }, [toastMessage]);
 
-  const fabric = state.fabricId ? getFabricById(state.fabricId) : null;
-  const mounting = state.mountingId ? getMountingById(state.mountingId) : null;
-  const rail = state.railId ? getRailById(state.railId) : null;
+  const fabric = wizardState.fabricId
+    ? getFabricById(wizardState.fabricId)
+    : null;
+  const mounting = wizardState.mountingId
+    ? getMountingById(wizardState.mountingId)
+    : null;
+  const rail = wizardState.railId ? getRailById(wizardState.railId) : null;
 
-  async function handleSubmit(): Promise<void> {
-    if (!isConfigComplete || isSubmitting) return;
+  // "Cena rolety" = total minus rail surcharge
+  const blindPrice = price.total - price.railSurcharge;
 
-    const { fabricId, colorId, mountingId, mountingType, railId } = state;
-    if (!fabricId || !colorId || !mountingId || !mountingType || !railId)
-      return;
+  // Cart totals excluding the item being edited (to avoid double-counting)
+  const cartItemsExcludingEdited = cartState.items.filter(
+    (i) => i.id !== wizardState.editingItemId,
+  );
+  const cartPriceExcludingEdited = cartItemsExcludingEdited.reduce(
+    (sum, item) => sum + item.unitPrice * item.quantity,
+    0,
+  );
+  const cartCountExcludingEdited = cartItemsExcludingEdited.length;
 
-    setIsSubmitting(true);
-    setSubmitError(null);
-
-    try {
-      const utmSource = parseUtmSource(window.location.search);
-
-      const colors = getColorsForFabric(fabricId);
-      const color = colors.find((c) => c.id === colorId);
-      const fabricObj = getFabricById(fabricId);
-      const mountingObj = getMountingById(mountingId);
-      const railObj = getRailById(railId);
-
-      const item: OrderItemInsert = {
-        fabric_id: fabricId,
-        fabric_name: fabricObj?.name ?? fabricId,
-        color_id: colorId,
-        color_name: color?.name ?? colorId,
-        mounting_id: mountingId,
-        mounting_name: mountingObj?.name ?? mountingId,
-        mounting_type: mountingType,
-        width_mm: state.widthMm,
-        height_mm: state.heightMm,
-        rail_id: railId,
-        rail_name: railObj?.name ?? railId,
-        quantity: 1,
-        unit_price: price.total,
-      };
-
-      const result = await submitOrder({
-        items: [item],
-        totalPrice: price.total,
-        allegroUnits: units,
-        utmSource: utmSource,
-      });
-
-      // Build a local OrderRecord for the summary display
-      setSubmittedOrder({
-        id: 0,
-        order_number: result.orderNumber,
-        total_price: price.total,
-        allegro_units: units,
-        allegro_tx_id: null,
-        utm_source: utmSource,
-        created_at: new Date().toISOString(),
-        items: [
-          {
-            id: 0,
-            position: 1,
-            ...item,
-          },
-        ],
-      });
-
-      // Update URL without reload so the user can share/bookmark
-      const newUrl = `${window.location.origin}${window.location.pathname}?order=${result.orderNumber}`;
-      window.history.pushState({}, "", newUrl);
-    } catch (err: unknown) {
-      const message =
-        err instanceof Error
-          ? err.message
-          : "Wystapil blad przy skladaniu zamowienia";
-      setSubmitError(message);
-    } finally {
-      setIsSubmitting(false);
+  function buildCartItem(): Omit<CartItem, "id"> | null {
+    const {
+      fabricId,
+      colorId,
+      mountingId,
+      mountingType,
+      railId,
+      widthMm,
+      heightMm,
+    } = wizardState;
+    if (!fabricId || !colorId || !mountingId || !mountingType || !railId) {
+      return null;
     }
+
+    const colors = getColorsForFabric(fabricId);
+    const color = colors.find((c) => c.id === colorId);
+    const fabricObj = getFabricById(fabricId);
+    const mountingObj = getMountingById(mountingId);
+    const railObj = getRailById(railId);
+
+    return {
+      fabricId,
+      fabricName: fabricObj?.name ?? fabricId,
+      colorId,
+      colorName: color?.name ?? colorId,
+      mountingId,
+      mountingName: mountingObj?.name ?? mountingId,
+      mountingType,
+      widthMm,
+      heightMm,
+      railId,
+      railName: railObj?.name ?? railId,
+      quantity,
+      unitPrice: price.total,
+    };
   }
 
-  // Show order summary after successful submission
-  if (submittedOrder) {
-    return (
-      <div className="fixed inset-0 z-50 overflow-y-auto bg-brand-50 p-4">
-        <div className="mx-auto max-w-2xl py-8">
-          <OrderSummary order={submittedOrder} />
-        </div>
-      </div>
-    );
+  function handleAddToOrder(): void {
+    const item = buildCartItem();
+    if (!item) return;
+
+    cartDispatch({ type: "ADD_ITEM", item });
+    wizardDispatch({ type: "RESET" });
+    cartDispatch({ type: "SET_VIEW", view: "order-list" });
+  }
+
+  function handleSaveEdit(): void {
+    const item = buildCartItem();
+    if (!item || !wizardState.editingItemId) return;
+
+    cartDispatch({
+      type: "UPDATE_ITEM",
+      id: wizardState.editingItemId,
+      item,
+    });
+
+    if (quantity > 1) {
+      setToastMessage(`Zaktualizowano ${quantity} szt.`);
+    }
+
+    wizardDispatch({ type: "RESET" });
+    cartDispatch({ type: "SET_VIEW", view: "order-list" });
+  }
+
+  function handleCancelEdit(): void {
+    wizardDispatch({ type: "RESET" });
+    cartDispatch({ type: "SET_VIEW", view: "order-list" });
+  }
+
+  function handleQuantityChange(delta: number): void {
+    setQuantity((prev) => Math.max(1, prev + delta));
   }
 
   return (
-    <aside
-      className="fixed bottom-0 left-0 right-0 z-30 border-t border-brand-200 bg-white/95 p-4 backdrop-blur-sm md:static md:rounded-xl md:border md:shadow-sm"
-      aria-label="Podsumowanie cenowe"
-    >
-      <div className="mx-auto max-w-4xl">
-        {/* Selected options summary */}
-        {(fabric ?? mounting ?? rail) && (
-          <button
-            type="button"
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="mb-2 flex w-full items-center justify-between text-xs text-brand-500 hover:text-brand-700"
-          >
-            <span className="flex flex-wrap gap-1">
+    <>
+      <aside
+        className="fixed bottom-0 left-0 right-0 z-30 border-t border-brand-200 bg-white/95 p-4 backdrop-blur-sm md:static md:rounded-xl md:border md:shadow-sm"
+        aria-label="Podsumowanie cenowe"
+      >
+        <div className="mx-auto max-w-4xl">
+          {/* Selected options tags */}
+          {(fabric ?? mounting ?? rail) && (
+            <div className="mb-2 flex flex-wrap gap-1 text-xs text-brand-500">
               {fabric && (
                 <span className="rounded bg-brand-100 px-1.5 py-0.5">
                   {fabric.name}
@@ -159,82 +182,136 @@ export function PricePanel() {
                   Listwa: {rail.name}
                 </span>
               )}
-            </span>
-            <svg
-              className={`h-4 w-4 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-        )}
+            </div>
+          )}
 
-        {/* Price breakdown (expandable) */}
-        {price.total > 0 && isExpanded && (
-          <div className="mb-3 space-y-1 text-sm text-brand-600">
-            <div className="flex justify-between">
-              <span>Baza (tkanina + montaz)</span>
-              <span>{formatPrice(price.basePrice)} zl</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Doplata za szerokosc</span>
-              <span>{formatPrice(price.widthPrice)} zl</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Doplata za wysokosc</span>
-              <span>{formatPrice(price.heightPrice)} zl</span>
-            </div>
-            {price.railSurcharge > 0 && (
-              <div className="flex justify-between">
-                <span>Doplata za listwe</span>
-                <span>{formatPrice(price.railSurcharge)} zl</span>
+          {/* Simplified price display */}
+          {price.total > 0 && (
+            <div className="mb-3 space-y-1 text-sm">
+              <div className="flex justify-between text-brand-600">
+                <span>Cena rolety</span>
+                <span>{formatPrice(blindPrice)} zł</span>
               </div>
-            )}
-          </div>
-        )}
+              {price.railSurcharge > 0 && (
+                <div className="flex justify-between text-brand-600">
+                  <span>Dopłata listwa</span>
+                  <span>{formatPrice(price.railSurcharge)} zł</span>
+                </div>
+              )}
+              <div
+                className="flex items-baseline justify-between border-t border-brand-100 pt-1"
+                data-testid="price-total-row"
+              >
+                <span className="font-medium text-brand-700">Razem</span>
+                <span
+                  className={`font-display text-xl font-bold text-brand-950 transition-all duration-300 ${isPricePulsing ? "scale-110 text-sage-700" : ""}`}
+                  data-testid="price-total"
+                >
+                  {formatPrice(price.total)} zł
+                </span>
+              </div>
+            </div>
+          )}
 
-        {/* Total price */}
-        {price.total > 0 && (
-          <div className="mb-2 flex items-baseline justify-between">
-            <span className="text-sm font-medium text-brand-700">Razem</span>
-            <span
-              className={`font-display text-xl font-bold text-brand-950 transition-all duration-300 ${isPricePulsing ? "scale-110 text-sage-700" : ""}`}
-              data-testid="price-total"
+          {/* "Dotychczas w zamówieniu" info */}
+          {isEditing && cartCountExcludingEdited > 0 && (
+            <p
+              className="mb-2 text-center text-xs text-brand-500"
+              data-testid="cart-existing-info"
             >
-              {formatPrice(price.total)} zl
-            </span>
-          </div>
-        )}
+              Dotychczas w zamówieniu:{" "}
+              <strong>{formatPrice(cartPriceExcludingEdited)} zł</strong> (
+              {cartCountExcludingEdited}{" "}
+              {cartCountExcludingEdited === 1 ? "pozycja" : "pozycji"})
+            </p>
+          )}
+          {!isEditing && cartState.items.length > 0 && (
+            <p
+              className="mb-2 text-center text-xs text-brand-500"
+              data-testid="cart-existing-info"
+            >
+              Dotychczas w zamówieniu:{" "}
+              <strong>{formatPrice(cartTotalPrice)} zł</strong> (
+              {cartState.items.length}{" "}
+              {cartState.items.length === 1 ? "pozycja" : "pozycji"})
+            </p>
+          )}
 
-        {/* Allegro units */}
-        {price.total > 0 && (
-          <p className="mb-3 text-center text-xs text-brand-500">
-            Allegro: <strong className="text-brand-800">{units}</strong>{" "}
-            jednostek ({breakdown})
-          </p>
-        )}
+          {/* Quantity selector */}
+          {price.total > 0 && (
+            <div className="mb-3 flex items-center justify-center gap-3">
+              <span className="text-sm text-brand-600">Ilość:</span>
+              <button
+                type="button"
+                onClick={() => handleQuantityChange(-1)}
+                disabled={quantity <= 1}
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-brand-200 text-brand-700 hover:bg-brand-50 disabled:cursor-not-allowed disabled:opacity-40"
+                aria-label="Zmniejsz ilość"
+              >
+                -
+              </button>
+              <span
+                className="min-w-[2rem] text-center text-sm font-semibold text-brand-950"
+                data-testid="panel-quantity"
+              >
+                {quantity}
+              </span>
+              <button
+                type="button"
+                onClick={() => handleQuantityChange(1)}
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-brand-200 text-brand-700 hover:bg-brand-50"
+                aria-label="Zwiększ ilość"
+              >
+                +
+              </button>
+            </div>
+          )}
 
-        {/* Error message */}
-        {submitError && (
-          <p className="mb-2 text-center text-xs text-red-600">{submitError}</p>
-        )}
+          {/* Action buttons */}
+          {isEditing ? (
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={handleCancelEdit}
+                className="flex-1 rounded-lg border border-brand-300 px-4 py-3 font-medium text-brand-700 hover:bg-brand-50"
+              >
+                Anuluj
+              </button>
+              <button
+                type="button"
+                disabled={!isConfigComplete}
+                onClick={handleSaveEdit}
+                className="flex-1 rounded-lg bg-sage-600 px-4 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
+                data-testid="save-edit-button"
+              >
+                Zapisz
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              disabled={!isConfigComplete}
+              onClick={handleAddToOrder}
+              className="w-full rounded-lg bg-sage-600 px-6 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
+              data-testid="add-to-order-button"
+            >
+              Dodaj do zamówienia
+            </button>
+          )}
+        </div>
+      </aside>
 
-        <button
-          type="button"
-          disabled={!isConfigComplete || isSubmitting}
-          onClick={() => void handleSubmit()}
-          className="w-full rounded-lg bg-sage-600 px-6 py-3 font-medium text-white transition-colors hover:bg-sage-700 disabled:cursor-not-allowed disabled:opacity-50"
+      {/* Toast notification */}
+      {toastMessage !== null && (
+        <div
+          className="fixed bottom-20 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-brand-900 px-4 py-2 text-sm text-white shadow-lg"
+          role="status"
+          aria-live="polite"
+          data-testid="toast"
         >
-          {isSubmitting ? "Skladanie zamowienia..." : "Zamow przez Allegro"}
-        </button>
-      </div>
-    </aside>
+          {toastMessage}
+        </div>
+      )}
+    </>
   );
 }
