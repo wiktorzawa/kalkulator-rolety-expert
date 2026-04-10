@@ -3,6 +3,7 @@ import {
   getPackshotPath,
   getFabricSwatchPath,
   getMountingImagePath,
+  getMountingCloseupPaths,
   getRailImagePath,
   fabricIdToCollection,
   getBaseCollection,
@@ -89,6 +90,33 @@ describe("getMountingImagePath", () => {
     expect(
       getMountingImagePath("bezinwazyjny-wzmocniony", "grafika-pomiarowa"),
     ).toBe("assets/montaz/bezinwazyjny-wzmocniony/grafika-pomiarowa.png");
+  });
+});
+
+describe("getMountingCloseupPaths", () => {
+  it("zwraca zblizenie-1.png i zblizenie-2.png dla bezinwazyjny-wzmocniony", () => {
+    expect(getMountingCloseupPaths("bezinwazyjny-wzmocniony")).toEqual([
+      "assets/montaz/bezinwazyjny-wzmocniony/zblizenie-1.png",
+      "assets/montaz/bezinwazyjny-wzmocniony/zblizenie-2.png",
+    ]);
+  });
+
+  it("zwraca zblizenie-dol.webp i zblizenie-gora.webp dla bezinwazyjny-klejony", () => {
+    expect(getMountingCloseupPaths("bezinwazyjny-klejony")).toEqual([
+      "assets/montaz/bezinwazyjny-klejony/zblizenie-dol.webp",
+      "assets/montaz/bezinwazyjny-klejony/zblizenie-gora.webp",
+    ]);
+  });
+
+  it("zwraca zblizenie-dol.webp i zblizenie-gora.webp dla inwazyjny-standard", () => {
+    expect(getMountingCloseupPaths("inwazyjny-standard")).toEqual([
+      "assets/montaz/inwazyjny-standard/zblizenie-dol.webp",
+      "assets/montaz/inwazyjny-standard/zblizenie-gora.webp",
+    ]);
+  });
+
+  it("zwraca pustą tablicę dla nieznanego systemId", () => {
+    expect(getMountingCloseupPaths("nieznany-system")).toEqual([]);
   });
 });
 

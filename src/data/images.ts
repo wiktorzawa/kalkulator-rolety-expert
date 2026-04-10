@@ -52,23 +52,45 @@ export function getFabricSwatchPath(kolekcja: string, kolor: string): string {
   return `assets/produkty/${kolekcja}/${kolor}/tkanina.jpg`;
 }
 
-/** Typy grafik montażowych */
-export type MountingImageType =
-  | "opis"
-  | "pomiar"
-  | "grafika-pomiarowa"
-  | "zblizenie";
+/** Typy grafik montażowych (bez zbliżeń — te mają osobną funkcję) */
+export type MountingImageType = "opis" | "pomiar" | "grafika-pomiarowa";
 
 /**
- * Zwraca ścieżkę do grafiki montażu.
+ * Mapowanie systemId → lista plików zbliżeń profilu montażowego.
+ * Bezinwazyjny wzmocniony: zblizenie-1.png, zblizenie-2.png
+ * Pozostałe systemy: zblizenie-dol.webp, zblizenie-gora.webp
+ */
+const MOUNTING_CLOSEUPS: Record<string, readonly string[]> = {
+  "bezinwazyjny-wzmocniony": ["zblizenie-1.png", "zblizenie-2.png"],
+  "bezinwazyjny-klejony": ["zblizenie-dol.webp", "zblizenie-gora.webp"],
+  "inwazyjny-standard": ["zblizenie-dol.webp", "zblizenie-gora.webp"],
+  "inwazyjny-regulowany": ["zblizenie-dol.webp", "zblizenie-gora.webp"],
+  "inwazyjny-katowy": ["zblizenie-dol.webp", "zblizenie-gora.webp"],
+};
+
+/**
+ * Zwraca ścieżkę do grafiki montażu (opis, pomiar, grafika-pomiarowa).
  * @param systemId - ID systemu (np. 'bezinwazyjny-wzmocniony', 'inwazyjny-standard')
- * @param imageType - typ grafiki ('opis', 'pomiar', 'grafika-pomiarowa', 'zblizenie')
+ * @param imageType - typ grafiki ('opis', 'pomiar', 'grafika-pomiarowa')
  */
 export function getMountingImagePath(
   systemId: string,
   imageType: MountingImageType,
 ): string {
   return `assets/montaz/${systemId}/${imageType}.png`;
+}
+
+/**
+ * Zwraca tablicę ścieżek do zbliżeń profilu montażowego.
+ * Każdy system ma 2 zdjęcia zbliżeń (różne nazwy plików per system).
+ * @param systemId - ID systemu (np. 'bezinwazyjny-wzmocniony')
+ */
+export function getMountingCloseupPaths(systemId: string): readonly string[] {
+  const files = MOUNTING_CLOSEUPS[systemId];
+  if (!files) {
+    return [];
+  }
+  return files.map((file) => `assets/montaz/${systemId}/${file}`);
 }
 
 /**

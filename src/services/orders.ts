@@ -31,14 +31,22 @@ export interface OrderRecord {
 }
 
 function buildOrderConfig(state: WizardState): OrderConfig {
+  const { fabricId, colorId, mountingId, mountingType, railId } = state;
+
+  if (!fabricId || !colorId || !mountingId || !mountingType || !railId) {
+    throw new Error(
+      "Cannot build order config: incomplete wizard state (missing fabricId, colorId, mountingId, mountingType, or railId)",
+    );
+  }
+
   return {
-    fabricId: state.fabricId!,
-    colorId: state.colorId!,
-    mountingId: state.mountingId!,
-    mountingType: state.mountingType!,
+    fabricId,
+    colorId,
+    mountingId,
+    mountingType,
     widthMm: state.widthMm,
     heightMm: state.heightMm,
-    railId: state.railId!,
+    railId,
   };
 }
 

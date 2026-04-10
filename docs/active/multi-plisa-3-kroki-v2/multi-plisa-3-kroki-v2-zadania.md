@@ -30,12 +30,18 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Weryfikacja
 
-- [ ] Weryfikacja: `public/assets/produkty/standard/biel/packshot.png` istnieje
-- [ ] Weryfikacja: `public/assets/montaz/bezinwazyjny-wzmocniony/opis.png` istnieje
-- [ ] Weryfikacja: `public/assets/prowadnice/biel.jpg` istnieje
-- [ ] Weryfikacja: Stare numerowane foldery usunięte
-- [ ] Weryfikacja: `npm run typecheck` przechodzi
-- [ ] Weryfikacja: Testy images.ts przechodzą
+- [x] Weryfikacja: `public/assets/produkty/standard/biel/packshot.png` istnieje
+- [x] Weryfikacja: `public/assets/montaz/bezinwazyjny-wzmocniony/opis.png` istnieje
+- [x] Weryfikacja: `public/assets/prowadnice/biel.jpg` istnieje
+- [x] Weryfikacja: Stare numerowane foldery usunięte
+- [x] Weryfikacja: `npm run typecheck` przechodzi
+- [x] Weryfikacja: Testy images.ts przechodzą (26/26)
+
+## Do poprawy po review fazy 1
+
+- [x] 🟠 [P2-important] **src/data/images.ts:56-72** — `MountingImageType` zawiera `'zblizenie'` ale `getMountingImagePath()` generuje nieistniejące ścieżki (realne pliki to `zblizenie-dol.webp`, `zblizenie-gora.webp` lub `zblizenie-1.png`, `zblizenie-2.png`). Naprawić przed Fazą 4 (Unit 5).
+- [x] 🟠 [P2-important] **src/components/steps/color-step.tsx:45** + **src/services/orders.ts:35** — non-null assertion `state.fabricId!` łamie coding rules (sekcja 10). Użyć zmiennej po early return.
+- [ ] 🟡 [P3-nit] **src/data/images.test.ts** — brak testu `getBaseCollection('dolomit-termo')` → `'dolomit'` dla kompletności.
 
 ---
 

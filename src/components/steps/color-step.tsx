@@ -21,7 +21,9 @@ export function ColorStep() {
     });
   }
 
-  if (!state.fabricId) {
+  const fabricId = state.fabricId;
+
+  if (!fabricId) {
     return (
       <section id="step-2" aria-label="Krok 2: Kolor">
         <h2 className="mb-4 font-display text-2xl font-bold text-brand-950">
@@ -42,7 +44,7 @@ export function ColorStep() {
           <ColorSwatch
             key={color.id}
             color={color}
-            fabricId={state.fabricId!}
+            fabricId={fabricId}
             isSelected={state.colorId === color.id}
             onSelect={handleSelect}
           />
