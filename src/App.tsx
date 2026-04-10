@@ -18,10 +18,10 @@ export function App() {
 
   if (orderNumber) {
     return (
-      <div className="min-h-screen bg-brand-50">
-        <header className="sticky top-0 z-20 border-b border-brand-200 bg-white/95 px-4 py-3 backdrop-blur-sm">
+      <div className="min-h-screen bg-brand-800">
+        <header className="sticky top-0 z-20 border-b border-brand-700 bg-brand-900/95 px-4 py-3 backdrop-blur-sm">
           <div className="mx-auto max-w-4xl">
-            <span className="font-display text-lg font-bold text-brand-950">
+            <span className="font-display text-lg font-bold text-white">
               rolety.expert
             </span>
           </div>
