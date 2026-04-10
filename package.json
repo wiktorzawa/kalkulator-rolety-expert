@@ -14,8 +14,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@heroui/react": "^3.0.0-alpha.34",
-    "@heroui/styles": "^3.0.0-alpha.34",
+    "@heroui/react": "^3.0.2",
+    "@heroui/styles": "^3.0.2",
     "@supabase/supabase-js": "^2.49.4",
     "embla-carousel-react": "^8.6.0",
     "posthog-js": "^1.244.0",
