@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
-import { getFabricById } from "@/data/fabrics";
+import { getFabricById, getColorsForFabric } from "@/data/fabrics";
 import { getMountingById } from "@/data/mounting";
 import { getRailById } from "@/data/rails";
-import { submitOrder, type OrderRecord } from "@/services/orders";
+import {
+  submitOrder,
+  type OrderRecord,
+  type OrderItemInsert,
+} from "@/services/orders";
 import { parseUtmSource } from "@/utils/order-number";
 import { OrderSummary } from "@/components/order/order-summary";
 
@@ -44,18 +48,62 @@ export function PricePanel() {
   async function handleSubmit(): Promise<void> {
     if (!isConfigComplete || isSubmitting) return;
 
+    const { fabricId, colorId, mountingId, mountingType, railId } = state;
+    if (!fabricId || !colorId || !mountingId || !mountingType || !railId)
+      return;
+
     setIsSubmitting(true);
     setSubmitError(null);
 
     try {
       const utmSource = parseUtmSource(window.location.search);
+
+      const colors = getColorsForFabric(fabricId);
+      const color = colors.find((c) => c.id === colorId);
+      const fabricObj = getFabricById(fabricId);
+      const mountingObj = getMountingById(mountingId);
+      const railObj = getRailById(railId);
+
+      const item: OrderItemInsert = {
+        fabric_id: fabricId,
+        fabric_name: fabricObj?.name ?? fabricId,
+        color_id: colorId,
+        color_name: color?.name ?? colorId,
+        mounting_id: mountingId,
+        mounting_name: mountingObj?.name ?? mountingId,
+        mounting_type: mountingType,
+        width_mm: state.widthMm,
+        height_mm: state.heightMm,
+        rail_id: railId,
+        rail_name: railObj?.name ?? railId,
+        quantity: 1,
+        unit_price: price.total,
+      };
+
       const result = await submitOrder({
-        state,
-        price,
-        allegro_units: units,
-        utm_source: utmSource,
+        items: [item],
+        totalPrice: price.total,
+        allegroUnits: units,
+        utmSource: utmSource,
       });
-      setSubmittedOrder(result.order);
+
+      // Build a local OrderRecord for the summary display
+      setSubmittedOrder({
+        id: 0,
+        order_number: result.orderNumber,
+        total_price: price.total,
+        allegro_units: units,
+        allegro_tx_id: null,
+        utm_source: utmSource,
+        created_at: new Date().toISOString(),
+        items: [
+          {
+            id: 0,
+            position: 1,
+            ...item,
+          },
+        ],
+      });
 
       // Update URL without reload so the user can share/bookmark
       const newUrl = `${window.location.origin}${window.location.pathname}?order=${result.orderNumber}`;

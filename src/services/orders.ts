@@ -1,9 +1,64 @@
 import { getSupabase } from "@/lib/supabase";
 import { analytics } from "@/lib/analytics";
-import type { WizardState } from "@/context/wizard-types";
-import type { PriceBreakdown } from "@/data/types";
 
-export interface OrderConfig {
+// ─── Types: order items ───────────────────────────────────────────────────────
+
+/** Data for a single item when submitting an order (sent to RPC as JSONB). */
+export interface OrderItemInsert {
+  readonly fabric_id: string;
+  readonly fabric_name: string;
+  readonly color_id: string;
+  readonly color_name: string;
+  readonly mounting_id: string;
+  readonly mounting_name: string;
+  readonly mounting_type: string;
+  readonly width_mm: number;
+  readonly height_mm: number;
+  readonly rail_id: string;
+  readonly rail_name: string;
+  readonly quantity: number;
+  readonly unit_price: number;
+}
+
+/** A single item as returned from the database (lookup). */
+export interface OrderItemRecord {
+  readonly id: number;
+  readonly position: number;
+  readonly fabric_id: string;
+  readonly fabric_name: string;
+  readonly color_id: string;
+  readonly color_name: string;
+  readonly mounting_id: string;
+  readonly mounting_name: string;
+  readonly mounting_type: string;
+  readonly width_mm: number;
+  readonly height_mm: number;
+  readonly rail_id: string;
+  readonly rail_name: string;
+  readonly quantity: number;
+  readonly unit_price: number;
+}
+
+// ─── Types: order ─────────────────────────────────────────────────────────────
+
+/** Order record returned from the database (lookup). */
+export interface OrderRecord {
+  readonly id: number;
+  readonly order_number: string;
+  readonly total_price: number;
+  readonly allegro_units: number;
+  readonly allegro_tx_id: string | null;
+  readonly utm_source: string | null;
+  readonly created_at: string;
+  readonly items: readonly OrderItemRecord[];
+}
+
+// ─── Legacy compat: kept so existing components compile during transition ─────
+
+/**
+ * @deprecated Use OrderRecord.total_price directly. Will be removed in Unit 7.
+ */
+export type LegacyOrderConfig = {
   readonly fabricId: string;
   readonly colorId: string;
   readonly mountingId: string;
@@ -11,101 +66,58 @@ export interface OrderConfig {
   readonly widthMm: number;
   readonly heightMm: number;
   readonly railId: string;
-}
+};
 
-export interface OrderInsert {
-  readonly config: OrderConfig;
-  readonly price: number;
-  readonly allegro_units: number;
-  readonly utm_source: string | null;
-}
-
-export interface OrderRecord {
-  readonly id: number;
-  readonly order_number: string;
-  readonly config: OrderConfig;
-  readonly price: number;
-  readonly allegro_units: number;
-  readonly utm_source: string | null;
-  readonly created_at: string;
-}
-
-function buildOrderConfig(state: WizardState): OrderConfig {
-  const { fabricId, colorId, mountingId, mountingType, railId } = state;
-
-  if (!fabricId || !colorId || !mountingId || !mountingType || !railId) {
-    throw new Error(
-      "Cannot build order config: incomplete wizard state (missing fabricId, colorId, mountingId, mountingType, or railId)",
-    );
-  }
-
-  return {
-    fabricId,
-    colorId,
-    mountingId,
-    mountingType,
-    widthMm: state.widthMm,
-    heightMm: state.heightMm,
-    railId,
-  };
-}
+// ─── Submit ───────────────────────────────────────────────────────────────────
 
 export interface SubmitOrderParams {
-  readonly state: WizardState;
-  readonly price: PriceBreakdown;
-  readonly allegro_units: number;
-  readonly utm_source: string | null;
+  readonly items: readonly OrderItemInsert[];
+  readonly totalPrice: number;
+  readonly allegroUnits: number;
+  readonly utmSource: string | null;
 }
 
 export interface SubmitOrderResult {
   readonly orderNumber: string;
-  readonly order: OrderRecord;
 }
 
 /**
- * Submit an order to Supabase. DB trigger generates the order_number.
- * Returns the created order with its generated order_number.
+ * Submit a multi-item order via the `submit_order` RPC function.
+ * The DB trigger generates the order_number (RE-XXXXX).
+ * The RPC runs as a single transaction — if any item fails, everything rolls back.
  */
 export async function submitOrder(
   params: SubmitOrderParams,
 ): Promise<SubmitOrderResult> {
-  const config = buildOrderConfig(params.state);
-
-  const { data, error } = await getSupabase()
-    .from("orders")
-    .insert({
-      config,
-      price: params.price.total,
-      allegro_units: params.allegro_units,
-      utm_source: params.utm_source,
-    })
-    .select("*")
-    .single();
+  const { data, error } = await getSupabase().rpc("submit_order", {
+    p_items: params.items as unknown as Record<string, unknown>,
+    p_total_price: params.totalPrice,
+    p_allegro_units: params.allegroUnits,
+    p_utm_source: params.utmSource,
+  });
 
   if (error) {
     throw new Error(`Failed to submit order: ${error.message}`);
   }
 
-  const order = data as OrderRecord;
+  const orderNumber = data as string;
 
   analytics.trackOrder({
-    orderNumber: order.order_number,
-    price: order.price,
-    units: order.allegro_units,
-    fabricId: config.fabricId,
-    mountingId: config.mountingId,
+    orderNumber,
+    price: params.totalPrice,
+    units: params.allegroUnits,
+    fabricId: params.items[0]?.fabric_id ?? "unknown",
+    mountingId: params.items[0]?.mounting_id ?? "unknown",
   });
 
-  return {
-    orderNumber: order.order_number,
-    order,
-  };
+  return { orderNumber };
 }
 
+// ─── Lookup ───────────────────────────────────────────────────────────────────
+
 /**
- * Look up an existing order by order_number via RPC function.
- * Uses SECURITY DEFINER function to avoid exposing all orders via SELECT policy.
- * Returns null if not found.
+ * Look up an existing order by order_number via the `lookup_order` RPC.
+ * Returns the order with its items, or null if not found.
  */
 export async function lookupOrder(
   orderNumber: string,
@@ -118,10 +130,30 @@ export async function lookupOrder(
     throw new Error(`Failed to lookup order: ${error.message}`);
   }
 
-  const rows = data as OrderRecord[] | null;
-  if (!rows || rows.length === 0) {
+  if (!data) {
     return null;
   }
 
-  return rows[0] ?? null;
+  // RPC returns JSONB — Supabase client parses it as an object
+  const record = data as {
+    id: number;
+    order_number: string;
+    total_price: number;
+    allegro_units: number;
+    allegro_tx_id: string | null;
+    utm_source: string | null;
+    created_at: string;
+    items: OrderItemRecord[];
+  };
+
+  return {
+    id: record.id,
+    order_number: record.order_number,
+    total_price: record.total_price,
+    allegro_units: record.allegro_units,
+    allegro_tx_id: record.allegro_tx_id,
+    utm_source: record.utm_source,
+    created_at: record.created_at,
+    items: record.items ?? [],
+  };
 }

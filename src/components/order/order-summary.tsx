@@ -1,9 +1,6 @@
 import { ALLEGRO_LISTING_URL } from "@/config/allegro";
 import { formatOrderNumber } from "@/utils/order-number";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
-import { getFabricById, getColorsForFabric } from "@/data/fabrics";
-import { getMountingById } from "@/data/mounting";
-import { getRailById } from "@/data/rails";
 import type { OrderRecord } from "@/services/orders";
 
 function formatPrice(value: number): string {
@@ -15,17 +12,9 @@ interface OrderSummaryProps {
 }
 
 export function OrderSummary({ order }: OrderSummaryProps) {
-  const units = priceToUnits(order.price);
+  const units = priceToUnits(order.total_price);
   const breakdown = formatUnitsBreakdown(units);
   const displayNumber = formatOrderNumber(order.order_number);
-
-  const fabric = getFabricById(order.config.fabricId);
-  const colors = order.config.fabricId
-    ? getColorsForFabric(order.config.fabricId)
-    : [];
-  const color = colors.find((c) => c.id === order.config.colorId);
-  const mounting = getMountingById(order.config.mountingId);
-  const rail = getRailById(order.config.railId);
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -40,52 +29,82 @@ export function OrderSummary({ order }: OrderSummaryProps) {
         </p>
       </div>
 
-      {/* Configuration table */}
+      {/* Items table */}
       <div className="rounded-xl border border-brand-200 bg-white">
         <h3 className="border-b border-brand-200 px-4 py-3 font-display text-lg font-semibold text-brand-900">
-          Konfiguracja
+          {order.items.length > 1
+            ? `Pozycje zamowienia (${order.items.length})`
+            : "Konfiguracja"}
         </h3>
-        <dl className="divide-y divide-brand-100">
-          <div className="flex justify-between px-4 py-2.5">
-            <dt className="text-sm text-brand-500">Tkanina</dt>
-            <dd className="text-sm font-medium text-brand-900">
-              {fabric?.name ?? order.config.fabricId}
-            </dd>
+        {order.items.map((item) => (
+          <div
+            key={item.position}
+            className="border-b border-brand-100 last:border-b-0"
+          >
+            {order.items.length > 1 && (
+              <div className="bg-brand-50 px-4 py-1.5 text-xs font-medium text-brand-600">
+                Pozycja {item.position}
+                {item.quantity > 1 ? ` (${item.quantity} szt.)` : ""}
+              </div>
+            )}
+            <dl className="divide-y divide-brand-100">
+              <div className="flex justify-between px-4 py-2.5">
+                <dt className="text-sm text-brand-500">Tkanina</dt>
+                <dd className="text-sm font-medium text-brand-900">
+                  {item.fabric_name}
+                </dd>
+              </div>
+              <div className="flex justify-between px-4 py-2.5">
+                <dt className="text-sm text-brand-500">Kolor</dt>
+                <dd className="text-sm font-medium text-brand-900">
+                  {item.color_name}
+                </dd>
+              </div>
+              <div className="flex justify-between px-4 py-2.5">
+                <dt className="text-sm text-brand-500">Montaz</dt>
+                <dd className="text-sm font-medium text-brand-900">
+                  {item.mounting_name} ({item.mounting_type})
+                </dd>
+              </div>
+              <div className="flex justify-between px-4 py-2.5">
+                <dt className="text-sm text-brand-500">Wymiary</dt>
+                <dd className="text-sm font-medium text-brand-900">
+                  {item.width_mm} x {item.height_mm} mm
+                </dd>
+              </div>
+              <div className="flex justify-between px-4 py-2.5">
+                <dt className="text-sm text-brand-500">Listwa</dt>
+                <dd className="text-sm font-medium text-brand-900">
+                  {item.rail_name}
+                </dd>
+              </div>
+              <div className="flex justify-between px-4 py-2.5">
+                <dt className="text-sm text-brand-500">Cena</dt>
+                <dd className="text-sm font-medium text-brand-900">
+                  {formatPrice(item.unit_price)} zl
+                  {item.quantity > 1
+                    ? ` x ${item.quantity} = ${formatPrice(item.unit_price * item.quantity)} zl`
+                    : ""}
+                </dd>
+              </div>
+            </dl>
           </div>
-          <div className="flex justify-between px-4 py-2.5">
-            <dt className="text-sm text-brand-500">Kolor</dt>
-            <dd className="text-sm font-medium text-brand-900">
-              {color?.name ?? order.config.colorId}
-            </dd>
-          </div>
-          <div className="flex justify-between px-4 py-2.5">
-            <dt className="text-sm text-brand-500">Montaz</dt>
-            <dd className="text-sm font-medium text-brand-900">
-              {mounting?.name ?? order.config.mountingId} (
-              {order.config.mountingType})
-            </dd>
-          </div>
-          <div className="flex justify-between px-4 py-2.5">
-            <dt className="text-sm text-brand-500">Wymiary</dt>
-            <dd className="text-sm font-medium text-brand-900">
-              {order.config.widthMm} x {order.config.heightMm} mm
-            </dd>
-          </div>
-          <div className="flex justify-between px-4 py-2.5">
-            <dt className="text-sm text-brand-500">Listwa</dt>
-            <dd className="text-sm font-medium text-brand-900">
-              {rail?.name ?? order.config.railId}
-            </dd>
-          </div>
-        </dl>
+        ))}
       </div>
 
       {/* Price and units */}
       <div className="rounded-xl border border-sage-200 bg-sage-50 p-6 text-center">
         <p className="text-sm text-sage-600">Kwota zamowienia</p>
         <p className="font-display text-2xl font-bold text-sage-900">
-          {formatPrice(order.price)} zl
+          {formatPrice(order.total_price)} zl
         </p>
+
+        {order.items.length > 1 && (
+          <p className="mt-1 text-xs text-sage-500">
+            Kwota obejmuje wszystkie {order.items.length} pozycji z Twojego
+            zamowienia
+          </p>
+        )}
 
         <div className="my-4 border-t border-sage-200" />
 

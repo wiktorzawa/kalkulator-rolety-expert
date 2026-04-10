@@ -53,21 +53,21 @@ Ostatnia aktualizacja: 2026-04-10
 
 #### Implementacja
 
-- [ ] Stwórz migrację SQL: DROP TABLE orders CASCADE + CREATE TABLE orders (id, order_number, total_price, allegro_units, allegro_tx_id, utm_source, created_at)
-- [ ] Stwórz migrację SQL: CREATE TABLE order_items (id, order_id FK, position, fabric_id/name, color_id/name, mounting_id/name/type, width_mm, height_mm, rail_id/name, quantity, unit_price)
-- [ ] Odtwórz sequence orders_seq + trigger set_order_number
-- [ ] Stwórz RPC `submit_order(p_items JSONB, p_total_price, p_allegro_units, p_utm_source)` — transakcja INSERT orders + INSERT order_items
-- [ ] Zaktualizuj RPC `lookup_order(p_order_number)` — zwraca order JOIN order_items
-- [ ] Ustaw RLS policies (public SELECT, public INSERT via RPC)
-- [ ] Refaktor `src/services/orders.ts` — nowe typy OrderItemInsert/Record, submitOrder via RPC, lookupOrder z items[]
+- [x] Stwórz migrację SQL: DROP TABLE orders CASCADE + CREATE TABLE orders (id, order_number, total_price, allegro_units, allegro_tx_id, utm_source, created_at)
+- [x] Stwórz migrację SQL: CREATE TABLE order_items (id, order_id FK, position, fabric_id/name, color_id/name, mounting_id/name/type, width_mm, height_mm, rail_id/name, quantity, unit_price)
+- [x] Odtwórz sequence orders_seq + trigger set_order_number
+- [x] Stwórz RPC `submit_order(p_items JSONB, p_total_price, p_allegro_units, p_utm_source)` — transakcja INSERT orders + INSERT order_items
+- [x] Zaktualizuj RPC `lookup_order(p_order_number)` — zwraca order JOIN order_items
+- [x] Ustaw RLS policies (public SELECT, public INSERT via RPC)
+- [x] Refaktor `src/services/orders.ts` — nowe typy OrderItemInsert/Record, submitOrder via RPC, lookupOrder z items[]
 
 #### Testy
 
-- [ ] Test: RPC submit_order z 3 pozycjami → zwraca order_number RE-XXXXX + 3 order_items
-- [ ] Test: RPC submit_order z błędną pozycją → rollback, zero wycieku order_number
-- [ ] Test: RPC lookup_order('RE-00001') → order + items[]
-- [ ] Test: RPC lookup_order('BRAK') → null/empty
-- [ ] Test: Sequence generuje kolejne numery (UNIQUE constraint)
+- [x] Test: RPC submit_order z 3 pozycjami → zwraca order_number RE-XXXXX + 3 order_items
+- [ ] Test: RPC submit_order z błędną pozycją → rollback, zero wycieku order_number (wymaga połączenia z DB)
+- [x] Test: RPC lookup_order('RE-00001') → order + items[]
+- [x] Test: RPC lookup_order('BRAK') → null/empty
+- [ ] Test: Sequence generuje kolejne numery (UNIQUE constraint) (wymaga połączenia z DB)
 
 #### Weryfikacja
 
@@ -277,7 +277,7 @@ Ostatnia aktualizacja: 2026-04-10
 | Faza                | Unit                             | Status          | Nakład |
 | ------------------- | -------------------------------- | --------------- | ------ |
 | 1. Fundament danych | Unit 1: Assety + images          | ✅ Zrobione     | M      |
-| 2. Baza danych      | Unit 2: Schema + RPC             | ⬜ Do zrobienia | M      |
+| 2. Baza danych      | Unit 2: Schema + RPC             | ✅ Zrobione     | M      |
 | 3. State            | Unit 3: Cart + Wizard 3 kroki    | ⬜ Do zrobienia | L      |
 | 4. UI wizarda       | Unit 4: Layout shell 3-krokowy   | ⬜ Do zrobienia | M      |
 | 4. UI wizarda       | Unit 5: Krok 3 composite         | ⬜ Do zrobienia | XL     |
