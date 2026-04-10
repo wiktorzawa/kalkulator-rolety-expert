@@ -75,6 +75,15 @@ Ostatnia aktualizacja: 2026-04-10
 - [ ] Weryfikacja: INSERT via RPC generuje order + items poprawnie
 - [ ] Weryfikacja: Lookup zwraca order z listą pozycji
 
+## Do poprawy po review fazy 2
+
+- [x] 🟠 [P2-important] **supabase/migrations/20260410022747_create_order_items.sql:155** — `submit_order` jest `SECURITY DEFINER` bez `SET search_path = public` (lookup_order ma poprawnie). Dodać `SET search_path = public`.
+- [x] 🟠 [P2-important] **supabase/migrations/20260410022747_create_order_items.sql:114-154** — brak walidacji inputu w `submit_order` RPC: puste items, ujemna cena, ujemne units, brak limitu items. Dodać guards.
+- [x] 🟠 [P2-important] **src/services/orders.ts:93** — double type assertion `as unknown as Record<string, unknown>` obchodzi type safety. Użyć `JSON.parse(JSON.stringify(...))` lub spread.
+- [ ] 🟡 [P3-nit] **src/components/layout/price-panel.tsx:182-198** — panel wciąż pokazuje rozbicie dopłat za szer/wys (zaplanowane do refaktoru w Unit 6).
+- [ ] 🟡 [P3-nit] **src/services/orders.ts:61-69** — `LegacyOrderConfig` deprecated, upewnić się że usunięty w Unit 7.
+- [ ] 🟡 [P3-nit] **src/services/orders.test.ts** — brak testu edge case `submitOrder({ items: [], ... })`.
+
 ---
 
 ## Faza 3: Architektura state

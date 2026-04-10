@@ -90,7 +90,7 @@ export async function submitOrder(
   params: SubmitOrderParams,
 ): Promise<SubmitOrderResult> {
   const { data, error } = await getSupabase().rpc("submit_order", {
-    p_items: params.items as unknown as Record<string, unknown>,
+    p_items: JSON.parse(JSON.stringify(params.items)),
     p_total_price: params.totalPrice,
     p_allegro_units: params.allegroUnits,
     p_utm_source: params.utmSource,
