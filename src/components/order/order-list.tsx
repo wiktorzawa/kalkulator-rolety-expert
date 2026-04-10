@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useCart } from "@/context/cart-context";
 import { useWizard } from "@/context/wizard-context";
 import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
@@ -18,6 +18,28 @@ export function OrderList() {
   const breakdown = formatUnitsBreakdown(units);
   const hasItems = cartState.items.length > 0;
 
+  // Track known item IDs to detect the duplicate after DUPLICATE_ITEM dispatch
+  const knownItemIdsRef = useRef<ReadonlySet<string>>(new Set());
+  const [pendingDuplicate, setPendingDuplicate] = useState(false);
+
+  // Keep knownItemIdsRef in sync, but only when not waiting for a duplicate
+  useEffect(() => {
+    if (pendingDuplicate) {
+      // Find the new item (its ID is not in knownItemIdsRef)
+      const newItem = cartState.items.find(
+        (i) => !knownItemIdsRef.current.has(i.id),
+      );
+      setPendingDuplicate(false);
+      // Update ref before triggering edit
+      knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
+      if (newItem) {
+        editItem(newItem);
+      }
+    } else {
+      knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
+    }
+  }, [cartState.items, pendingDuplicate]);
+
   // Toast auto-dismiss
   useEffect(() => {
     if (toastMessage === null) return;
@@ -34,7 +56,7 @@ export function OrderList() {
     cartDispatch({ type: "SET_VIEW", view: "configurator" });
   }
 
-  function handleEdit(item: CartItem): void {
+  function editItem(item: CartItem): void {
     wizardDispatch({
       type: "LOAD_ITEM",
       fabricId: item.fabricId,
@@ -49,54 +71,19 @@ export function OrderList() {
     cartDispatch({ type: "SET_VIEW", view: "configurator" });
   }
 
-  function handleDuplicate(item: CartItem): void {
-    // First duplicate in cart (creates new item with new UUID after original)
-    cartDispatch({ type: "DUPLICATE_ITEM", id: item.id });
-
-    // Find the duplicated item — it will be inserted right after the original
-    // Since state hasn't updated yet in this sync call, we need to find it after render
-    // Instead, we load the original's data into wizard as a "new" configuration
-    // The wizard will add it as a new item when saved, but we already added the duplicate
-    // So we should edit the duplicate. We'll use a ref pattern to find it.
-
-    // Simpler approach: we know the duplicate will be the last item with matching params
-    // after the next render. Use a flag to trigger edit of the newest duplicate.
-    setDuplicatePendingFor(item.id);
+  function handleEdit(item: CartItem): void {
+    editItem(item);
   }
 
-  const [duplicatePendingFor, setDuplicatePendingFor] = useState<string | null>(
-    null,
-  );
-
-  // After DUPLICATE_ITEM state update, find and edit the duplicate
-  useEffect(() => {
-    if (duplicatePendingFor === null) return;
-
-    const originalIndex = cartState.items.findIndex(
-      (i) => i.id === duplicatePendingFor,
-    );
-    if (originalIndex === -1) {
-      setDuplicatePendingFor(null);
-      return;
-    }
-
-    // Duplicate is inserted right after the original
-    const duplicate = cartState.items[originalIndex + 1];
-    if (
-      !duplicate ||
-      duplicate.fabricId !== cartState.items[originalIndex]?.fabricId
-    ) {
-      setDuplicatePendingFor(null);
-      return;
-    }
-
-    setDuplicatePendingFor(null);
-    handleEdit(duplicate);
-  }, [cartState.items, duplicatePendingFor]);
+  function handleDuplicate(item: CartItem): void {
+    // Snapshot current IDs, dispatch duplicate, then let the effect find the new item
+    knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
+    cartDispatch({ type: "DUPLICATE_ITEM", id: item.id });
+    setPendingDuplicate(true);
+  }
 
   function handleOrderSubmit(): void {
-    // Order submission will be handled by the order summary flow (Unit 7)
-    // For now, dispatch SET_VIEW to show order summary placeholder
+    // TODO(Unit 7): submit to Supabase via RPC
     cartDispatch({ type: "SET_VIEW", view: "order-list" });
     showToast("Funkcja zamówienia zostanie dodana w kolejnej fazie.");
   }

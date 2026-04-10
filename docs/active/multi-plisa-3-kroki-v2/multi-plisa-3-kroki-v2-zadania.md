@@ -241,6 +241,18 @@ Ostatnia aktualizacja: 2026-04-10
 - [ ] Weryfikacja: Edycja, duplikacja, usuwanie działają
 - [ ] Weryfikacja: Live update ilości i sumy
 
+## Do poprawy po review fazy 5
+
+- [x] 🟠 [P2-important] **src/components/layout/price-panel.tsx** — 317 linii (limit 300). Łączy logikę budowania CartItem, submit/edit/cancel, pulse, toast, quantity, prezentację ceny. Wyciągnąć handlery do hooka lub rozdzielić.
+- [x] 🟠 [P2-important] **src/components/order/order-list.tsx:72-95** — useEffect z brakującą zależnością `handleEdit`. Logika znajdowania duplikatu krucha (zakłada pozycję `originalIndex + 1` i porównanie tylko `fabricId`).
+- [x] 🟠 [P2-important] **src/components/order/order-list.test.tsx** — testy pokrywają tylko empty state (3 testy). Brak testów: renderowanie N pozycji, +/- ilość, edycja, duplikacja, usuwanie, toast.
+- [x] 🟠 [P2-important] **src/components/order/order-item-card.tsx** — brak pliku testowego `order-item-card.test.tsx`.
+- [ ] 🟡 [P3-nit] **formatPrice()** zduplikowana 5 razy (header, price-panel, order-list, order-item-card, order-summary). Wyciągnąć do `src/utils/format.ts`.
+- [ ] 🟡 [P3-nit] **src/components/configurator.tsx:13-36** — WizardProvider tworzona osobno dla obu widoków, resetuje state przy przełączaniu. Nieintuicyjne.
+- [ ] 🟡 [P3-nit] **src/components/order/order-list.tsx:86-91** — sprawdzenie duplikatu porównuje tylko `fabricId` — false positive gdy dwa itemy mają taki sam fabric.
+- [ ] 🟡 [P3-nit] **src/components/order/order-list.tsx:97-102** — placeholder `handleOrderSubmit` powinien mieć wyraźny TODO(Unit 7).
+- [ ] 🟡 [P3-nit] **src/context/cart-context.tsx:89-91** — brak exhaustive check w default case (powtórzenie z fazy 3).
+
 ---
 
 ## Faza 6: Integracja i polish
