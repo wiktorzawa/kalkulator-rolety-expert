@@ -1,4 +1,4 @@
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useState } from "react";
 import { useWizard } from "@/context/wizard-context";
 import { RAIL_COLORS } from "@/data/rails";
 
@@ -15,10 +15,10 @@ function formatSurcharge(surcharge: number): string {
 export function RailStep() {
   const { state, dispatch } = useWizard();
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const enlargedImgRef = useRef<{ src: string; alt: string }>({
-    src: "",
-    alt: "",
-  });
+  const [enlargedImg, setEnlargedImg] = useState<{
+    src: string;
+    alt: string;
+  } | null>(null);
 
   function handleSelect(railId: string): void {
     dispatch({ type: "SELECT_RAIL", railId });
@@ -27,23 +27,15 @@ export function RailStep() {
   const handleImageClick = useCallback(
     (e: React.MouseEvent, imgSrc: string, imgAlt: string) => {
       e.stopPropagation();
-      enlargedImgRef.current = { src: imgSrc, alt: imgAlt };
-      const dialog = dialogRef.current;
-      if (dialog) {
-        // Force re-render of dialog content
-        const img = dialog.querySelector("img");
-        if (img) {
-          img.src = imgSrc;
-          img.alt = imgAlt;
-        }
-        dialog.showModal();
-      }
+      setEnlargedImg({ src: imgSrc, alt: imgAlt });
+      dialogRef.current?.showModal();
     },
     [],
   );
 
   const handleDialogClose = useCallback(() => {
     dialogRef.current?.close();
+    setEnlargedImg(null);
   }, []);
 
   return (
@@ -128,11 +120,13 @@ export function RailStep() {
               />
             </svg>
           </button>
-          <img
-            src={enlargedImgRef.current.src}
-            alt={enlargedImgRef.current.alt}
-            className="h-auto w-full rounded-lg object-contain"
-          />
+          {enlargedImg && (
+            <img
+              src={enlargedImg.src}
+              alt={enlargedImg.alt}
+              className="h-auto w-full rounded-lg object-contain"
+            />
+          )}
         </div>
       </dialog>
     </div>
