@@ -126,7 +126,7 @@ export function MountingStep() {
       {/* Systemy montażu — siatka HeroUI Card */}
       {selectedCategory && (
         <>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {activeSystems.map((system) => {
               const isSelected = state.mountingId === system.id;
               const isGlued = system.id === "klejony";
@@ -233,8 +233,8 @@ export function MountingStep() {
                           loading="lazy"
                           className="h-24 w-full object-contain"
                         />
-                        <span className="block bg-white px-2 py-1 text-center text-[10px] font-medium text-brand-500">
-                          Opis montażu
+                        <span className="block bg-white px-1.5 py-1 text-center text-[10px] font-medium text-brand-500">
+                          Montaż
                         </span>
                       </button>
                       <button
@@ -253,8 +253,8 @@ export function MountingStep() {
                           loading="lazy"
                           className="h-24 w-full object-contain"
                         />
-                        <span className="block bg-white px-2 py-1 text-center text-[10px] font-medium text-brand-500">
-                          Jak mierzyć
+                        <span className="block bg-white px-1.5 py-1 text-center text-[10px] font-medium text-brand-500">
+                          Pomiar
                         </span>
                       </button>
                     </Card.Footer>

@@ -23,7 +23,7 @@ export function ConfigStep() {
       <div className="flex flex-col gap-8 lg:flex-row">
         {/* Podgląd (left on desktop, top on mobile) */}
         {showPreview && (
-          <div className="flex-shrink-0 lg:sticky lg:top-28 lg:self-start lg:w-80">
+          <div className="flex-shrink-0 lg:sticky lg:top-28 lg:self-start lg:w-64 xl:w-72">
             <ProductPreview />
           </div>
         )}

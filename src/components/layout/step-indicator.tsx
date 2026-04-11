@@ -19,39 +19,52 @@ export function StepIndicator() {
               key={label}
               className={`flex items-center ${isLast ? "" : "flex-1"}`}
             >
-              <Button
-                isIconOnly
-                size="sm"
-                variant={
-                  isCompleted ? "primary" : isActive ? "secondary" : "ghost"
-                }
-                onPress={() =>
-                  dispatch({ type: "GO_TO_STEP", step: stepNumber })
-                }
-                className={`min-h-[44px] min-w-[44px] rounded-full ${
-                  isActive ? "ring-2 ring-sage-400" : ""
-                }`}
-                aria-current={isActive ? "step" : undefined}
-                aria-label={`Krok ${stepNumber}: ${label}`}
-              >
-                {isCompleted ? (
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                ) : (
-                  stepNumber
-                )}
-              </Button>
+              <div className="flex flex-col items-center gap-1">
+                <Button
+                  isIconOnly
+                  size="sm"
+                  variant={
+                    isCompleted ? "primary" : isActive ? "secondary" : "ghost"
+                  }
+                  onPress={() =>
+                    dispatch({ type: "GO_TO_STEP", step: stepNumber })
+                  }
+                  className={`min-h-[44px] min-w-[44px] rounded-full ${
+                    isActive ? "ring-2 ring-sage-400" : ""
+                  }`}
+                  aria-current={isActive ? "step" : undefined}
+                  aria-label={`Krok ${stepNumber}: ${label}`}
+                >
+                  {isCompleted ? (
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  ) : (
+                    stepNumber
+                  )}
+                </Button>
+                <span
+                  className={`hidden text-[10px] sm:block ${
+                    isActive
+                      ? "font-semibold text-sage-700"
+                      : isCompleted
+                        ? "text-sage-600"
+                        : "text-brand-400"
+                  }`}
+                >
+                  {label}
+                </span>
+              </div>
               {!isLast && (
                 <div
                   className={`mx-1 h-0.5 flex-1 transition-colors duration-200 md:mx-2 ${
