@@ -72,14 +72,14 @@ describe("wizardReducer", () => {
     expect(result.colorId).toBeNull(); // reset — not in melange
   });
 
-  it("SELECT_COLOR sets colorId and advances step to 3", () => {
+  it("SELECT_COLOR sets colorId without advancing step (rail still needed)", () => {
     const state = { ...INITIAL_STATE, step: 2, fabricId: "standard" };
     const result = wizardReducer(state, {
       type: "SELECT_COLOR",
       colorId: "biel",
     });
     expect(result.colorId).toBe("biel");
-    expect(result.step).toBe(3);
+    expect(result.step).toBe(2); // stays on step 2 — rail not yet selected
   });
 
   it("SELECT_MOUNTING sets mountingId and mountingType without advancing step", () => {
@@ -113,10 +113,10 @@ describe("wizardReducer", () => {
     expect(result.step).toBe(2);
   });
 
-  it("GO_TO_STEP(3) does NOT work when step 2 is incomplete", () => {
-    const state = { ...INITIAL_STATE, fabricId: "standard" };
+  it("GO_TO_STEP(3) does NOT work when step 2 is incomplete (missing rail)", () => {
+    const state = { ...INITIAL_STATE, fabricId: "standard", colorId: "biel" };
     const result = wizardReducer(state, { type: "GO_TO_STEP", step: 3 });
-    expect(result.step).toBe(1);
+    expect(result.step).toBe(1); // railId is null — step 2 incomplete
   });
 
   it("GO_TO_STEP rejects step > TOTAL_STEPS", () => {
@@ -168,21 +168,33 @@ describe("wizardReducer", () => {
     expect(result.widthMm).toBe(MAX_WIDTH_MM);
   });
 
-  it("SELECT_RAIL sets railId without advancing step", () => {
+  it("SELECT_RAIL sets railId and advances to step 3 when color is selected", () => {
     const state = {
       ...INITIAL_STATE,
-      step: 3,
+      step: 2,
       fabricId: "standard",
       colorId: "biel",
-      mountingId: "standard",
-      mountingType: "inwazyjny" as const,
     };
     const result = wizardReducer(state, {
       type: "SELECT_RAIL",
       railId: "bialy",
     });
     expect(result.railId).toBe("bialy");
-    expect(result.step).toBe(3); // stays on step 3 (rail is part of step 3)
+    expect(result.step).toBe(3); // step 2 complete (color + rail) → advance
+  });
+
+  it("SELECT_RAIL sets railId but does NOT advance when color is missing", () => {
+    const state = {
+      ...INITIAL_STATE,
+      step: 2,
+      fabricId: "standard",
+    };
+    const result = wizardReducer(state, {
+      type: "SELECT_RAIL",
+      railId: "bialy",
+    });
+    expect(result.railId).toBe("bialy");
+    expect(result.step).toBe(2); // color not selected — stay on step 2
   });
 
   it("LOAD_ITEM sets all fields and editingItemId", () => {
@@ -230,18 +242,31 @@ describe("wizardReducer", () => {
     expect(result.fabricId).toBeNull();
   });
 
-  it("isStepComplete(3) = true when mounting + rail are selected", () => {
+  it("isStepComplete(2) = true when color + rail are selected", () => {
+    const state = {
+      ...INITIAL_STATE,
+      step: 2,
+      fabricId: "standard",
+      colorId: "biel",
+      railId: "bialy",
+    };
+    // GO_TO_STEP(3) requires step 1 + step 2 complete
+    const result = wizardReducer(state, { type: "GO_TO_STEP", step: 3 });
+    expect(result.step).toBe(3);
+  });
+
+  it("isStepComplete(3) = true when mounting is selected (no railId needed)", () => {
     const state = {
       ...INITIAL_STATE,
       step: 3,
       fabricId: "standard",
       colorId: "biel",
+      railId: "bialy",
       mountingId: "standard",
       mountingType: "inwazyjny" as const,
-      railId: "bialy",
     };
-    // We test via GO_TO_STEP — if step 3 is complete, going to step 3 works
-    // (all prior steps must also be complete)
+    // Verify step 3 completeness via isConfigComplete check
+    // GO_TO_STEP(3) tests step 1+2 completeness
     const result = wizardReducer(state, { type: "GO_TO_STEP", step: 3 });
     expect(result.step).toBe(3);
   });

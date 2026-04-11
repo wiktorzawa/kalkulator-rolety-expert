@@ -28,11 +28,10 @@ function isStepComplete(state: WizardState, step: number): boolean {
     case 1:
       return state.fabricId !== null;
     case 2:
-      return state.colorId !== null;
+      return state.colorId !== null && state.railId !== null;
     case 3:
       return (
         state.mountingId !== null &&
-        state.railId !== null &&
         state.widthMm >= MIN_WIDTH_MM &&
         state.heightMm >= MIN_HEIGHT_MM
       );
@@ -69,7 +68,6 @@ export function wizardReducer(
       return {
         ...state,
         colorId: action.colorId,
-        step: Math.max(state.step, 3),
       };
 
     case "SELECT_MOUNTING": {
@@ -105,11 +103,14 @@ export function wizardReducer(
       return { ...state, widthMm, heightMm };
     }
 
-    case "SELECT_RAIL":
-      return {
-        ...state,
-        railId: action.railId,
-      };
+    case "SELECT_RAIL": {
+      const newState = { ...state, railId: action.railId };
+      // Advance to step 3 when step 2 is complete (color + rail selected)
+      if (newState.colorId !== null) {
+        newState.step = Math.max(newState.step, 3);
+      }
+      return newState;
+    }
 
     case "GO_TO_STEP": {
       if (action.step < 1 || action.step > TOTAL_STEPS) return state;

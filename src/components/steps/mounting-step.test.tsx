@@ -24,9 +24,10 @@ function renderAndNavigateToConfig() {
   const fabricBtn = screen.getByText("Standard").closest("button")!;
   fireEvent.click(fabricBtn);
 
-  // Step 2: select color
+  // Step 2: select color + rail (both needed to complete step 2)
   const colorBtn = screen.getByLabelText("Kolor: Biel");
   fireEvent.click(colorBtn);
+  fireEvent.click(screen.getByTestId("rail-image-bialy").closest("button")!);
 }
 
 describe("MountingStep", () => {
@@ -55,9 +56,7 @@ describe("MountingStep", () => {
     fireEvent.click(screen.getByTestId("category-inwazyjny"));
 
     // Should show 3 inwazyjny systems
-    expect(
-      screen.getByTestId("mounting-system-standard"),
-    ).toBeInTheDocument();
+    expect(screen.getByTestId("mounting-system-standard")).toBeInTheDocument();
     expect(
       screen.getByTestId("mounting-system-regulowany"),
     ).toBeInTheDocument();

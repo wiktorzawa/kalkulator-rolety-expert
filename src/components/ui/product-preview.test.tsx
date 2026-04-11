@@ -22,8 +22,9 @@ function renderAndNavigateToStep3() {
 
   // Step 1: Standard
   fireEvent.click(screen.getByText("Standard").closest("button")!);
-  // Step 2: Biel
+  // Step 2: Biel + rail (both needed to complete step 2 and advance to step 3)
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
+  fireEvent.click(screen.getByTestId("rail-image-bialy").closest("button")!);
 
   return screen;
 }

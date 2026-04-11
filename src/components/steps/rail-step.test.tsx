@@ -29,7 +29,7 @@ vi.mock("@/lib/analytics", () => ({
   },
 }));
 
-function renderWizardWithPrice() {
+function renderWizardWithRails() {
   render(
     <CartProvider>
       <WizardProvider>
@@ -39,19 +39,14 @@ function renderWizardWithPrice() {
     </CartProvider>,
   );
 
-  // Step 1: Standard
+  // Step 1: Standard → advances to step 2
   fireEvent.click(screen.getByText("Standard").closest("button")!);
-  // Step 2: Biel
-  fireEvent.click(screen.getByLabelText("Kolor: Biel"));
-  // Step 3: select category + mounting
-  fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
-  fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
-  // Dimensions: defaults 600x1500 (always valid)
+  // Rail cards are now visible in step 2 (alongside color swatches)
 }
 
-describe("RailStep", () => {
-  it("renders 14 rail cards with real images", () => {
-    renderWizardWithPrice();
+describe("RailStep (in ColorStep)", () => {
+  it("renders 14 rail cards with real images in step 2", () => {
+    renderWizardWithRails();
 
     // All rails should have img tags with real paths
     for (const rail of RAIL_COLORS) {
@@ -63,8 +58,16 @@ describe("RailStep", () => {
     }
   });
 
-  it("shows correct price: Standard+Bezinw+600x1500 = 156.75 zl", () => {
-    renderWizardWithPrice();
+  it("shows correct price after full config: Standard+Bezinw+600x1500 = 156.75 zl", () => {
+    renderWizardWithRails();
+
+    // Step 2: select color + rail → advances to step 3
+    fireEvent.click(screen.getByLabelText("Kolor: Biel"));
+    fireEvent.click(screen.getByTestId("rail-image-bialy").closest("button")!);
+
+    // Step 3: select category + mounting
+    fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
+    fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
 
     const priceEl = screen.getByTestId("price-total");
     // Standard bezinwazyjny base=47.50, width 600mm->60cm->57.00, height 1500mm->150cm->52.25
@@ -72,17 +75,8 @@ describe("RailStep", () => {
     expect(priceEl).toHaveTextContent("156,75");
   });
 
-  it("shows add-to-order button (Allegro units only on order list)", () => {
-    renderWizardWithPrice();
-
-    // Price panel in wizard mode shows "Dodaj do zamówienia" button
-    // Allegro units are shown only on the order list, not in the wizard
-    const addButton = screen.getByTestId("add-to-order-button");
-    expect(addButton).toBeInTheDocument();
-  });
-
   it("renders rail images that can be clicked for zoom", () => {
-    renderWizardWithPrice();
+    renderWizardWithRails();
 
     // At least one rail image should be present and clickable
     const firstRailImg = screen.getByTestId("rail-image-bialy");

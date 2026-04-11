@@ -9,8 +9,8 @@ import { ConfigStep } from "./steps/config-step";
  *
  * 3-krokowy layout:
  *  1. Tkanina
- *  2. Kolor
- *  3. Konfiguracja (montaż + wymiary + listwa + podgląd)
+ *  2. Kolor materiału + Kolor listwy aluminiowej
+ *  3. Konfiguracja (montaż + wymiary + podgląd)
  */
 export function StepContent() {
   const { state } = useWizard();

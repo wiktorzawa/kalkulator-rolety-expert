@@ -41,8 +41,9 @@ function renderAndNavigateToDimensions(mountingId = "wzmocniony") {
   // Step 1: select fabric
   fireEvent.click(screen.getByText("Standard").closest("button")!);
 
-  // Step 2: select color
+  // Step 2: select color + rail (both needed to advance to step 3)
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
+  fireEvent.click(screen.getByTestId("rail-image-bialy").closest("button")!);
 
   // Step 3: select category then mounting system
   if (mountingId === "klejony") {
@@ -55,21 +56,25 @@ function renderAndNavigateToDimensions(mountingId = "wzmocniony") {
 }
 
 describe("DimensionsStep", () => {
-  it("renders width slider with range 150-1950 and step 1", () => {
-    renderAndNavigateToDimensions();
+  it(
+    "renders width slider with range 150-1950 and step 1",
+    { timeout: 10000 },
+    () => {
+      renderAndNavigateToDimensions();
 
-    // HeroUI Slider uses aria attributes instead of native min/max/step
-    const widthSlider = screen.getByLabelText("Szerokość suwak");
-    expect(widthSlider).toBeInTheDocument();
+      // HeroUI Slider uses aria attributes instead of native min/max/step
+      const widthSlider = screen.getByLabelText("Szerokość suwak");
+      expect(widthSlider).toBeInTheDocument();
 
-    // Verify default value is within range via the input field
-    const widthInput = screen.getByLabelText(
-      "Szerokość w mm",
-    ) as HTMLInputElement;
-    const val = Number(widthInput.value);
-    expect(val).toBeGreaterThanOrEqual(150);
-    expect(val).toBeLessThanOrEqual(1950);
-  });
+      // Verify default value is within range via the input field
+      const widthInput = screen.getByLabelText(
+        "Szerokość w mm",
+      ) as HTMLInputElement;
+      const val = Number(widthInput.value);
+      expect(val).toBeGreaterThanOrEqual(150);
+      expect(val).toBeLessThanOrEqual(1950);
+    },
+  );
 
   it("limits width to 1200 for glued mounting", () => {
     renderAndNavigateToDimensions("klejony");

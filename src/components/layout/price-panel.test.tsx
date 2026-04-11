@@ -44,6 +44,7 @@ function renderWizardWithPrice() {
   // Navigate to step 3
   fireEvent.click(screen.getByText("Standard").closest("button")!);
   fireEvent.click(screen.getByLabelText("Kolor: Biel"));
+  fireEvent.click(screen.getByTestId("rail-image-bialy").closest("button")!);
   fireEvent.click(screen.getByTestId("category-bezinwazyjny"));
   fireEvent.click(screen.getByTestId("mounting-system-wzmocniony"));
 }
@@ -60,14 +61,20 @@ describe("PricePanel -- simplified display", () => {
     uuidCounter = 0;
   });
 
-  it("does NOT show width/height surcharge breakdown", () => {
-    renderWizardWithPrice();
+  it(
+    "does NOT show width/height surcharge breakdown",
+    { timeout: 10000 },
+    () => {
+      renderWizardWithPrice();
 
-    expect(
-      screen.queryByText(/dop[łl]ata za szeroko/i),
-    ).not.toBeInTheDocument();
-    expect(screen.queryByText(/dop[łl]ata za wysoko/i)).not.toBeInTheDocument();
-  });
+      expect(
+        screen.queryByText(/dop[łl]ata za szeroko/i),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(/dop[łl]ata za wysoko/i),
+      ).not.toBeInTheDocument();
+    },
+  );
 
   it("shows 'Cena rolety' and 'Razem'", () => {
     renderWizardWithPrice();

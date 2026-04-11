@@ -2,12 +2,13 @@ import { useWizard } from "@/context/wizard-context";
 import { ProductPreview } from "@/components/ui/product-preview";
 import { MountingStep } from "./mounting-step";
 import { DimensionsStep } from "./dimensions-step";
-import { RailStep } from "./rail-step";
 
 /**
  * Krok 3: Konfiguracja — composite step.
- * Desktop: podgląd po lewej + config (montaż + wymiary + listwa) po prawej.
+ * Desktop: podgląd po lewej + config (montaż + wymiary) po prawej.
  * Mobile: podgląd na górze + config pod spodem.
+ *
+ * Listwa aluminiowa przeniesiona do kroku 2 (ColorStep).
  */
 export function ConfigStep() {
   const { state } = useWizard();
@@ -32,7 +33,6 @@ export function ConfigStep() {
         <div className="min-w-0 flex-1 space-y-10">
           <MountingStep />
           <DimensionsStep />
-          <RailStep />
         </div>
       </div>
     </section>
