@@ -28,9 +28,21 @@ describe("getPackshotPath", () => {
     );
   });
 
-  it("działa dla honeycomb", () => {
+  it("działa dla honeycomb biel (standardowy plik)", () => {
     expect(getPackshotPath("honeycomb", "biel", true)).toBe(
       "assets/produkty/honeycomb/biel/packshot-bezinwazyjny.png",
+    );
+  });
+
+  it("packshot.webp dla honeycomb/antracyt (FILE_OVERRIDES)", () => {
+    expect(getPackshotPath("honeycomb", "antracyt", false)).toBe(
+      "assets/produkty/honeycomb/antracyt/packshot.webp",
+    );
+  });
+
+  it("packshot-2.webp dla honeycomb/zimny-bez (FILE_OVERRIDES)", () => {
+    expect(getPackshotPath("honeycomb", "zimny-bez", false)).toBe(
+      "assets/produkty/honeycomb/zimny-bez/packshot-2.webp",
     );
   });
 });
