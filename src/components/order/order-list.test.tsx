@@ -119,10 +119,10 @@ describe("OrderList", () => {
     renderOrderList();
 
     expect(
-      screen.getByText("Brak pozycji w zamówieniu. Dodaj pierwszą plisę."),
+      screen.getByText("Brak pozycji w zamówieniu. Dodaj pierwszy produkt."),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /skonfiguruj plisę/i }),
+      screen.getByRole("button", { name: /skonfiguruj roletę/i }),
     ).toBeInTheDocument();
   });
 
@@ -132,11 +132,11 @@ describe("OrderList", () => {
     expect(screen.queryByTestId("order-submit-button")).not.toBeInTheDocument();
   });
 
-  it("renders 'Dodaj kolejną plisę' button in header", () => {
-    renderOrderList();
+  it("renders 'Dodaj kolejny produkt' button when items exist", () => {
+    renderOrderListWithItems([SAMPLE_ITEM]);
 
     expect(
-      screen.getByRole("button", { name: /dodaj kolejną plisę/i }),
+      screen.getByRole("button", { name: /dodaj kolejny produkt/i }),
     ).toBeInTheDocument();
   });
 
@@ -147,11 +147,11 @@ describe("OrderList", () => {
     expect(cards).toHaveLength(2);
 
     // First item: 156.75 zł (quantity 1)
-    expect(screen.getByText("Standard — Biel")).toBeInTheDocument();
+    expect(screen.getByText("Standard")).toBeInTheDocument();
     expect(screen.getByText("156,75 zł")).toBeInTheDocument();
 
     // Second item: 228.00 * 2 = 456.00 zł
-    expect(screen.getByText("Blackout — Czarny")).toBeInTheDocument();
+    expect(screen.getByText("Blackout")).toBeInTheDocument();
     expect(screen.getByText("456,00 zł")).toBeInTheDocument();
   });
 
@@ -200,17 +200,17 @@ describe("OrderList", () => {
 
     // Should show empty state
     expect(
-      screen.getByText("Brak pozycji w zamówieniu. Dodaj pierwszą plisę."),
+      screen.getByText("Brak pozycji w zamówieniu. Dodaj pierwszy produkt."),
     ).toBeInTheDocument();
     expect(screen.queryByTestId("order-submit-button")).not.toBeInTheDocument();
   });
 
-  it("shows Allegro units breakdown in summary", () => {
+  it("shows Allegro units in summary", () => {
     renderOrderListWithItems([SAMPLE_ITEM]);
 
-    // 156.75 -> ceil = 157 units
+    // 156.75 / 4 = 39.1875 → ceil = 40 units
     const summaryPanel = screen.getByTestId("order-summary-panel");
-    expect(summaryPanel).toHaveTextContent("157");
-    expect(summaryPanel).toHaveTextContent("jednostek");
+    expect(summaryPanel).toHaveTextContent("40");
+    expect(summaryPanel).toHaveTextContent("sztuk");
   });
 });

@@ -1,0 +1,224 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e14]:
+        - figure [ref=e19]:
+          - link "logo_stelge" [ref=e20] [cursor=pointer]:
+            - /url: https://konfigurator.stelge.com/
+            - img "logo_stelge" [ref=e21]
+        - list [ref=e28]:
+          - listitem [ref=e29]:
+            - link "Rolety " [ref=e30] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/
+            - list:
+              - listitem:
+                - link "Plisy Standard":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-standard/
+              - listitem:
+                - link "Plisy Standard + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-termoizolacyjna/
+              - listitem:
+                - link "Plisy Melange":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-melange/
+              - listitem:
+                - link "Plisy Melange + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-melange-termoizolacja/
+              - listitem:
+                - link "Plisy Dolomit":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-dolomite/
+              - listitem:
+                - link "Plisy Dolomit + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-dolomite-termo/
+              - listitem:
+                - link "Plisy Blackout":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-blackout/
+              - listitem:
+                - link "Plisy Honeycomb":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-honeycomb/
+          - listitem [ref=e31]:
+            - link "Blackout" [ref=e32] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-blackout/
+          - listitem [ref=e33]:
+            - link "Honeycomb" [ref=e34] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-honeycomb/
+          - listitem [ref=e35]:
+            - link "Rolety Dachowe " [ref=e36] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/
+            - list:
+              - listitem:
+                - link "Standard + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-standard-termo/
+              - listitem:
+                - link "Melange + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-melange-termo/
+              - listitem:
+                - link "Dolomit + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-dolomite-termo/
+              - listitem:
+                - link "Honeycomb":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-honeycomb/
+              - listitem:
+                - link "Blackout":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-blackout/
+          - listitem [ref=e37]:
+            - link "Jak wykonać pomiar?" [ref=e38] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/jak-wykonac-pomiar/
+      - text:    
+    - article [ref=e44]:
+      - generic [ref=e46]:
+        - generic [ref=e56]:
+          - heading "Krok 1" [level=1] [ref=e57]:
+            - strong [ref=e58]: Krok 1
+          - paragraph [ref=e59]: Wybierz rodzaj tkaniny
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - generic [ref=e70]:
+              - heading "Plisy Standard" [level=2] [ref=e73]
+              - paragraph [ref=e76]:
+                - text: Jednolita, gładka struktura tkaniny.
+                - text: 24 kolory do wyboru.
+                - text: 100% poliester.
+              - link "Wybierz" [ref=e78] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-standard/
+              - figure [ref=e80]:
+                - img "Zaciemnienie 3 na 5" [ref=e82]
+              - figure [ref=e84]:
+                - img "Termoizolacja 3 na 5" [ref=e86]
+            - generic [ref=e89]:
+              - heading "Plisy Standard + Termo" [level=2] [ref=e92]
+              - paragraph [ref=e95]:
+                - text: Jednolita, gładka struktura tkaniny. Powłoka Termo odbijająca promienie słoneczne oraz gwarantująca lepszą izolacje termiczną pomieszczenia.
+                - text: 24 kolory do wyboru.
+                - text: 100% poliester.
+              - link "Wybierz" [ref=e97] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-termoizolacyjna/
+              - figure [ref=e99]:
+                - img "Zaciemnienie 3 na 5" [ref=e101]
+              - figure [ref=e103]:
+                - img "Termoizolacja 4 na 5" [ref=e105]
+          - generic [ref=e106]:
+            - generic [ref=e109]:
+              - heading "Plisy Melange" [level=2] [ref=e112]
+              - paragraph [ref=e115]:
+                - text: Materiał o splocie typu “melanż”, widoczna dwukolorowa struktura. Wysoka gramatura.
+                - text: 7 kolorów do wyboru
+                - text: 100% poliester
+              - link "Wybierz" [ref=e117] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-melange/
+              - figure [ref=e119]:
+                - img "Zaciemnienie 4 na 5" [ref=e121]
+              - figure [ref=e123]:
+                - img "Termoizolacja 4 na 5" [ref=e125]
+            - generic [ref=e128]:
+              - heading "Plisy Melange + Termo" [level=2] [ref=e131]
+              - paragraph [ref=e134]:
+                - text: Materiał o splocie typu “melanż”, widoczna dwukolorowa struktura. Wysoka gramatura. Powłoka Termo odbijająca promienie słoneczne oraz gwarantująca lepszą izolacje termiczną pomieszczenia.
+                - text: 7 kolorów do wyboru
+                - text: 100% poliester
+              - link "Wybierz" [ref=e136] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-melange-termoizolacja/
+              - figure [ref=e138]:
+                - img "Zaciemnienie 4 na 5" [ref=e140]
+              - figure [ref=e142]:
+                - img "Termoizolacja 5 na 5" [ref=e144]
+          - generic [ref=e145]:
+            - generic [ref=e148]:
+              - heading "Plisy Dolomite" [level=2] [ref=e151]
+              - paragraph [ref=e154]:
+                - text: Plisy mają naturalną, poziomą strukturę wzoru, dzięki czemu charakteryzuje się bogatymi walorami estetycznymi.
+                - text: 6 kolorów do wyboru
+                - text: 100% poliester
+              - link "Wybierz" [ref=e156] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-dolomite/
+              - figure [ref=e158]:
+                - img "Zaciemnienie 3 na 5" [ref=e160]
+              - figure [ref=e162]:
+                - img "Termoizolacja 3 na 5" [ref=e164]
+            - generic [ref=e167]:
+              - heading "Plisy Dolomite + Termo" [level=2] [ref=e170]
+              - paragraph [ref=e173]:
+                - text: Plisy mają naturalną, poziomą strukturę wzoru, dzięki czemu charakteryzuje się bogatymi walorami estetycznymi. Powłoka Termo odbijająca promienie słoneczne oraz gwarantująca lepszą izolacje termiczną pomieszczenia.
+                - text: 6 kolorów do wyboru
+                - text: 100% poliester
+              - link "Wybierz" [ref=e175] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-dolomite-termo/
+              - figure [ref=e177]:
+                - img "Zaciemnienie 3 na 5" [ref=e179]
+              - figure [ref=e181]:
+                - img "Termoizolacja 4 na 5" [ref=e183]
+          - generic [ref=e184]:
+            - generic [ref=e187]:
+              - heading "Plisy Blackout" [level=2] [ref=e190]
+              - paragraph [ref=e193]: Jednolita tkanina skutecznie blokuje światło, zapewniając pełne zaciemnienie. Chroni prywatność i tworzy idealne warunki do odpoczynku o każdej porze dnia.
+              - link "Wybierz" [ref=e195] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-blackout/
+              - figure [ref=e197]:
+                - img "Zaciemnienie 5 na 5" [ref=e199]
+              - figure [ref=e201]:
+                - img "Termoizolacja 5 na 5" [ref=e203]
+            - generic [ref=e206]:
+              - heading "Plisy Honeycomb" [level=2] [ref=e209]
+              - paragraph [ref=e212]: Tkanina Honeycomb to wyjątkowa tkanina o strukturze plastra miodu, która dzięki zastosowaniu podwójnego materiału posiada dodatkowe atuty w porównaniu z tradycyjną pojedynczą plisą.
+              - link "Wybierz" [ref=e214] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-honeycomb/
+              - figure [ref=e216]:
+                - img "Zaciemnienie 5 na 5" [ref=e218]
+              - figure [ref=e220]:
+                - img "Termoizolacja 5 na 5" [ref=e222]
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - generic [ref=e230]:
+              - heading "Standard + Termo" [level=2] [ref=e233]
+              - paragraph [ref=e236]: Jednolita, gładka tkanina z powłoką Termo, która odbija promienie słoneczne i chroni przed nagrzewaniem. Zapewnia lepszą izolację okien dachowych.
+              - link "Wybierz" [ref=e238] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-standard-termo/
+              - figure [ref=e240]:
+                - img "Zaciemnienie 3 na 5" [ref=e242]
+              - figure [ref=e244]:
+                - img "Termoizolacja 4 na 5" [ref=e246]
+            - generic [ref=e249]:
+              - heading "Melange + Termo" [level=2] [ref=e252]
+              - paragraph [ref=e255]: Materiał o eleganckiej, dwukolorowej fakturze typu „melanż”. Dzięki wysokiej gramaturze i warstwie Termo skutecznie ogranicza nagrzewanie i chroni wnętrze na poddaszu.
+              - link "Wybierz" [ref=e257] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-melange-termo/
+              - figure [ref=e259]:
+                - img "Zaciemnienie 4 na 5" [ref=e261]
+              - figure [ref=e263]:
+                - img "Termoizolacja 5 na 5" [ref=e265]
+          - generic [ref=e266]:
+            - generic [ref=e269]:
+              - heading "Dolomite + Termo" [level=2] [ref=e272]
+              - paragraph [ref=e275]: Subtelna, pozioma tekstura przywołuje wygląd surowego kamienia. Zintegrowana powłoka Termo skutecznie odbija ciepło, utrzymując chłód i przytulność pod dachem.
+              - link "Wybierz" [ref=e277] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-dolomite-termo/
+              - figure [ref=e279]:
+                - img "Zaciemnienie 3 na 5" [ref=e281]
+              - figure [ref=e283]:
+                - img "Termoizolacja 3 na 5" [ref=e285]
+            - generic [ref=e288]:
+              - heading "Honeycomb" [level=2] [ref=e291]
+              - paragraph [ref=e294]: Podwójna warstwa materiału w strukturze plastra miodu skutecznie blokuje światło i poprawia termoizolację, zapewniając komfort na poddaszu.
+              - link "Wybierz" [ref=e296] [cursor=pointer]:
+                - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-honeycomb/
+              - figure [ref=e298]:
+                - img "Zaciemnienie 5 na 5" [ref=e300]
+              - figure [ref=e302]:
+                - img "Termoizolacja 5 na 5" [ref=e304]
+          - generic [ref=e308]:
+            - generic [ref=e310]:
+              - heading "Blackout" [level=2] [ref=e311]
+              - heading "NOWOŚĆ!" [level=2] [ref=e312]:
+                - strong [ref=e314]: NOWOŚĆ!
+            - paragraph [ref=e317]: Jednolita tkanina o gramaturze 225 g/m² zapewnia pełne zaciemnienie i prywatność. Idealna do okien dachowych, skutecznie ogranicza nagrzewanie wnętrza.
+            - link "Wybierz" [ref=e319] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-blackout/
+            - figure [ref=e321]:
+              - img "Zaciemnienie 5 na 5" [ref=e323]
+            - figure [ref=e325]:
+              - img "Termoizolacja 5 na 5" [ref=e327]
+    - generic [ref=e339]:
+      - figure [ref=e341]:
+        - img "logo_stelge" [ref=e343]
+      - figure [ref=e345]:
+        - img "Allegro.pl_sklep" [ref=e347]
+  - text: 

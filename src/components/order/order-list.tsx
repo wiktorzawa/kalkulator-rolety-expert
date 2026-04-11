@@ -1,8 +1,9 @@
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Card, Button } from "@heroui/react";
 import { useCart } from "@/context/cart-context";
 import { useWizard } from "@/context/wizard-context";
-import { priceToUnits, formatUnitsBreakdown } from "@/utils/allegro";
+import { priceToUnits } from "@/utils/allegro";
+import { ALLEGRO_UNIT_PRICE } from "@/config/allegro";
 import { parseUtmSource } from "@/utils/order-number";
 import {
   submitOrder,
@@ -45,48 +46,7 @@ export function OrderList() {
   );
 
   const units = priceToUnits(totalPrice);
-  const breakdown = formatUnitsBreakdown(units);
   const hasItems = cartState.items.length > 0;
-
-  // Track known item IDs to detect the duplicate after DUPLICATE_ITEM dispatch
-  const knownItemIdsRef = useRef<ReadonlySet<string>>(new Set());
-  const [pendingDuplicate, setPendingDuplicate] = useState(false);
-
-  const editItem = useCallback(
-    (item: CartItem): void => {
-      wizardDispatch({
-        type: "LOAD_ITEM",
-        fabricId: item.fabricId,
-        colorId: item.colorId,
-        mountingId: item.mountingId,
-        mountingType: item.mountingType,
-        widthMm: item.widthMm,
-        heightMm: item.heightMm,
-        railId: item.railId,
-        itemId: item.id,
-      });
-      cartDispatch({ type: "SET_VIEW", view: "configurator" });
-    },
-    [wizardDispatch, cartDispatch],
-  );
-
-  // Keep knownItemIdsRef in sync, but only when not waiting for a duplicate
-  useEffect(() => {
-    if (pendingDuplicate) {
-      // Find the new item (its ID is not in knownItemIdsRef)
-      const newItem = cartState.items.find(
-        (i) => !knownItemIdsRef.current.has(i.id),
-      );
-      setPendingDuplicate(false);
-      // Update ref before triggering edit
-      knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
-      if (newItem) {
-        editItem(newItem);
-      }
-    } else {
-      knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
-    }
-  }, [cartState.items, pendingDuplicate, editItem]);
 
   // Toast auto-dismiss
   useEffect(() => {
@@ -102,17 +62,6 @@ export function OrderList() {
   function handleAddNew(): void {
     wizardDispatch({ type: "RESET" });
     cartDispatch({ type: "SET_VIEW", view: "configurator" });
-  }
-
-  function handleEdit(item: CartItem): void {
-    editItem(item);
-  }
-
-  function handleDuplicate(item: CartItem): void {
-    // Snapshot current IDs, dispatch duplicate, then let the effect find the new item
-    knownItemIdsRef.current = new Set(cartState.items.map((i) => i.id));
-    cartDispatch({ type: "DUPLICATE_ITEM", id: item.id });
-    setPendingDuplicate(true);
   }
 
   async function handleOrderSubmit(): Promise<void> {
@@ -175,23 +124,18 @@ export function OrderList() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="font-display text-2xl font-bold text-brand-950">
-          Twoje zamówienie
-        </h2>
-        <Button variant="outline" size="sm" onPress={handleAddNew}>
-          + Dodaj kolejną plisę
-        </Button>
-      </div>
+      <h2 className="font-display text-2xl font-bold text-brand-950">
+        Twoje zamówienie
+      </h2>
 
       {!hasItems ? (
         <Card className="p-8 text-center">
           <Card.Content>
             <p className="mb-4 text-brand-500">
-              Brak pozycji w zamówieniu. Dodaj pierwszą plisę.
+              Brak pozycji w zamówieniu. Dodaj pierwszy produkt.
             </p>
             <Button variant="primary" onPress={handleAddNew}>
-              Skonfiguruj plisę
+              Skonfiguruj roletę
             </Button>
           </Card.Content>
         </Card>
@@ -200,31 +144,81 @@ export function OrderList() {
           {/* Lista pozycji */}
           <div className="space-y-3">
             {cartState.items.map((item) => (
-              <OrderItemCard
-                key={item.id}
-                item={item}
-                onEdit={handleEdit}
-                onDuplicate={handleDuplicate}
-              />
+              <OrderItemCard key={item.id} item={item} />
             ))}
           </div>
 
+          {/* Przycisk dodaj kolejny produkt — pod listą */}
+          <div>
+            <Button variant="primary" size="md" onPress={handleAddNew}>
+              + Dodaj kolejny produkt
+            </Button>
+          </div>
+
           {/* Podsumowanie */}
-          <Card className="p-5" data-testid="order-summary-panel">
+          <Card className="p-6" data-testid="order-summary-panel">
             <Card.Content className="p-0">
               <div className="flex items-baseline justify-between">
-                <span className="text-sm font-medium text-brand-700">
+                <span className="text-base font-semibold text-brand-700">
                   Suma zamówienia
                 </span>
-                <span className="font-display text-xl font-bold text-brand-950">
+                <span className="font-display text-2xl font-bold text-brand-950">
                   {formatPrice(totalPrice)} zł
                 </span>
               </div>
 
-              <p className="mt-1 text-center text-xs text-brand-500">
-                Allegro: <strong className="text-brand-800">{units}</strong>{" "}
-                jednostek ({breakdown})
-              </p>
+              {/* Wyjaśnienie jednostek Allegro — krok po kroku */}
+              <div className="mt-4 rounded-lg bg-brand-50 p-4">
+                <h4 className="mb-3 text-sm font-semibold text-brand-800">
+                  Jak złożyć zamówienie na Allegro?
+                </h4>
+                <ul className="space-y-2 text-sm text-brand-600">
+                  <li className="flex gap-2">
+                    <span className="flex-shrink-0 font-bold text-brand-800">
+                      1.
+                    </span>
+                    <span>
+                      Wartość Twojego zamówienia wynosi{" "}
+                      <strong className="text-brand-800">
+                        {formatPrice(totalPrice)} zł
+                      </strong>
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="flex-shrink-0 font-bold text-brand-800">
+                      2.
+                    </span>
+                    <span>
+                      Na aukcji Allegro 1 sztuka ={" "}
+                      <strong className="text-brand-800">
+                        {ALLEGRO_UNIT_PRICE},00 zł
+                      </strong>
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="flex-shrink-0 font-bold text-brand-800">
+                      3.
+                    </span>
+                    <span>
+                      Obliczenie: {formatPrice(totalPrice)} zł ÷{" "}
+                      {ALLEGRO_UNIT_PRICE},00 zł ={" "}
+                      <strong className="text-brand-800">{units} sztuk</strong>
+                    </span>
+                  </li>
+                </ul>
+
+                <div className="mx-auto mt-4 max-w-xs rounded-lg bg-sage-100 p-4 text-center">
+                  <p className="text-sm font-medium text-sage-800">
+                    W polu „ilość" na Allegro wpisz:
+                  </p>
+                  <p className="mt-2 font-display text-5xl font-bold text-sage-900">
+                    {units}
+                  </p>
+                  <p className="mt-1 text-base font-medium text-sage-700">
+                    sztuk
+                  </p>
+                </div>
+              </div>
 
               <Button
                 variant="primary"

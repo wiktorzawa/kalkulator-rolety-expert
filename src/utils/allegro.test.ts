@@ -2,32 +2,38 @@ import { describe, it, expect } from "vitest";
 
 import { priceToUnits, formatUnitsBreakdown } from "./allegro";
 
+// ALLEGRO_UNIT_PRICE = 4 zł (from config/allegro.ts)
+
 describe("priceToUnits", () => {
-  it("rounds 175.75 up to 176 units", () => {
-    expect(priceToUnits(175.75)).toBe(176);
+  it("175.75 / 4 = 43.9375 → ceil = 44 units", () => {
+    expect(priceToUnits(175.75)).toBe(44);
   });
 
-  it("rounds 156.75 up to 157 units", () => {
-    expect(priceToUnits(156.75)).toBe(157);
+  it("156.75 / 4 = 39.1875 → ceil = 40 units", () => {
+    expect(priceToUnits(156.75)).toBe(40);
   });
 
-  it("keeps exact integer as-is", () => {
-    expect(priceToUnits(200)).toBe(200);
+  it("200 / 4 = 50 → exact = 50 units", () => {
+    expect(priceToUnits(200)).toBe(50);
   });
 
-  it("rounds 0.01 up to 1", () => {
+  it("0.01 / 4 = 0.0025 → ceil = 1 unit", () => {
     expect(priceToUnits(0.01)).toBe(1);
   });
 
   it("returns 0 for 0", () => {
     expect(priceToUnits(0)).toBe(0);
   });
+
+  it("612.75 / 4 = 153.1875 → ceil = 154 units", () => {
+    expect(priceToUnits(612.75)).toBe(154);
+  });
 });
 
 describe("formatUnitsBreakdown", () => {
-  it('formats 176 as "17× pakiet 10 jednostek + 6 jednostek"', () => {
-    expect(formatUnitsBreakdown(176)).toBe(
-      "17× pakiet 10 jednostek + 6 jednostek",
+  it('formats 44 as "4× pakiet 10 jednostek + 4 jednostek"', () => {
+    expect(formatUnitsBreakdown(44)).toBe(
+      "4× pakiet 10 jednostek + 4 jednostek",
     );
   });
 

@@ -1,0 +1,2397 @@
+{
+  "kolekcje": {
+    "standard": {
+      "nazwa": "Standard",
+      "opis_kolekcji": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+      "produkty": {
+        "jasny-bez": {
+          "nazwa": "Rolety plisowane – Jasny beż – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-jasny-bez-gladka/",
+          "slug": "rolety-plisowane-jasny-bez-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "jasny beż"
+          }
+        },
+        "czarny": {
+          "nazwa": "Rolety plisowane – Czarny – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-czarny-gladka/",
+          "slug": "rolety-plisowane-czarny-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "czarny"
+          }
+        },
+        "jasny-fiolet": {
+          "nazwa": "Rolety plisowane – Jasny fiolet – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-jasny-fiolet-gladka/",
+          "slug": "rolety-plisowane-jasny-fiolet-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "jasny fiolet"
+          }
+        },
+        "jasna-zielen": {
+          "nazwa": "Rolety plisowane – Jasna zieleń – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-jasna-zielen-gladka/",
+          "slug": "rolety-plisowane-jasna-zielen-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "jasna zieleń"
+          }
+        },
+        "bez": {
+          "nazwa": "Rolety plisowane – Beż – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-bez-gladka/",
+          "slug": "rolety-plisowane-bez-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "beż"
+          }
+        },
+        "niebieski": {
+          "nazwa": "Rolety plisowane – Niebieski – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-niebieski-gladka/",
+          "slug": "rolety-plisowane-niebieski-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "niebieski"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane – Srebro – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-srebro-gladka/",
+          "slug": "rolety-plisowane-srebro-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "srebro"
+          }
+        },
+        "turkus": {
+          "nazwa": "Rolety plisowane – Turkus – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-turkus-gladka/",
+          "slug": "rolety-plisowane-turkus-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "turkus"
+          }
+        },
+        "pudrowy-roz": {
+          "nazwa": "Rolety plisowane – Pudrowy róż – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-pudrowy-roz-gladka/",
+          "slug": "rolety-plisowane-pudrowy-roz-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "pudrowy róż"
+          }
+        },
+        "roz": {
+          "nazwa": "Rolety plisowane – Róż – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-roz-gladka/",
+          "slug": "rolety-plisowane-roz-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "róż"
+          }
+        },
+        "krem": {
+          "nazwa": "Rolety plisowane – Krem – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-krem-gladka/",
+          "slug": "rolety-plisowane-krem-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "kremowy"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane – Szary – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-szary-gladka/",
+          "slug": "rolety-plisowane-szary-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "szary"
+          }
+        },
+        "braz": {
+          "nazwa": "Rolety plisowane – Brąz – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-braz-gladka/",
+          "slug": "rolety-plisowane-braz-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "brąz"
+          }
+        },
+        "czerwien": {
+          "nazwa": "Rolety plisowane – Czerwień – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-czerwien-gladka/",
+          "slug": "rolety-plisowane-czerwien-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "czerwień"
+          }
+        },
+        "piasek": {
+          "nazwa": "Rolety plisowane – Piasek – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-piasek-gladka/",
+          "slug": "rolety-plisowane-piasek-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "piasek"
+          }
+        },
+        "biel": {
+          "nazwa": "Rolety plisowane – Biel – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-biel-gladka/",
+          "slug": "rolety-plisowane-biel-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "biel"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane – Cappucino – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-cappucino-gladka/",
+          "slug": "rolety-plisowane-cappucino-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "cappucino"
+          }
+        },
+        "bordo": {
+          "nazwa": "Rolety plisowane – Bordo – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-bordo-gladka/",
+          "slug": "rolety-plisowane-bordo-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "bordo"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane – Grafit – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-grafit-gladka/",
+          "slug": "rolety-plisowane-grafit-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "grafit"
+          }
+        },
+        "zolty": {
+          "nazwa": "Rolety plisowane – Żółty – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-zolty-gladka/",
+          "slug": "rolety-plisowane-zolty-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "żółty"
+          }
+        },
+        "popiel": {
+          "nazwa": "Rolety plisowane – Popiel – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-popiel-gladka/",
+          "slug": "rolety-plisowane-popiel-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "popiel"
+          }
+        },
+        "fiolet": {
+          "nazwa": "Rolety plisowane – Fiolet – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-fiolet-gladka/",
+          "slug": "rolety-plisowane-fiolet-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "fiolet"
+          }
+        },
+        "zielen": {
+          "nazwa": "Rolety plisowane – Zieleń – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-zielen-gladka/",
+          "slug": "rolety-plisowane-zielen-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "zieleń"
+          }
+        },
+        "pomarancz": {
+          "nazwa": "Rolety plisowane – Pomarańcz – standard",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-pomarancz-gladka/",
+          "slug": "rolety-plisowane-pomarancz-gladka",
+          "cena": "30,00 zl – 50,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD . Dzięki jednolitej strukturze tkaniny możesz uzyskać optymalne zaciemnienie . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard",
+            "kolor": "pomarańcz"
+          }
+        }
+      }
+    },
+    "standard-termo": {
+      "nazwa": "Standard + Termo",
+      "opis_kolekcji": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+      "produkty": {
+        "zolty-termo": {
+          "nazwa": "Rolety plisowane – Żółty- termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-zolty-termo-2/",
+          "slug": "rolety-plisowane-zolty-termo-2",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "żółty"
+          }
+        },
+        "braz": {
+          "nazwa": "Rolety plisowane – Brąz – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-braz-termo/",
+          "slug": "rolety-plisowane-braz-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "brąz"
+          }
+        },
+        "popiel-termo": {
+          "nazwa": "Rolety plisowane – Popiel- termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-popiel-termo/",
+          "slug": "rolety-plisowane-popiel-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "popiel"
+          }
+        },
+        "biel": {
+          "nazwa": "Rolety plisowane – Biel – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-5/",
+          "slug": "rolety-plisowane-5",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "Biel"
+          }
+        },
+        "piasek": {
+          "nazwa": "Rolety plisowane – Piasek – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-piasek-termo/",
+          "slug": "rolety-plisowane-piasek-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "piasek"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane – Cappucino – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-cappucino-termo/",
+          "slug": "rolety-plisowane-cappucino-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "cappucino"
+          }
+        },
+        "fiolet": {
+          "nazwa": "Rolety plisowane – Fiolet – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-fiolet-termo/",
+          "slug": "rolety-plisowane-fiolet-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "fiolet"
+          }
+        },
+        "zielen": {
+          "nazwa": "Rolety plisowane – Zieleń – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-zielen-termo/",
+          "slug": "rolety-plisowane-zielen-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "zieleń"
+          }
+        },
+        "turkus": {
+          "nazwa": "Rolety plisowane – Turkus – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-turkus-termo/",
+          "slug": "rolety-plisowane-turkus-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "turkus"
+          }
+        },
+        "pudrowy-roz": {
+          "nazwa": "Rolety plisowane – Pudrowy róż – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-pudrowy-roz-termo/",
+          "slug": "rolety-plisowane-pudrowy-roz-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "pudrowy róż"
+          }
+        },
+        "krem": {
+          "nazwa": "Rolety plisowane – Krem – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-krem-termo/",
+          "slug": "rolety-plisowane-krem-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "kremowy"
+          }
+        },
+        "czerwien": {
+          "nazwa": "Rolety plisowane – Czerwień – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-czerwien-termo/",
+          "slug": "rolety-plisowane-czerwien-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "czerwień"
+          }
+        },
+        "pomarancz": {
+          "nazwa": "Rolety plisowane – Pomarańcz – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-pomarancz-termo/",
+          "slug": "rolety-plisowane-pomarancz-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "pomarańcz"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane – Szary – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-szary-termo/",
+          "slug": "rolety-plisowane-szary-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "szary"
+          }
+        },
+        "czarny": {
+          "nazwa": "Rolety plisowane – Czarny – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-czarny-termo/",
+          "slug": "rolety-plisowane-czarny-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "czarny"
+          }
+        },
+        "jasny-bez": {
+          "nazwa": "Rolety plisowane – Jasny beż – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-jasny-bez-termo/",
+          "slug": "rolety-plisowane-jasny-bez-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "jasny beż"
+          }
+        },
+        "bez": {
+          "nazwa": "Rolety plisowane – Beż – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-bez-termo/",
+          "slug": "rolety-plisowane-bez-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "beż"
+          }
+        },
+        "jasna-zielen": {
+          "nazwa": "Rolety plisowane – Jasna zieleń – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-jasna-zielen-termo/",
+          "slug": "rolety-plisowane-jasna-zielen-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "jasna zieleń"
+          }
+        },
+        "jasny-fiolet": {
+          "nazwa": "Rolety plisowane – Jasny fiolet – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-jasny-fiolet-termo/",
+          "slug": "rolety-plisowane-jasny-fiolet-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "jasny fiolet"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane – Grafit – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-grafit-termo/",
+          "slug": "rolety-plisowane-grafit-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "grafit"
+          }
+        },
+        "niebieski": {
+          "nazwa": "Rolety plisowane – Niebieski – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-niebieski-termo/",
+          "slug": "rolety-plisowane-niebieski-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "niebieski"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane – Srebro – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-srebro-termo/",
+          "slug": "rolety-plisowane-srebro-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "srebro"
+          }
+        },
+        "roz": {
+          "nazwa": "Rolety plisowane – Róż – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-roz-termo/",
+          "slug": "rolety-plisowane-roz-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "róż"
+          }
+        },
+        "bordo": {
+          "nazwa": "Rolety plisowane – Bordo – termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-bordo-termo/",
+          "slug": "rolety-plisowane-bordo-termo",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD + TERMO . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "termoizolacyjny",
+            "kolor": "bordo"
+          }
+        }
+      }
+    },
+    "melange": {
+      "nazwa": "Melange",
+      "opis_kolekcji": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+      "produkty": {
+        "szary": {
+          "nazwa": "Rolety plisowane – Szary – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-szary-melanz/",
+          "slug": "rolety-plisowane-szary-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "szary"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane – Grafit – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-grafit-melanz/",
+          "slug": "rolety-plisowane-grafit-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "grafit"
+          }
+        },
+        "popiel": {
+          "nazwa": "Rolety plisowane – Popiel – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-popiel-melanz/",
+          "slug": "rolety-plisowane-popiel-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "popiel"
+          }
+        },
+        "nude": {
+          "nazwa": "Rolety plisowane – Nude – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-nude-melanz/",
+          "slug": "rolety-plisowane-nude-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "nude"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane – Cappucino – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-cappucino-melanz/",
+          "slug": "rolety-plisowane-cappucino-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "cappucino"
+          }
+        },
+        "braz": {
+          "nazwa": "Rolety plisowane – Brąz – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-braz-melanz/",
+          "slug": "rolety-plisowane-braz-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "brąz"
+          }
+        },
+        "denim": {
+          "nazwa": "Rolety plisowane – Denim – melange",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-niebieski-melanz/",
+          "slug": "rolety-plisowane-niebieski-melanz",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia. Gwarancja poczucia prywatności . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange",
+            "kolor": "denim"
+          }
+        }
+      }
+    },
+    "melange-termo": {
+      "nazwa": "Melange + Termo",
+      "opis_kolekcji": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+      "produkty": {
+        "braz": {
+          "nazwa": "Rolety plisowane – Brąz – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-braz-melanz-termo/",
+          "slug": "rolety-plisowane-braz-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "brąz"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane – Grafit – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-grafit-melanz-termo/",
+          "slug": "rolety-plisowane-grafit-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "grafit"
+          }
+        },
+        "nude": {
+          "nazwa": "Rolety plisowane – Nude – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-nude-melanz-termo/",
+          "slug": "rolety-plisowane-nude-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "nude"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane – Cappucino – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-cappucino-melanz-termo/",
+          "slug": "rolety-plisowane-cappucino-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "cappucino"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane – Szary – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-szary-melanz-termo/",
+          "slug": "rolety-plisowane-szary-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "szary"
+          }
+        },
+        "denim": {
+          "nazwa": "Rolety plisowane – Denim – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-denim-melanz-termo/",
+          "slug": "rolety-plisowane-denim-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "denim"
+          }
+        },
+        "popiel": {
+          "nazwa": "Rolety plisowane – Popiel – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-popiel-melanz-termo/",
+          "slug": "rolety-plisowane-popiel-melanz-termo",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE + TERMO . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "popiel"
+          }
+        }
+      }
+    },
+    "dolomit": {
+      "nazwa": "Dolomit",
+      "opis_kolekcji": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+      "produkty": {
+        "szary": {
+          "nazwa": "Rolety plisowane – Szary – dolomit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-szary-dolomit/",
+          "slug": "rolety-plisowane-szary-dolomit",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit",
+            "kolor": "szary"
+          }
+        },
+        "mocca": {
+          "nazwa": "Rolety plisowane – Mocca – dolomit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-mocca/",
+          "slug": "rolety-plisowane-dolomit-mocca",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit",
+            "kolor": "mocca"
+          }
+        },
+        "krem": {
+          "nazwa": "Rolety plisowane – Krem – dolomit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-krem/",
+          "slug": "rolety-plisowane-dolomit-krem",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit",
+            "kolor": "krem"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane – Srebro – dolomit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-srebro/",
+          "slug": "rolety-plisowane-dolomit-srebro",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit",
+            "kolor": "srebro"
+          }
+        },
+        "bez": {
+          "nazwa": "Rolety plisowane – Beż – dolomit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-bez/",
+          "slug": "rolety-plisowane-dolomit-bez",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit",
+            "kolor": "beż"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane – Grafit – dolomit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-grafit/",
+          "slug": "rolety-plisowane-dolomit-grafit",
+          "cena": "35,00 zl – 55,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT . Plisy mają naturalną, poziomą strukturę wzoru. Gwarancja optymalnego zaciemnienia i poczucia prywatności . Wyprodukowano w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "3/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit",
+            "kolor": "grafit"
+          }
+        }
+      }
+    },
+    "dolomit-termo": {
+      "nazwa": "Dolomit + Termo",
+      "opis_kolekcji": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+      "produkty": {
+        "grafit": {
+          "nazwa": "Rolety plisowane – Grafit – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-termo-grafit/",
+          "slug": "rolety-plisowane-dolomit-termo-grafit",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "grafit"
+          }
+        },
+        "krem": {
+          "nazwa": "Rolety plisowane – Krem – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-termo-krem/",
+          "slug": "rolety-plisowane-dolomit-termo-krem",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "krem"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane – Szary – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-termo-szary/",
+          "slug": "rolety-plisowane-dolomit-termo-szary",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "szary"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane – Srebro – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-termo-srebro/",
+          "slug": "rolety-plisowane-dolomit-termo-srebro",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "srebro"
+          }
+        },
+        "mocca": {
+          "nazwa": "Rolety plisowane – Mocca – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-termo-mocca/",
+          "slug": "rolety-plisowane-dolomit-termo-mocca",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "mocca"
+          }
+        },
+        "bez": {
+          "nazwa": "Rolety plisowane – Beż – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dolomit-termo-bez/",
+          "slug": "rolety-plisowane-dolomit-termo-bez",
+          "cena": "40,00 zl – 60,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT + TERMO . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "beż"
+          }
+        }
+      }
+    },
+    "blackout": {
+      "nazwa": "Blackout",
+      "opis_kolekcji": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+      "produkty": {
+        "piasek": {
+          "nazwa": "Rolety plisowane Blackout – Piasek",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-piasek/",
+          "slug": "rolety-plisowane-blackout-piasek",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "piasek"
+          }
+        },
+        "krem": {
+          "nazwa": "Rolety plisowane Blackout – Krem",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-krem/",
+          "slug": "rolety-plisowane-blackout-krem",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "krem"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane Blackout – Grafit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-grafit/",
+          "slug": "rolety-plisowane-blackout-grafit",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "grafit"
+          }
+        },
+        "biel": {
+          "nazwa": "Rolety plisowane Blackout – Biel",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-biel/",
+          "slug": "rolety-plisowane-blackout-biel",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "biel"
+          }
+        },
+        "czarny": {
+          "nazwa": "Rolety plisowane Blackout – Czarny",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-czarny/",
+          "slug": "rolety-plisowane-blackout-czarny",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "czarny"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane Blackout – Srebro",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-srebro/",
+          "slug": "rolety-plisowane-blackout-srebro",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "srebro"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane Blackout – Szary",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-szary/",
+          "slug": "rolety-plisowane-blackout-szary",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "szary"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane Blackout – Cappucino",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-blackout-cappucino/",
+          "slug": "rolety-plisowane-blackout-cappucino",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Dzięki jednolitej strukturze tkaniny możesz uzyskać 100% zaciemnienia . Gwarancja komfortu i poczucia prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "cappucino"
+          }
+        }
+      }
+    },
+    "honeycomb": {
+      "nazwa": "Honeycomb",
+      "opis_kolekcji": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+      "produkty": {
+        "biel": {
+          "nazwa": "Rolety Honeycomb – Biel",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-biel/",
+          "slug": "rolety-honeycomb-biel",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "biel"
+          }
+        },
+        "zimny-bez": {
+          "nazwa": "Rolety Honeycomb – Zimny beż",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-zimny-bez/",
+          "slug": "rolety-honeycomb-zimny-bez",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "zimny beż"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety Honeycomb – Cappucino",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-cappucino/",
+          "slug": "rolety-honeycomb-cappucino",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "cappucino"
+          }
+        },
+        "antracyt": {
+          "nazwa": "Rolety Honeycomb – Antracyt",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-antracyt/",
+          "slug": "rolety-honeycomb-antracyt",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "antracyt"
+          }
+        },
+        "cieply-bez": {
+          "nazwa": "Rolety Honeycomb – Ciepły beż",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-cieply-bez/",
+          "slug": "rolety-honeycomb-cieply-bez",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "ciepły beż"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety Honeycomb – Szary",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-szary/",
+          "slug": "rolety-honeycomb-szary",
+          "cena": "50,00 zl – 70,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "szary"
+          }
+        }
+      }
+    }
+  },
+  "dachowe": {
+    "standard-termo": {
+      "nazwa": "Standard + Termo",
+      "opis_kolekcji": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+      "produkty": {
+        "krem": {
+          "nazwa": "Rolety plisowane dachowe – Krem – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-krem-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-krem-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "krem"
+          }
+        },
+        "popiel": {
+          "nazwa": "Rolety plisowane dachowe – Popiel – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-popiel-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-popiel-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "popiel"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane dachowe – Grafit – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-grafit-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-grafit-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "grafit"
+          }
+        },
+        "jasny-bez": {
+          "nazwa": "Rolety plisowane dachowe – Jasny beż – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-jasny-bez-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-jasny-bez-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "jasny beż"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane dachowe – Srebro – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-srebro-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-srebro-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "srebro"
+          }
+        },
+        "biel": {
+          "nazwa": "Rolety plisowane dachowe – Biel – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-biel-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-biel-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "biel"
+          }
+        },
+        "czern": {
+          "nazwa": "Rolety plisowane dachowe – Czerń – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-czern-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-czern-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "czerń"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane dachowe – Szary – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-szary-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-szary-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "szary"
+          }
+        },
+        "jasna-zielen": {
+          "nazwa": "Rolety plisowane dachowe – Jasna zieleń – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-jasna-zielen-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-jasna-zielen-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "jasna zieleń"
+          }
+        },
+        "zielen": {
+          "nazwa": "Rolety plisowane dachowe – Zieleń – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-zielen-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-zielen-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "zieleń"
+          }
+        },
+        "bez": {
+          "nazwa": "Rolety plisowane dachowe – Beż – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-bez-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-bez-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "beż"
+          }
+        },
+        "pudrowy-roz": {
+          "nazwa": "Rolety plisowane dachowe – Pudrowy róż – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-pudrowy-roz-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-pudrowy-roz-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "pudrowy róż"
+          }
+        },
+        "turkus": {
+          "nazwa": "Rolety plisowane dachowe – Turkus – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-turkus-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-turkus-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "turkus"
+          }
+        },
+        "niebieski": {
+          "nazwa": "Rolety plisowane dachowe – Niebieski – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-niebieski-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-niebieski-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "niebieski"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane dachowe – Cappucino – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-cappucino-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-cappucino-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "cappucino"
+          }
+        },
+        "jasny-fiolet": {
+          "nazwa": "Rolety plisowane dachowe – Jasny fiolet – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-jasny-fiolet-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-jasny-fiolet-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "jasny fiolet"
+          }
+        },
+        "braz": {
+          "nazwa": "Rolety plisowane dachowe – Brąz – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-braz-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-braz-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "brąz"
+          }
+        },
+        "czerwien": {
+          "nazwa": "Rolety plisowane dachowe – Czerwień – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-czerwien-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-czerwien-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "czerwień"
+          }
+        },
+        "fiolet": {
+          "nazwa": "Rolety plisowane dachowe – Fiolet – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-fiolet-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-fiolet-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "fiolet"
+          }
+        },
+        "pomarancz": {
+          "nazwa": "Rolety plisowane dachowe – Pomarańcz – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-pomarancz-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-pomarancz-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "pomarańcz"
+          }
+        },
+        "bordo": {
+          "nazwa": "Rolety plisowane dachowe – Bordo – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-bordo-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-bordo-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "bordo"
+          }
+        },
+        "roz": {
+          "nazwa": "Rolety plisowane dachowe – Róż – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-roz-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-roz-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "róż"
+          }
+        },
+        "piasek": {
+          "nazwa": "Rolety plisowane dachowe – Piasek – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-piasek-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-piasek-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "piasek"
+          }
+        },
+        "zolty": {
+          "nazwa": "Rolety plisowane dachowe – Żółty – standard + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-zolty-standard-termo/",
+          "slug": "rolety-plisowane-dachowe-zolty-standard-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji STANDARD TERMO . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje optymalne zaciemnienie oraz poczucie prywatności. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "standard + termo",
+            "kolor": "żółty"
+          }
+        }
+      }
+    },
+    "melange-termo": {
+      "nazwa": "Melange + Termo",
+      "opis_kolekcji": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+      "produkty": {
+        "szary": {
+          "nazwa": "Rolety plisowane dachowe – Szary – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-szary-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-szary-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "szary"
+          }
+        },
+        "braz": {
+          "nazwa": "Rolety plisowane dachowe – Brąz – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-braz-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-braz-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "brąz"
+          }
+        },
+        "nude": {
+          "nazwa": "Rolety plisowane dachowe – Nude – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-nude-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-nude-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "nude"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety plisowane dachowe – Cappucino – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-cappucino-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-cappucino-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "cappucino"
+          }
+        },
+        "popiel": {
+          "nazwa": "Rolety plisowane dachowe – Popiel – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-popiel-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-popiel-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "popiel"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane dachowe – Grafit – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-grafit-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-grafit-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "grafit"
+          }
+        },
+        "denim": {
+          "nazwa": "Rolety plisowane dachowe – Denim – melange + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-denim-melange-termo/",
+          "slug": "rolety-plisowane-dachowe-denim-melange-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji MELANGE TERMO . Roleta plisowana przeznaczona do okien dachowych . Dzięki strukturze tkaniny możesz uzyskać w swoim pomieszczeniu wysoki stopień zaciemnienia . Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "4/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "melange + termo",
+            "kolor": "denim"
+          }
+        }
+      }
+    },
+    "dolomit-termo": {
+      "nazwa": "Dolomit + Termo",
+      "opis_kolekcji": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+      "produkty": {
+        "bez": {
+          "nazwa": "Rolety plisowane dachowe – Beż – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-bez-dolomit-termo/",
+          "slug": "rolety-plisowane-dachowe-bez-dolomit-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "beż"
+          }
+        },
+        "krem": {
+          "nazwa": "Rolety plisowane dachowe – Krem – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-krem-dolomit-termo/",
+          "slug": "rolety-plisowane-dachowe-krem-dolomit-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "krem"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety plisowane dachowe – Srebro – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-srebro-dolomit-termo/",
+          "slug": "rolety-plisowane-dachowe-srebro-dolomit-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "srebro"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety plisowane dachowe – Szary – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-szary-dolomit-termo/",
+          "slug": "rolety-plisowane-dachowe-szary-dolomit-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "szary"
+          }
+        },
+        "mocca": {
+          "nazwa": "Rolety plisowane dachowe – Mocca – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-mocca-dolomit-termo/",
+          "slug": "rolety-plisowane-dachowe-mocca-dolomit-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "mocca"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety plisowane dachowe – Grafit – dolomit + termo",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-plisowane-dachowe-grafit-dolomit-termo/",
+          "slug": "rolety-plisowane-dachowe-grafit-dolomit-termo",
+          "cena": "70,00 zl",
+          "opis": "Roleta plisowana z kolekcji DOLOMIT TERMO . Roleta plisowana przeznaczona do okien dachowych . Plisy mają naturalną, poziomą strukturę wzoru. Dodatkowo zastosowanie powłoki TERMO powoduje odbicie promieni słonecznych od powierzchni tkaniny. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "3/5",
+            "termoizolacja": "4/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "dolomit + termo",
+            "kolor": "grafit"
+          }
+        }
+      }
+    },
+    "blackout": {
+      "nazwa": "Blackout",
+      "opis_kolekcji": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+      "produkty": {
+        "krem": {
+          "nazwa": "Rolety Blackout Dachowe – Krem",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-krem/",
+          "slug": "rolety-blackout-dachowe-krem",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "krem"
+          }
+        },
+        "czarny": {
+          "nazwa": "Rolety Blackout Dachowe – Czarny",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-czarny/",
+          "slug": "rolety-blackout-dachowe-czarny",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "czarny"
+          }
+        },
+        "grafit": {
+          "nazwa": "Rolety Blackout Dachowe – Grafit",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-grafit/",
+          "slug": "rolety-blackout-dachowe-grafit",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "grafit"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety Blackout Dachowe – Szary",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-szary/",
+          "slug": "rolety-blackout-dachowe-szary",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "szary"
+          }
+        },
+        "srebro": {
+          "nazwa": "Rolety Blackout Dachowe – Srebro",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-srebro/",
+          "slug": "rolety-blackout-dachowe-srebro",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "srebro"
+          }
+        },
+        "biel": {
+          "nazwa": "Rolety Blackout Dachowe – Biel",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-biel/",
+          "slug": "rolety-blackout-dachowe-biel",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "biel"
+          }
+        },
+        "cappucino": {
+          "nazwa": "Rolety Blackout Dachowe – Cappucino",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-cappucino/",
+          "slug": "rolety-blackout-dachowe-cappucino",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "cappucino"
+          }
+        },
+        "piasek": {
+          "nazwa": "Rolety Blackout Dachowe – Piasek",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-blackout-dachowe-piasek/",
+          "slug": "rolety-blackout-dachowe-piasek",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji BLACKOUT . Roleta plisowana przeznaczona do okien dachowych . Jednolita struktura tkaniny gwarantuje 100% zaciemnienia oraz poczucie prywatności. Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Blackout",
+            "kolor": "piasek"
+          }
+        }
+      }
+    },
+    "honeycomb": {
+      "nazwa": "Honeycomb",
+      "opis_kolekcji": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+      "produkty": {
+        "cappucino": {
+          "nazwa": "Rolety Honeycomb Dachowe – Cappucino",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-dachowe-cappucino/",
+          "slug": "rolety-honeycomb-dachowe-cappucino",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "cappucino"
+          }
+        },
+        "szary": {
+          "nazwa": "Rolety Honeycomb Dachowe – Szary",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-dachowe-szary/",
+          "slug": "rolety-honeycomb-dachowe-szary",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "szary"
+          }
+        },
+        "zimny-bez": {
+          "nazwa": "Rolety Honeycomb Dachowe – Zimny beż",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-dachowe-zimny-bez/",
+          "slug": "rolety-honeycomb-dachowe-zimny-bez",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "zimny beż"
+          }
+        },
+        "antracyt": {
+          "nazwa": "Rolety Honeycomb Dachowe – Antracyt",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-dachowe-antracyt/",
+          "slug": "rolety-honeycomb-dachowe-antracyt",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "antracyt"
+          }
+        },
+        "biel": {
+          "nazwa": "Rolety Honeycomb Dachowe – Biel",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-dachowe-biel/",
+          "slug": "rolety-honeycomb-dachowe-biel",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "biel"
+          }
+        },
+        "cieply-bez": {
+          "nazwa": "Rolety Honeycomb Dachowe – Ciepły beż",
+          "url": "https://konfigurator.stelge.com/produkt/rolety-honeycomb-dachowe-cieply-bez/",
+          "slug": "rolety-honeycomb-dachowe-cieply-bez",
+          "cena": "90,00 zl",
+          "opis": "Roleta plisowana z kolekcji Honeycomb przeznaczona do okien dachowych . Specjalna podwójna warstwa materiału skutecznie blokuje przenikanie światła z zewnątrz, a pokrycie wnętrza srebrną folią aluminiową zapewnia lepszą termoizolacyjność . Wyprodukowana w Polsce.",
+          "cechy": {
+            "zaciemnienie": "5/5",
+            "termoizolacja": "5/5"
+          },
+          "atrybuty": {
+            "rodzaj rolety": "plisowana",
+            "material": "Honeycomb",
+            "kolor": "ciepły beż"
+          }
+        }
+      }
+    }
+  },
+  "montaz": {
+    "typy": [
+      {
+        "id": "inwazyjny-standard",
+        "nazwa": "Inwazyjny Standard",
+        "opis": "Standardowy montaz inwazyjny za pomoca wkretow."
+      },
+      {
+        "id": "inwazyjny-regulowany",
+        "nazwa": "Inwazyjny Regulowany",
+        "opis": "Montaz inwazyjny z mozliwoscia regulacji."
+      },
+      {
+        "id": "inwazyjny-katowy",
+        "nazwa": "Inwazyjny Katowy",
+        "opis": "Montaz inwazyjny katowy do okien niestandardowych."
+      },
+      {
+        "id": "bezinwazyjny-wzmocniony",
+        "nazwa": "Bezinwazyjny Wzmocniony",
+        "opis": "Montaz bezinwazyjny wzmocniony, bez wiercenia."
+      },
+      {
+        "id": "bezinwazyjny-klejony",
+        "nazwa": "Bezinwazyjny Klejony",
+        "opis": "Montaz bezinwazyjny klejony, bez wiercenia."
+      }
+    ]
+  },
+  "prowadnice": {
+    "kolory": [
+      {
+        "id": "bialy-lakier",
+        "nazwa": "Bialy - lakier"
+      },
+      {
+        "id": "krem-lakier",
+        "nazwa": "Krem - lakier"
+      },
+      {
+        "id": "braz-lakier",
+        "nazwa": "Braz - lakier"
+      },
+      {
+        "id": "antracyt-polmat-lakier",
+        "nazwa": "Antracyt polmat - lakier"
+      },
+      {
+        "id": "czarny-lakier",
+        "nazwa": "Czarny - lakier"
+      },
+      {
+        "id": "srebrny-anodowany",
+        "nazwa": "Srebrny - anodowany"
+      },
+      {
+        "id": "szampanski-anodowany",
+        "nazwa": "Szampanski - anodowany"
+      },
+      {
+        "id": "zloty-dab-okleina",
+        "nazwa": "Zloty dab - okleina"
+      },
+      {
+        "id": "orzech-okleina",
+        "nazwa": "Orzech - okleina"
+      },
+      {
+        "id": "dab-bagienny",
+        "nazwa": "Dab Bagienny"
+      },
+      {
+        "id": "mahon",
+        "nazwa": "Mahon"
+      },
+      {
+        "id": "turner-oak",
+        "nazwa": "Turner Oak"
+      },
+      {
+        "id": "sosna",
+        "nazwa": "Sosna"
+      },
+      {
+        "id": "winchester",
+        "nazwa": "Winchester"
+      }
+    ]
+  }
+}

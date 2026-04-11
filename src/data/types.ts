@@ -13,6 +13,7 @@ export interface Fabric {
   readonly id: string;
   readonly name: string;
   readonly desc: string;
+  readonly longDesc: string;
   readonly img: string;
   readonly darkening: number;
   readonly thermo: number;
