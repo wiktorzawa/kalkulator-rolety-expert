@@ -71,16 +71,17 @@ describe("OrderSummary", () => {
   });
 
   it("shows total price and Allegro units", () => {
+    // 175.75 / 4 = 43.9375 → ceil = 44 units
     render(
       <OrderSummary
-        order={makeOrder({ total_price: 175.75, allegro_units: 176 })}
+        order={makeOrder({ total_price: 175.75, allegro_units: 44 })}
       />,
     );
 
     expect(screen.getByText("175,75 zl")).toBeInTheDocument();
 
     const unitsEl = screen.getByTestId("allegro-units");
-    expect(unitsEl).toHaveTextContent("176 jednostek");
+    expect(unitsEl).toHaveTextContent("44 jednostek");
   });
 
   it("renders Allegro instruction steps", () => {

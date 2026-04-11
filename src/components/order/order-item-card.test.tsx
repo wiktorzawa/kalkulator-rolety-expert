@@ -47,19 +47,10 @@ const SAMPLE_ITEM: CartItem = {
   unitPrice: 156.75,
 };
 
-function renderItemCard(
-  item: CartItem = SAMPLE_ITEM,
-  options?: {
-    onEdit?: (i: CartItem) => void;
-    onDuplicate?: (i: CartItem) => void;
-  },
-) {
-  const onEdit = options?.onEdit ?? vi.fn();
-  const onDuplicate = options?.onDuplicate ?? vi.fn();
-
+function renderItemCard(item: CartItem = SAMPLE_ITEM) {
   return render(
     <CartProvider>
-      <OrderItemCard item={item} onEdit={onEdit} onDuplicate={onDuplicate} />
+      <OrderItemCard item={item} />
     </CartProvider>,
   );
 }
@@ -73,10 +64,11 @@ describe("OrderItemCard", () => {
   it("renders item parameters", () => {
     renderItemCard();
 
-    expect(screen.getByText("Standard — Biel")).toBeInTheDocument();
+    expect(screen.getByText("Standard")).toBeInTheDocument();
+    expect(screen.getByText("Biel")).toBeInTheDocument();
     expect(screen.getByText(/wzmocniony/i)).toBeInTheDocument();
     expect(screen.getByText(/600 x 1500 mm/)).toBeInTheDocument();
-    expect(screen.getByText(/Listwa: Biały/)).toBeInTheDocument();
+    expect(screen.getByText("Biały")).toBeInTheDocument();
   });
 
   it("renders total price for quantity 1", () => {
@@ -95,22 +87,18 @@ describe("OrderItemCard", () => {
     expect(screen.getByText("(156,75 zł/szt.)")).toBeInTheDocument();
   });
 
-  it("calls onEdit when Edytuj clicked", () => {
-    const onEdit = vi.fn();
-    renderItemCard(SAMPLE_ITEM, { onEdit });
+  it("renders Edytuj button", () => {
+    renderItemCard();
 
-    fireEvent.click(screen.getByRole("button", { name: /edytuj/i }));
-
-    expect(onEdit).toHaveBeenCalledWith(SAMPLE_ITEM);
+    expect(screen.getByRole("button", { name: /edytuj/i })).toBeInTheDocument();
   });
 
-  it("calls onDuplicate when Duplikuj clicked", () => {
-    const onDuplicate = vi.fn();
-    renderItemCard(SAMPLE_ITEM, { onDuplicate });
+  it("does not render Duplikuj button", () => {
+    renderItemCard();
 
-    fireEvent.click(screen.getByRole("button", { name: /duplikuj/i }));
-
-    expect(onDuplicate).toHaveBeenCalledWith(SAMPLE_ITEM);
+    expect(
+      screen.queryByRole("button", { name: /duplikuj/i }),
+    ).not.toBeInTheDocument();
   });
 
   it("shows confirm dialog on remove", () => {

@@ -1,0 +1,129 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "rolety.expert — strona główna" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "rolety.expert" [ref=e7]
+      - generic [ref=e8]:
+        - text: Cena
+        - paragraph [ref=e9]: 0,00 zł
+    - navigation "Kroki konfiguracji" [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - 'button "Krok 1: Tkanina" [ref=e14] [cursor=pointer]': "1"
+        - listitem [ref=e16]:
+          - 'button "Krok 2: Kolor" [ref=e17] [cursor=pointer]': "2"
+        - listitem [ref=e19]:
+          - 'button "Krok 3: Konfiguracja" [ref=e20] [cursor=pointer]': "3"
+      - generic [ref=e21]: Tkanina
+  - main [ref=e22]:
+    - 'region "Krok 1: Tkanina" [ref=e24]':
+      - heading "1. Wybierz tkaninę" [level=2] [ref=e25]
+      - generic [ref=e26]:
+        - 'button "Standard Standard Gładka struktura tkaniny. 24 kolory. Zaciemnienie Zaciemnienie: 3 z 5 Termoizolacja Termoizolacja: 3 z 5" [ref=e27]':
+          - generic [ref=e28]:
+            - img "Standard" [ref=e30]
+            - generic [ref=e31]:
+              - heading "Standard" [level=3] [ref=e32]
+              - paragraph [ref=e33]: Gładka struktura tkaniny. 24 kolory.
+              - generic [ref=e34]:
+                - generic [ref=e35]:
+                  - generic [ref=e36]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 3 z 5" [ref=e37]'
+                - generic [ref=e43]:
+                  - generic [ref=e44]: Termoizolacja
+                  - 'generic "Termoizolacja: 3 z 5" [ref=e45]'
+        - 'button "Standard + Termo Standard + Termo Gładka tkanina z powłoką termoizolacyjną. Zaciemnienie Zaciemnienie: 3 z 5 Termoizolacja Termoizolacja: 4 z 5" [ref=e51]':
+          - generic [ref=e52]:
+            - img "Standard + Termo" [ref=e54]
+            - generic [ref=e55]:
+              - heading "Standard + Termo" [level=3] [ref=e56]
+              - paragraph [ref=e57]: Gładka tkanina z powłoką termoizolacyjną.
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - generic [ref=e60]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 3 z 5" [ref=e61]'
+                - generic [ref=e67]:
+                  - generic [ref=e68]: Termoizolacja
+                  - 'generic "Termoizolacja: 4 z 5" [ref=e69]'
+        - 'button "Melange Melange Splot melanżowy, wysoka gramatura. 7 kolorów. Zaciemnienie Zaciemnienie: 4 z 5 Termoizolacja Termoizolacja: 4 z 5" [ref=e75]':
+          - generic [ref=e76]:
+            - img "Melange" [ref=e78]
+            - generic [ref=e79]:
+              - heading "Melange" [level=3] [ref=e80]
+              - paragraph [ref=e81]: Splot melanżowy, wysoka gramatura. 7 kolorów.
+              - generic [ref=e82]:
+                - generic [ref=e83]:
+                  - generic [ref=e84]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 4 z 5" [ref=e85]'
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Termoizolacja
+                  - 'generic "Termoizolacja: 4 z 5" [ref=e93]'
+        - 'button "Melange + Termo Melange + Termo Melanż z powłoką termo. Wysoka gramatura. Zaciemnienie Zaciemnienie: 4 z 5 Termoizolacja Termoizolacja: 5 z 5" [ref=e99]':
+          - generic [ref=e100]:
+            - img "Melange + Termo" [ref=e102]
+            - generic [ref=e103]:
+              - heading "Melange + Termo" [level=3] [ref=e104]
+              - paragraph [ref=e105]: Melanż z powłoką termo. Wysoka gramatura.
+              - generic [ref=e106]:
+                - generic [ref=e107]:
+                  - generic [ref=e108]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 4 z 5" [ref=e109]'
+                - generic [ref=e115]:
+                  - generic [ref=e116]: Termoizolacja
+                  - 'generic "Termoizolacja: 5 z 5" [ref=e117]'
+        - 'button "Dolomit Dolomit Naturalna, pozioma struktura wzoru. 6 kolorów. Zaciemnienie Zaciemnienie: 3 z 5 Termoizolacja Termoizolacja: 3 z 5" [ref=e123]':
+          - generic [ref=e124]:
+            - img "Dolomit" [ref=e126]
+            - generic [ref=e127]:
+              - heading "Dolomit" [level=3] [ref=e128]
+              - paragraph [ref=e129]: Naturalna, pozioma struktura wzoru. 6 kolorów.
+              - generic [ref=e130]:
+                - generic [ref=e131]:
+                  - generic [ref=e132]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 3 z 5" [ref=e133]'
+                - generic [ref=e139]:
+                  - generic [ref=e140]: Termoizolacja
+                  - 'generic "Termoizolacja: 3 z 5" [ref=e141]'
+        - 'button "Dolomit + Termo Dolomit + Termo Dolomit z powłoką termoizolacyjną. Zaciemnienie Zaciemnienie: 3 z 5 Termoizolacja Termoizolacja: 4 z 5" [ref=e147]':
+          - generic [ref=e148]:
+            - img "Dolomit + Termo" [ref=e150]
+            - generic [ref=e151]:
+              - heading "Dolomit + Termo" [level=3] [ref=e152]
+              - paragraph [ref=e153]: Dolomit z powłoką termoizolacyjną.
+              - generic [ref=e154]:
+                - generic [ref=e155]:
+                  - generic [ref=e156]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 3 z 5" [ref=e157]'
+                - generic [ref=e163]:
+                  - generic [ref=e164]: Termoizolacja
+                  - 'generic "Termoizolacja: 4 z 5" [ref=e165]'
+        - 'button "Blackout Blackout Pełne zaciemnienie. 8 kolorów. Zaciemnienie Zaciemnienie: 5 z 5 Termoizolacja Termoizolacja: 5 z 5" [ref=e171]':
+          - generic [ref=e172]:
+            - img "Blackout" [ref=e174]
+            - generic [ref=e175]:
+              - heading "Blackout" [level=3] [ref=e176]
+              - paragraph [ref=e177]: Pełne zaciemnienie. 8 kolorów.
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - generic [ref=e180]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 5 z 5" [ref=e181]'
+                - generic [ref=e187]:
+                  - generic [ref=e188]: Termoizolacja
+                  - 'generic "Termoizolacja: 5 z 5" [ref=e189]'
+        - 'button "Honeycomb Honeycomb Struktura plastra miodu, podwójna izolacja. Zaciemnienie Zaciemnienie: 5 z 5 Termoizolacja Termoizolacja: 5 z 5" [ref=e195]':
+          - generic [ref=e196]:
+            - img "Honeycomb" [ref=e198]
+            - generic [ref=e199]:
+              - heading "Honeycomb" [level=3] [ref=e200]
+              - paragraph [ref=e201]: Struktura plastra miodu, podwójna izolacja.
+              - generic [ref=e202]:
+                - generic [ref=e203]:
+                  - generic [ref=e204]: Zaciemnienie
+                  - 'generic "Zaciemnienie: 5 z 5" [ref=e205]'
+                - generic [ref=e211]:
+                  - generic [ref=e212]: Termoizolacja
+                  - 'generic "Termoizolacja: 5 z 5" [ref=e213]'
+  - complementary "Podsumowanie cenowe" [ref=e219]:
+    - generic [ref=e220]:
+      - button "Dodaj do zamówienia" [disabled]

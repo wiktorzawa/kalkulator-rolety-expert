@@ -28,21 +28,21 @@ function ConfiguratorContent() {
         <BeforeunloadGuard />
         <div className="flex min-h-screen flex-col bg-brand-50">
           <header className="sticky top-0 z-40 border-b border-brand-200 bg-white/95 backdrop-blur-sm">
-            <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
               <a
                 href="/"
                 className="flex items-center gap-2"
                 aria-label="rolety.expert — strona główna"
               >
                 <img
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="rolety.expert"
-                  className="h-8 md:h-10"
+                  className="h-8 w-auto md:h-10"
                 />
               </a>
             </div>
           </header>
-          <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6">
+          <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6">
             <OrderList />
           </main>
         </div>
@@ -55,7 +55,7 @@ function ConfiguratorContent() {
       <BeforeunloadGuard />
       <div className="flex min-h-screen flex-col bg-brand-50">
         <Header />
-        <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 pb-32 md:pb-6">
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 pb-32 md:pb-6">
           <StepContent />
         </main>
         <PricePanel />

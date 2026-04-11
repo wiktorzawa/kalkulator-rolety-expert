@@ -1,0 +1,222 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e14]:
+        - figure [ref=e19]:
+          - link "logo_stelge" [ref=e20] [cursor=pointer]:
+            - /url: https://konfigurator.stelge.com/
+            - img "logo_stelge" [ref=e21]
+        - list [ref=e28]:
+          - listitem [ref=e29]:
+            - link "Rolety " [ref=e30] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/
+            - list:
+              - listitem:
+                - link "Plisy Standard":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-standard/
+              - listitem:
+                - link "Plisy Standard + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-termoizolacyjna/
+              - listitem:
+                - link "Plisy Melange":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-melange/
+              - listitem:
+                - link "Plisy Melange + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-melange-termoizolacja/
+              - listitem:
+                - link "Plisy Dolomit":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-dolomite/
+              - listitem:
+                - link "Plisy Dolomit + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-dolomite-termo/
+              - listitem:
+                - link "Plisy Blackout":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-blackout/
+              - listitem:
+                - link "Plisy Honeycomb":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-honeycomb/
+          - listitem [ref=e31]:
+            - link "Blackout" [ref=e32] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-blackout/
+          - listitem [ref=e33]:
+            - link "Honeycomb" [ref=e34] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-honeycomb/
+          - listitem [ref=e35]:
+            - link "Rolety Dachowe " [ref=e36] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/
+            - list:
+              - listitem:
+                - link "Standard + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-standard-termo/
+              - listitem:
+                - link "Melange + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-melange-termo/
+              - listitem:
+                - link "Dolomit + Termo":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-dolomite-termo/
+              - listitem:
+                - link "Honeycomb":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-honeycomb/
+              - listitem:
+                - link "Blackout":
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/plisy-dachowe/dachowe-blackout/
+          - listitem [ref=e37]:
+            - link "Jak wykonać pomiar?" [ref=e38] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/jak-wykonac-pomiar/
+        - generic [ref=e43]:
+          - link " 0" [ref=e45] [cursor=pointer]:
+            - /url: https://konfigurator.stelge.com/cart/
+            - generic [ref=e46]:
+              - text: 
+              - generic [ref=e47]: "0"
+          - paragraph [ref=e50]: Brak produktów w koszyku
+      - text:     
+    - generic [ref=e51]:
+      - generic [ref=e58]:
+        - generic [ref=e63]:
+          - heading "Krok 1" [level=1] [ref=e64]:
+            - strong [ref=e65]: Krok 1
+          - paragraph [ref=e66]: Wybierz rodzaj tkaniny
+        - generic [ref=e71]:
+          - heading "Krok 2" [level=1] [ref=e72]:
+            - strong [ref=e73]: Krok 2
+          - paragraph [ref=e74]: Wybierz kolor
+        - generic [ref=e79]:
+          - heading "Krok 3" [level=1] [ref=e80]:
+            - strong [ref=e81]: Krok 3
+          - paragraph [ref=e82]: Skonfiguruj swoją roletę
+      - generic [ref=e90]:
+        - generic [ref=e92]:
+          - generic:
+            - img [ref=e93]
+            - img [ref=e94]
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e97] [cursor=pointer]: 
+              - generic [ref=e99]:
+                - tabpanel [ref=e100] [cursor=pointer]:
+                  - link "STANDARD - inwazyjne - BIEL" [ref=e101]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2021/11/STANDARD-inwazyjne-BIEL.png
+                    - img "STANDARD - inwazyjne - BIEL" [ref=e102]
+                - tabpanel [ref=e103] [cursor=pointer]:
+                  - link [ref=e104]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2021/12/plisa-biala.jpg
+                - tabpanel [ref=e105] [cursor=pointer]:
+                  - link [ref=e106]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Plisy-montaz-bezinwazyjny-wzmocniony-opis-NOWE.png
+                - tabpanel [ref=e107] [cursor=pointer]:
+                  - link [ref=e108]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Pomiar-Montaz-bezinwazyjny-wzmocniony-nowa-2.png
+                - tabpanel [ref=e109] [cursor=pointer]:
+                  - link [ref=e110]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Plisy-montaz-bezinwazyjny-klejony-opis-NOWE.png
+                - tabpanel [ref=e111] [cursor=pointer]:
+                  - link [ref=e112]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Pomiar-Montaz-bezinwazyjny-klejony-nowa-2.png
+                - tabpanel [ref=e113] [cursor=pointer]:
+                  - link [ref=e114]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Plisy-montaz-inwazyjny-standard-opis.png
+                - tabpanel [ref=e115] [cursor=pointer]:
+                  - link [ref=e116]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Pomiar-Montaz-inwazyjny-standard-nowa.png
+                - tabpanel [ref=e117] [cursor=pointer]:
+                  - link [ref=e118]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Plisy-montaz-inwazyjny-regulowany-opis-NOWE.png
+                - tabpanel [ref=e119] [cursor=pointer]:
+                  - link [ref=e120]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Pomiar-Montaz-inwazyjny-regulowany-nowa.png
+                - tabpanel [ref=e121] [cursor=pointer]:
+                  - link [ref=e122]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Plisy-montaz-inwazyjny-katowy-opis-NOWE.png
+                - tabpanel [ref=e123] [cursor=pointer]:
+                  - link [ref=e124]:
+                    - /url: https://konfigurator.stelge.com/wp-content/uploads/2025/09/Pomiar-Montaz-inwazyjny-katowy-nowa.png
+                - tabpanel [ref=e125] [cursor=pointer]
+              - generic [ref=e126] [cursor=pointer]: 
+              - tablist [ref=e127]:
+                - tab "1 of 13" [selected] [ref=e128] [cursor=pointer]: "1"
+                - tab "2 of 13" [ref=e129] [cursor=pointer]: "2"
+                - tab "3 of 13" [ref=e130] [cursor=pointer]: "3"
+                - tab "4 of 13" [ref=e131] [cursor=pointer]: "4"
+                - tab "5 of 13" [ref=e132] [cursor=pointer]: "5"
+                - tab "6 of 13" [ref=e133] [cursor=pointer]: "6"
+                - tab "7 of 13" [ref=e134] [cursor=pointer]: "7"
+                - tab "8 of 13" [ref=e135] [cursor=pointer]: "8"
+                - tab "9 of 13" [ref=e136] [cursor=pointer]: "9"
+                - tab "10 of 13" [ref=e137] [cursor=pointer]: "10"
+                - tab "11 of 13" [ref=e138] [cursor=pointer]: "11"
+                - tab "12 of 13" [ref=e139] [cursor=pointer]: "12"
+                - tab "13 of 13" [ref=e140] [cursor=pointer]: "13"
+            - generic [ref=e141]:
+              - button "Previous" [disabled] [ref=e142] [cursor=pointer]: ←Previous
+              - button "Next" [ref=e158] [cursor=pointer]: →Next
+        - generic [ref=e160]:
+          - generic [ref=e162]:
+            - link "Rolety plisowane – Biel – termo " [ref=e164] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/produkt/rolety-plisowane-5/
+            - link "Wzornik tkanin plisowanych " [ref=e166] [cursor=pointer]:
+              - /url: https://konfigurator.stelge.com/produkt/wzornik-tkanin-plisowanych/
+          - generic [ref=e167]:
+            - heading "Rolety plisowane – Biel – standard" [level=1] [ref=e168]
+            - paragraph [ref=e169]: –
+            - generic [ref=e170]:
+              - table [ref=e171]:
+                - rowgroup [ref=e172]:
+                  - 'row "Montaż : Inwazyjny Bezinwazyjny System bez wkręcania w okno Inwazyjny System wkręcany w ramę okienną" [ref=e173]':
+                    - 'cell "Montaż : Inwazyjny" [ref=e174]':
+                      - generic [ref=e175]:
+                        - text: Montaż
+                        - generic [ref=e176]: ": Inwazyjny"
+                    - cell "Bezinwazyjny System bez wkręcania w okno Inwazyjny System wkręcany w ramę okienną" [ref=e177]:
+                      - generic [ref=e178]:
+                        - generic [ref=e179] [cursor=pointer]:
+                          - generic [ref=e180]: Bezinwazyjny
+                          - text: System bez wkręcania w okno
+                        - generic:
+                          - generic: Inwazyjny
+                          - text: System wkręcany w ramę okienną
+              - generic [ref=e182]:
+                - generic [ref=e183]:
+                  - paragraph [ref=e185]:
+                    - generic [ref=e186]: System montażu
+                    - generic [ref=e187]:
+                      - generic [ref=e189] [cursor=pointer]: Inwazyjny Standard
+                      - generic [ref=e191] [cursor=pointer]: Inwazyjny Regulowany
+                      - generic [ref=e193] [cursor=pointer]: Inwazyjny Kątowy
+                  - paragraph [ref=e194]:
+                    - generic [ref=e195]: Szerokość [mm]*
+                    - spinbutton [ref=e197]
+                  - paragraph [ref=e198]:
+                    - generic [ref=e199]: Wysokość [mm]*
+                    - spinbutton [ref=e201]
+                  - paragraph [ref=e203]:
+                    - generic "Kliknij w wybraną listwę" [ref=e205]:
+                      - text: Wybierz kolor listwy
+                      - generic [ref=e206]: 
+                  - paragraph [ref=e223]:
+                    - generic [ref=e224]: Kolor systemu montażowego
+                    - generic [ref=e225]:
+                      - textbox "Kolor systemu montażowego":
+                        - /placeholder: Kolor systemu montażowego będzie w taki sam jak wybrany kolor listwy.
+                - generic [ref=e227]:
+                  - term [ref=e228]: "Łącznie:"
+                  - definition [ref=e229]: 60,00 zł
+                - generic [ref=e230]:
+                  - generic [ref=e231]: ilość Rolety plisowane - Biel - standard
+                  - spinbutton "ilość Rolety plisowane - Biel - standard" [ref=e232]: "1"
+                - button "Dodaj do koszyka" [ref=e233] [cursor=pointer]
+            - generic [ref=e234]:
+              - generic [ref=e235]: "SKU: 123-1"
+              - generic [ref=e236]:
+                - text: "Kategorie:"
+                - link "Rolety plisowane" [ref=e237] [cursor=pointer]:
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/
+                - text: ","
+                - link "tkanina standard" [ref=e238] [cursor=pointer]:
+                  - /url: https://konfigurator.stelge.com/product-category/rolety-plisowane/tkanina-standard/
+    - generic [ref=e250]:
+      - figure [ref=e252]:
+        - img "logo_stelge" [ref=e254]
+      - figure [ref=e256]:
+        - img "Allegro.pl_sklep" [ref=e258]
+  - text: 

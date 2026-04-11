@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card } from "@heroui/react";
 import type { Color } from "@/data/types";
 import {
@@ -15,8 +14,10 @@ interface ColorSwatchProps {
 }
 
 /**
- * Duża karta koloru z packshot + kółko zbliżenia tkaniny.
- * Kliknięcie kółka przełącza widok między packshot a zbliżeniem.
+ * Karta koloru z dwoma warstwami zdjęć:
+ * - Domyślnie: packshot (roleta na oknie)
+ * - Hover (desktop) / tap (mobile): zbliżenie tkaniny
+ * Kliknięcie = wybór koloru.
  */
 export function ColorSwatch({
   color,
@@ -24,18 +25,13 @@ export function ColorSwatch({
   isSelected,
   onSelect,
 }: ColorSwatchProps) {
-  const [showSwatch, setShowSwatch] = useState(false);
-
   const collection = fabricIdToCollection(fabricId);
   const packshotSrc = `/${getPackshotPath(collection, color.id, false)}`;
   const swatchSrc = `/${getFabricSwatchPath(collection, color.id)}`;
 
-  const mainSrc = showSwatch ? swatchSrc : packshotSrc;
-  const overlaySrc = showSwatch ? packshotSrc : swatchSrc;
-
   return (
     <Card
-      className={`overflow-hidden border-2 transition-all duration-200 ${
+      className={`group overflow-hidden border-2 transition-all duration-200 ${
         isSelected
           ? "border-sage-600 shadow-md shadow-sage-100"
           : "border-transparent hover:border-brand-200 hover:shadow-sm"
@@ -48,13 +44,14 @@ export function ColorSwatch({
         aria-pressed={isSelected}
         aria-label={`Kolor: ${color.name}`}
       >
-        {/* Główne zdjęcie z kółkiem overlay */}
+        {/* Kontener zdjęć — hover przełącza packshot ↔ zbliżenie */}
         <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          {/* Warstwa 1: Packshot (domyślnie widoczny) */}
           <img
-            src={mainSrc}
-            alt={color.name}
+            src={packshotSrc}
+            alt={`${color.name} — roleta na oknie`}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-200 hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
             onError={(e) => {
               const target = e.currentTarget;
               target.style.display = "none";
@@ -65,33 +62,18 @@ export function ColorSwatch({
             }}
           />
 
-          {/* Kółko z alternatywnym widokiem */}
-          <div
-            role="button"
-            tabIndex={0}
-            aria-label={
-              showSwatch ? "Pokaż packshot rolety" : "Pokaż zbliżenie tkaniny"
-            }
-            className="absolute bottom-2 right-2 h-11 w-11 cursor-pointer overflow-hidden rounded-full border-2 border-white shadow-md transition-transform hover:scale-110 sm:h-10 sm:w-10"
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowSwatch((prev) => !prev);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.stopPropagation();
-                e.preventDefault();
-                setShowSwatch((prev) => !prev);
-              }
-            }}
-          >
-            <img
-              src={overlaySrc}
-              alt={showSwatch ? "Packshot" : "Zbliżenie tkaniny"}
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
+          {/* Warstwa 2: Zbliżenie tkaniny (widoczne na hover) */}
+          <img
+            src={swatchSrc}
+            alt={`${color.name} — zbliżenie tkaniny`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+
+          {/* Etykieta podpowiadająca */}
+          <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-2 py-0.5 text-[10px] text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+            zbliżenie tkaniny
+          </span>
         </div>
 
         <span

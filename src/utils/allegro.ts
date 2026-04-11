@@ -1,8 +1,13 @@
+import { ALLEGRO_UNIT_PRICE } from "@/config/allegro";
+
 /**
- * Convert price in PLN to Allegro units (rounded up to nearest integer).
+ * Convert price in PLN to Allegro units.
+ * Units = ceil(price / ALLEGRO_UNIT_PRICE).
+ * Example: price=156.75, unit_price=4 → ceil(39.1875) = 40 units.
  */
 export function priceToUnits(price: number): number {
-  return Math.ceil(price);
+  if (price <= 0) return 0;
+  return Math.ceil(price / ALLEGRO_UNIT_PRICE);
 }
 
 /**

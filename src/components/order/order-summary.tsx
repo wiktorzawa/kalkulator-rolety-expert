@@ -100,6 +100,13 @@ export function OrderSummary({ order }: OrderSummaryProps) {
       {/* Price and units */}
       <Card className="bg-sage-50 p-6 text-center">
         <Card.Content className="p-0">
+          <p className="text-sm text-sage-600">Numer zamówienia</p>
+          <p className="font-display text-xl font-bold text-sage-900">
+            {displayNumber}
+          </p>
+
+          <div className="my-3 border-t border-sage-200" />
+
           <p className="text-sm text-sage-600">Kwota zamowienia</p>
           <p className="font-display text-2xl font-bold text-sage-900">
             {formatPrice(order.total_price)} zl
@@ -151,19 +158,35 @@ export function OrderSummary({ order }: OrderSummaryProps) {
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
                 2
               </span>
-              <span>
-                Wpisz ilosc:{" "}
-                <strong className="text-brand-950">{units} sztuk</strong>
-              </span>
+              <div>
+                <span>
+                  Wpisz ilosc:{" "}
+                  <strong className="text-brand-950">{units} sztuk</strong>
+                </span>
+                <img
+                  src="/assets/instrukcje/liczba-sztuk.png"
+                  alt="Instrukcja — pole ilość na Allegro"
+                  className="mt-2 max-w-sm rounded-lg border border-brand-200 shadow-sm"
+                  loading="lazy"
+                />
+              </div>
             </li>
             <li className="flex gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">
                 3
               </span>
-              <span>
-                W polu &quot;Uwagi do zakupu&quot; wpisz numer zamowienia:{" "}
-                <strong className="text-brand-950">{displayNumber}</strong>
-              </span>
+              <div>
+                <span>
+                  W polu &quot;Uwagi do zakupu&quot; wpisz numer zamowienia:{" "}
+                  <strong className="text-brand-950">{displayNumber}</strong>
+                </span>
+                <img
+                  src="/assets/instrukcje/uwagi-do-zamowienia.png"
+                  alt="Instrukcja — pole uwagi do zakupu na Allegro"
+                  className="mt-2 max-w-sm rounded-lg border border-brand-200 shadow-sm"
+                  loading="lazy"
+                />
+              </div>
             </li>
             <li className="flex gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-bold text-sage-700">

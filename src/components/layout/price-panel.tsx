@@ -44,7 +44,7 @@ export function PricePanel() {
         className="fixed bottom-0 left-0 right-0 z-30 border-t border-brand-200 bg-white/95 p-4 backdrop-blur-sm md:static md:rounded-xl md:border md:shadow-sm"
         aria-label="Podsumowanie cenowe"
       >
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-7xl">
           {/* Selected options tags */}
           {(fabric ?? mounting ?? rail) && (
             <div className="mb-2 flex flex-wrap gap-1 text-xs text-brand-500">

@@ -22,17 +22,17 @@ export function ConfigStep() {
       </h2>
 
       <div className="flex flex-col gap-8 lg:flex-row">
-        {/* Podgląd (left on desktop, top on mobile) */}
+        {/* Podgląd (left on desktop, top on mobile) — większa galeria */}
         {showPreview && (
-          <div className="flex-shrink-0 lg:sticky lg:top-28 lg:self-start lg:w-64 xl:w-72">
+          <div className="flex-shrink-0 lg:sticky lg:top-28 lg:w-[45%] lg:self-start">
             <ProductPreview />
           </div>
         )}
 
         {/* Config sections (right on desktop, bottom on mobile) */}
         <div className="min-w-0 flex-1 space-y-10">
-          <MountingStep />
           <DimensionsStep />
+          <MountingStep />
         </div>
       </div>
     </section>

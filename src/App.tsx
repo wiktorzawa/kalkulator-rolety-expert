@@ -20,13 +20,13 @@ export function App() {
     return (
       <div className="min-h-screen bg-brand-50">
         <header className="sticky top-0 z-20 border-b border-brand-200 bg-white/95 px-4 py-3 backdrop-blur-sm">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-7xl">
             <span className="font-display text-lg font-bold text-brand-950">
               rolety.expert
             </span>
           </div>
         </header>
-        <main className="mx-auto w-full max-w-4xl px-4 py-8">
+        <main className="mx-auto w-full max-w-7xl px-4 py-8">
           <OrderLookup orderNumber={orderNumber} />
         </main>
       </div>
