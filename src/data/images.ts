@@ -25,18 +25,13 @@ const RAIL_EXTENSIONS: Record<string, string> = {
 };
 
 /**
- * Centralny rejestr niestandardowych nazw plików assetów.
- * Klucz: "{kolekcja}/{kolor}/{typ}" (typ: packshot, packshot-bezinwazyjny, swatch)
- * Wartość: rzeczywista nazwa pliku na dysku.
- *
- * Zapobiega błędom "zdjęcie nie ładuje się" przez mapowanie WSZYSTKICH
- * plików z niestandardowymi nazwami/rozszerzeniami w jednym miejscu.
+ * Centralny rejestr niestandardowych nazw plików produktowych.
+ * Klucz: "{kolekcja}/{kolor}/{typ}"
+ * Wartość: rzeczywista nazwa pliku.
  */
 const FILE_OVERRIDES: Record<string, string> = {
-  // Honeycomb antracyt: .webp zamiast .png
   "honeycomb/antracyt/packshot": "packshot.webp",
   "honeycomb/antracyt/swatch": "zblizenie.webp",
-  // Honeycomb zimny-bez: inne nazwy + .webp
   "honeycomb/zimny-bez/packshot": "packshot-2.webp",
   "honeycomb/zimny-bez/swatch": "zblizenie-2.webp",
 };
@@ -50,14 +45,9 @@ export function getPackshotPath(
   kolor: string,
   isBezinwazyjny: boolean,
 ): string {
-  if (isBezinwazyjny) {
-    const override =
-      FILE_OVERRIDES[`${kolekcja}/${kolor}/packshot-bezinwazyjny`];
-    const filename = override ?? "packshot-bezinwazyjny.png";
-    return `assets/produkty/${kolekcja}/${kolor}/${filename}`;
-  }
-  const override = FILE_OVERRIDES[`${kolekcja}/${kolor}/packshot`];
-  const filename = override ?? "packshot.png";
+  const type = isBezinwazyjny ? "packshot-bezinwazyjny" : "packshot";
+  const override = FILE_OVERRIDES[`${kolekcja}/${kolor}/${type}`];
+  const filename = override ?? `${type}.png`;
   return `assets/produkty/${kolekcja}/${kolor}/${filename}`;
 }
 

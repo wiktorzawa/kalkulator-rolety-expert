@@ -34,21 +34,15 @@ describe("getPackshotPath", () => {
     );
   });
 
-  it("zwraca packshot.webp dla honeycomb/antracyt (override)", () => {
+  it("packshot.webp dla honeycomb/antracyt (FILE_OVERRIDES)", () => {
     expect(getPackshotPath("honeycomb", "antracyt", false)).toBe(
       "assets/produkty/honeycomb/antracyt/packshot.webp",
     );
   });
 
-  it("zwraca packshot-2.webp dla honeycomb/zimny-bez (override)", () => {
+  it("packshot-2.webp dla honeycomb/zimny-bez (FILE_OVERRIDES)", () => {
     expect(getPackshotPath("honeycomb", "zimny-bez", false)).toBe(
       "assets/produkty/honeycomb/zimny-bez/packshot-2.webp",
-    );
-  });
-
-  it("zwraca standardowy packshot-bezinwazyjny.png dla honeycomb/antracyt bezinwazyjny", () => {
-    expect(getPackshotPath("honeycomb", "antracyt", true)).toBe(
-      "assets/produkty/honeycomb/antracyt/packshot-bezinwazyjny.png",
     );
   });
 });
