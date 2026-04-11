@@ -25,36 +25,48 @@ const RAIL_EXTENSIONS: Record<string, string> = {
 };
 
 /**
+ * Centralny rejestr niestandardowych nazw plików assetów.
+ * Klucz: "{kolekcja}/{kolor}/{typ}" (typ: packshot, packshot-bezinwazyjny, swatch)
+ * Wartość: rzeczywista nazwa pliku na dysku.
+ *
+ * Zapobiega błędom "zdjęcie nie ładuje się" przez mapowanie WSZYSTKICH
+ * plików z niestandardowymi nazwami/rozszerzeniami w jednym miejscu.
+ */
+const FILE_OVERRIDES: Record<string, string> = {
+  // Honeycomb antracyt: .webp zamiast .png
+  "honeycomb/antracyt/packshot": "packshot.webp",
+  "honeycomb/antracyt/swatch": "zblizenie.webp",
+  // Honeycomb zimny-bez: inne nazwy + .webp
+  "honeycomb/zimny-bez/packshot": "packshot-2.webp",
+  "honeycomb/zimny-bez/swatch": "zblizenie-2.webp",
+};
+
+/**
  * Zwraca ścieżkę do packshot produktu.
- * @param kolekcja - ID kolekcji (np. 'standard', 'standard-termo', 'honeycomb')
- * @param kolor - ID koloru (np. 'biel', 'grafit')
- * @param isBezinwazyjny - true dla montażu bezinwazyjnego
+ * Sprawdza FILE_OVERRIDES dla niestandardowych plików.
  */
 export function getPackshotPath(
   kolekcja: string,
   kolor: string,
   isBezinwazyjny: boolean,
 ): string {
-  const suffix = isBezinwazyjny ? "packshot-bezinwazyjny" : "packshot";
-  return `assets/produkty/${kolekcja}/${kolor}/${suffix}.png`;
+  if (isBezinwazyjny) {
+    const override =
+      FILE_OVERRIDES[`${kolekcja}/${kolor}/packshot-bezinwazyjny`];
+    const filename = override ?? "packshot-bezinwazyjny.png";
+    return `assets/produkty/${kolekcja}/${kolor}/${filename}`;
+  }
+  const override = FILE_OVERRIDES[`${kolekcja}/${kolor}/packshot`];
+  const filename = override ?? "packshot.png";
+  return `assets/produkty/${kolekcja}/${kolor}/${filename}`;
 }
 
 /**
- * Próbki tkanin z niestandardowymi nazwami plików.
- * Klucz: "{kolekcja}/{kolor}", wartość: nazwa pliku.
- */
-const SWATCH_OVERRIDES: Record<string, string> = {
-  "honeycomb/antracyt": "zblizenie.webp",
-  "honeycomb/zimny-bez": "zblizenie-2.webp",
-};
-
-/**
  * Zwraca ścieżkę do próbki tkaniny (close-up).
- * - Standard, Melange, Dolomit (+ Termo): tkanina.jpg
- * - Blackout, Honeycomb: zblizenie.png (z override'ami dla niestandardowych plików)
+ * Sprawdza FILE_OVERRIDES, potem kolekcję (zblizenie vs tkanina).
  */
 export function getFabricSwatchPath(kolekcja: string, kolor: string): string {
-  const override = SWATCH_OVERRIDES[`${kolekcja}/${kolor}`];
+  const override = FILE_OVERRIDES[`${kolekcja}/${kolor}/swatch`];
   if (override) {
     return `assets/produkty/${kolekcja}/${kolor}/${override}`;
   }
